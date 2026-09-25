@@ -9,6 +9,6 @@
     }
   },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index" }
+    { "source": "/(.*)", "destination": "/api/index?_vercel_path=$1" }
   ]
 }
