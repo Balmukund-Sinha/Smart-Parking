@@ -257,7 +257,7 @@ def _fresh(timestamp: str | None, ttl_seconds: int) -> bool:
 def current_weather(force: bool = False) -> dict[str, Any]:
     state = load_state()
     cached = state.get("weather") or {}
-    ttl = max(60, int(os.getenv("SMARTPARK_WEATHER_TTL_SECONDS", "600")))
+    ttl = max(60, int(os.getenv("SMARTPARK_WEATHER_TTL_SECONDS", "") or "600"))
     if not force and _fresh(cached.get("fetched_at"), ttl):
         return cached
     if not _truthy("SMARTPARK_LIVE_WEATHER", True):
