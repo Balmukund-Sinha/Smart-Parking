@@ -1,0 +1,161 @@
+---
+title: "Smart Urban Parking Intelligence — R Analysis Report"
+author: "Your Name Here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    fig_caption: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.width = 8, fig.height = 4.5)
+
+# NOTE: knit this file with the PROJECT ROOT as the working directory, e.g.
+#   rmarkdown::render("r-analytics/report/bda_analysis_report.Rmd", knit_root_dir = "../..")
+# or, in RStudio, open the project at the repo root and knit from there.
+
+suppressMessages({
+  library(dplyr)
+  library(ggplot2)
+  library(lubridate)
+  library(randomForest)
+})
+```
+
+## 1. Introduction
+
+Urban parking systems often lack real-time visibility into occupancy and near-term demand, which sends drivers circling for spaces and leaves operators unable to balance load across zones. This report works through the historical dataset produced by the project's data-generation pipeline (`scripts/generate_dataset.py`) using R: exploratory analysis, peak-hour and zone-utilization statistics, and a Random Forest model that predicts a zone's occupancy 30 minutes ahead.
+
+The raw event stream, Kafka ingestion, and PySpark Structured Streaming job are implemented in Python (see the main `README.md`); this report and the accompanying `r-analytics/` scripts cover the statistical analysis, modeling, and dashboard side of the project in R.
+
+## 2. Data Overview
+
+```{r load-data}
+raw <- read.csv("data/raw/parking_events.csv", stringsAsFactors = FALSE)
+raw$timestamp <- as.POSIXct(raw$timestamp, format = "%Y-%m-%d %H:%M:%S", tz = "UTC")
+
+glimpse(raw)
+```
+
+```{r data-summary}
+cat(sprintf("Total events : %d\n", nrow(raw)))
+cat(sprintf("Zones        : %d\n", n_distinct(raw$zone_id)))
+cat(sprintf("Vehicles     : %d\n", n_distinct(raw$vehicle_id)))
+cat(sprintf("Date range   : %s to %s\n", min(raw$timestamp), max(raw$timestamp)))
+
+table(raw$event_type)
+```
+
+```{r data-quality}
+cat(sprintf("Rows with occupancy > capacity : %d\n", sum(raw$occupancy > raw$capacity)))
+cat(sprintf("Rows with negative duration    : %d\n", sum(raw$parking_duration < 0)))
+cat(sprintf("Duplicate event_id rows        : %d\n", sum(duplicated(raw$event_id))))
+```
+
+The dataset is clean by construction (the generator enforces `0 <= occupancy <= capacity` and non-negative durations), but a real deployment would need exactly these checks as a first-line data-quality gate — which is what `analytics/occupancy_analysis.py` and `r-analytics/occupancy_analysis.R` both do before any aggregation.
+
+## 3. Occupancy & Utilization Analysis
+
+```{r zone-utilization}
+raw$utilization <- raw$occupancy / raw$capacity * 100
+
+zone_util <- raw %>%
+  group_by(zone_id) %>%
+  summarise(avg_utilization = mean(utilization), max_utilization = max(utilization), .groups = "drop") %>%
+  arrange(desc(avg_utilization))
+
+zone_util
+```
+
+```{r zone-utilization-plot, fig.cap="Average utilization by zone"}
+ggplot(zone_util, aes(x = reorder(zone_id, avg_utilization), y = avg_utilization)) +
+  geom_col(fill = "#2c7fb8") +
+  coord_flip() +
+  labs(title = "Average Utilization by Zone", x = "Zone", y = "Average Utilization (%)") +
+  theme_minimal()
+```
+
+## 4. Peak Hour Analysis
+
+```{r peak-hours}
+raw$hour <- hour(raw$timestamp)
+
+hourly <- raw %>%
+  group_by(hour) %>%
+  summarise(avg_occupancy = mean(occupancy), .groups = "drop")
+
+hourly %>% arrange(desc(avg_occupancy)) %>% head(5)
+```
+
+```{r peak-hours-plot, fig.cap="Average occupancy by hour of day"}
+ggplot(hourly, aes(x = hour, y = avg_occupancy)) +
+  geom_col(fill = "#f03b20") +
+  scale_x_continuous(breaks = 0:23) +
+  labs(title = "Average Occupancy by Hour of Day", x = "Hour", y = "Average Occupancy") +
+  theme_minimal()
+```
+
+Morning (8–10), lunch (12–13), and evening (17–19) rush periods stand out clearly, consistent with how the demand curve was calibrated in `scripts/generate_dataset.py`. On a real deployment this chart is exactly what you'd use to justify dynamic pricing windows or targeted driver alerts.
+
+## 5. Demand Prediction Model (Random Forest)
+
+```{r load-ml-data}
+ml_df <- read.csv("data/processed/ml_dataset.csv", stringsAsFactors = FALSE)
+ml_df$timestamp <- as.POSIXct(ml_df$timestamp, format = "%Y-%m-%d %H:%M:%S", tz = "UTC")
+
+FEATURES <- c("hour", "day_of_week", "is_weekend", "is_holiday",
+              "temperature", "rainfall", "current_occupancy", "capacity", "average_duration")
+TARGET <- "future_occupancy"
+
+nrow(ml_df)
+```
+
+```{r train-model}
+set.seed(42)
+n <- nrow(ml_df)
+train_idx <- sample(seq_len(n), size = floor(0.8 * n))
+
+train_df <- ml_df[train_idx, c(FEATURES, TARGET)]
+test_df  <- ml_df[-train_idx, c(FEATURES, TARGET)]
+
+model_formula <- as.formula(paste(TARGET, "~", paste(FEATURES, collapse = " + ")))
+
+rf_model <- randomForest(
+  model_formula, data = train_df,
+  ntree = 200, mtry = max(1, floor(length(FEATURES) / 3)),
+  importance = TRUE
+)
+
+preds <- predict(rf_model, newdata = test_df)
+
+mae  <- mean(abs(preds - test_df[[TARGET]]))
+rmse <- sqrt(mean((preds - test_df[[TARGET]])^2))
+r2   <- 1 - sum((test_df[[TARGET]] - preds)^2) / sum((test_df[[TARGET]] - mean(test_df[[TARGET]]))^2)
+
+data.frame(metric = c("MAE", "RMSE", "R2"), value = round(c(mae, rmse, r2), 4))
+```
+
+```{r feature-importance-plot, fig.cap="Feature importance (IncNodePurity)"}
+imp <- importance(rf_model)
+imp_df <- data.frame(feature = rownames(imp), importance = imp[, "IncNodePurity"]) %>%
+  arrange(desc(importance))
+
+ggplot(imp_df, aes(x = reorder(feature, importance), y = importance)) +
+  geom_col(fill = "#31a354") +
+  coord_flip() +
+  labs(title = "Feature Importance", x = "Feature", y = "Increase in Node Purity") +
+  theme_minimal()
+```
+
+As with the Python/scikit-learn version of this model (see `ml/train_model.py`), `current_occupancy` dominates feature importance — expected at a 30-minute prediction horizon, since occupancy is highly autocorrelated over such a short window. `hour` picks up most of the remaining signal, reflecting the peak-hour structure seen in Section 4.
+
+## 6. Conclusion
+
+- Zones show clear, reproducible peak/off-peak utilization patterns tied to time of day.
+- A Random Forest trained on nine straightforward features predicts 30-minute-ahead occupancy with low error, primarily by extrapolating from current occupancy and time of day.
+- The same modeling approach was implemented independently in Python (`ml/train_model.py`) and R (`r-analytics/train_model.R`) against the same dataset, as a basic cross-language sanity check on the results.
+
+**Note:** update the exact MAE/RMSE/R² figures above with the numbers your own knit run produces before including this report in a submission — they depend on the dataset generation seed and parameters.

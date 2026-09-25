@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface-variant": "#bcc9cd",
+          "inverse-primary": "#00687a",
+          "secondary-fixed-dim": "#4fdbc8",
+          "surface-container-highest": "#2d3448",
+          "surface": "#0b1325",
+          "surface-variant": "#2d3448",
+          "primary": "#4cd7f6",
+          "on-tertiary-fixed": "#002113",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-container-lowest": "#060e1f",
+          "error": "#ffb4ab",
+          "on-secondary-fixed": "#00201c",
+          "on-secondary-container": "#003f38",
+          "inverse-on-surface": "#283043",
+          "error-container": "#93000a",
+          "primary-fixed-dim": "#4cd7f6",
+          "on-primary-container": "#00424f",
+          "primary-container": "#06b6d4",
+          "on-surface": "#dbe2fb",
+          "on-secondary-fixed-variant": "#005048",
+          "on-tertiary": "#003824",
+          "inverse-surface": "#dbe2fb",
+          "surface-bright": "#31394d",
+          "primary-fixed": "#acedff",
+          "surface-container-high": "#222a3d",
+          "on-primary-fixed": "#001f26",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#04b4a2",
+          "surface-dim": "#0b1325",
+          "outline-variant": "#3d494c",
+          "on-tertiary-container": "#00452e",
+          "background": "#0b1325",
+          "on-secondary": "#003731",
+          "on-error": "#690005",
+          "outline": "#869397",
+          "on-background": "#dbe2fb",
+          "tertiary-fixed-dim": "#4edea3",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-tint": "#4cd7f6",
+          "surface-container": "#171f32",
+          "surface-container-low": "#131b2d",
+          "tertiary": "#4edea3",
+          "on-primary-fixed-variant": "#004e5c",
+          "secondary-fixed": "#71f8e4",
+          "secondary": "#4fdbc8",
+          "tertiary-container": "#1bbd85",
+          "on-primary": "#003640"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.75rem",
+          "space-xs": "0.5rem",
+          "gutter-desktop": "1.5rem",
+          "space-md": "1rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-3xs": "0.125rem",
+          "space-xl": "2rem",
+          "space-2xs": "0.25rem",
+          "space-3xl": "4rem",
+          "margin-tablet": "1.5rem",
+          "margin-desktop": "2rem",
+          "space-2xl": "3rem"
+        },
+        "fontFamily": {
+          "display-lg": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "metric-xl": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ],
+          "headline-sm": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Inter"
+          ],
+          "metric-lg": [
+            "JetBrains Mono"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "display-lg": [
+            "3rem",
+            {
+              "lineHeight": "3.5rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "1.25rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-xl": [
+            "2.25rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.375rem",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.125rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "0.6875rem",
+            {
+              "lineHeight": "0.875rem",
+              "letterSpacing": "0.06em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.5rem",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/95 backdrop-blur-xl z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest/60"><div class="flex items-center gap-space-xs min-w-0"><img alt="SmartPark Intelligence Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYn3gRRWfeGs2tlUqsrZrOw145x2dtvj2KAOXcHbaGOx5tf0U1wbu6da9SufrUfGgoD_nc1qgKpTTIVmq7qWqeRNxwTjdwkEbJ8JWPcVhlbY6ta2eHelhTFEOopcT-fysllRfnMRyoO3RuI68yA2Q4RGG9E8Ob412oT7tpxBYpKrzHg12SDwK8jnnn4fEhd03BIBB5V2xTgZFZ-9EUrq9v6CZPEjG3DlVo5loloyJtPqGcKDAFTxV"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight truncate">SmartPark</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Intelligence</span></div></div><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-primary-fixed-dim font-medium tracking-wide border-0">v4.2-SPARK</span></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Mission Telemetry</span></div><nav class="flex-1 px-space-xs space-y-space-3xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]"><a aria-current="page" class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]" data-path="overview" href="#"><span class="material-symbols-outlined text-primary text-xl">dashboard</span><span class="font-body-md text-body-md tracking-tight flex-1">Overview</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="live-monitoring" href="#"><span class="material-symbols-outlined text-tertiary text-xl">sensors</span><span class="font-body-md text-body-md tracking-tight flex-1">Live Monitoring</span><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parking-map" href="#"><span class="material-symbols-outlined text-secondary text-xl">map</span><span class="font-body-md text-body-md tracking-tight flex-1">Parking Map</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="historical-analytics" href="#"><span class="material-symbols-outlined text-primary text-xl">monitoring</span><span class="font-body-md text-body-md tracking-tight flex-1">Historical Analytics</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="demand-prediction" href="#"><span class="material-symbols-outlined text-primary text-xl">neurology</span><span class="font-body-md text-body-md tracking-tight flex-1">Demand Prediction</span><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-tertiary font-semibold">AI</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="big-data-pipeline" href="#"><span class="material-symbols-outlined text-secondary text-xl">alt_route</span><span class="font-body-md text-body-md tracking-tight flex-1">Big Data Pipeline</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-explorer" href="#"><span class="material-symbols-outlined text-primary text-xl">database</span><span class="font-body-md text-body-md tracking-tight flex-1">Data Explorer</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-health" href="#"><span class="material-symbols-outlined text-tertiary text-xl">dns</span><span class="font-body-md text-body-md tracking-tight flex-1">System Health</span></a></nav></div><div class="p-space-xs bg-surface-container-lowest/80"><div class="p-space-xs rounded-lg bg-surface-container-high/60 flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Stream Engine</span><div class="flex items-center gap-space-2xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-tertiary font-medium">OK</span></div></div><div class="flex items-center gap-space-2xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">stream</span><span class="font-label-sm text-label-sm font-medium tracking-tight truncate">PySpark + Kafka • Active</span></div></div><div class="mt-space-xs flex items-center justify-between px-space-2xs py-space-3xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="font-label-sm text-label-sm">Collapse Dock</span><span class="material-symbols-outlined text-base">chevron_left</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Mumbai Metropolitan Region</span><span class="material-symbols-outlined text-outline text-base">chevron_right</span><span class="font-body-md text-body-md text-on-surface-variant font-medium">Executive Overview</span></div><div class="flex items-center gap-space-xs"><div class="relative hidden lg:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">location_city</span><span class="font-body-sm text-body-sm font-medium">All 20 Zones (Mumbai MMR)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="relative hidden xl:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">calendar_today</span><span class="font-body-sm text-body-sm font-medium">Live Window (Last 24 Hours)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm font-bold text-tertiary tracking-wide uppercase">LIVE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">403k ev/s</span></div><div class="hidden sm:flex items-center gap-space-2xs px-space-xs py-space-3xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-outline">sync</span><span class="font-label-sm text-label-sm font-mono">17:42:09 IST</span></div><button aria-label="Alerts" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBixsjrcwUYqit6t6xuYiw2Jz3-CdTUIRpwiggW1SGKjZnnu-z4T64dtvU2hbYdYUiW6rWBAiO7J5MpZkvyiIS5-4F204KwWDHkOWmxzmLfXg8IVOswBDWLiN3qd7W7cpV_0jPh-rHHvXtu9kMl_w2AJFN1KVHQ0ILLRikV2qYq58xB9MW5Zpf7sVtC4HK8qI5U21R-Q8stcDZyNs6PD55Aa0Hf46NgOU_eWCMq8sCbaZH_xFPIfhM"/><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Aanya Sharma</span><span class="font-label-sm text-label-sm text-outline font-medium">Lead Data Engineer</span></div><span class="material-symbols-outlined text-outline text-sm hidden md:block">expand_more</span></div></div></header><main class="w-full pt-16 px-space-lg pb-space-xl bg-background min-h-screen"><div class="flex flex-col w-full">
+<div class="flex flex-col gap-space-lg pb-space-2xl">
+<!-- Screen Title & Model Telemetry Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded bg-surface-container-highest text-primary font-semibold tracking-wider uppercase">MLlib Engine Core</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">MODEL-RF-REG-30M-v3.2</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary/10 text-tertiary">
+<span class="h-1.5 w-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            ACTIVE INFERENCE
+          </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl font-bold tracking-tight text-on-surface mt-1">Random Forest Demand Prediction Studio &amp; What-If Simulator</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl mt-0.5">
+          PySpark MLlib regression model forecasting 30-minute forward parking demand with 95% confidence intervals across 20 metropolitan zones.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<div class="flex items-center bg-surface-container-high rounded-lg p-1">
+<button class="px-space-sm py-space-xs rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold transition-all shadow-sm" type="button">
+            RF v3.2 (Production)
+          </button>
+<button class="px-space-sm py-space-xs rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-colors" type="button">
+            XGBoost v1.8
+          </button>
+<button class="px-space-sm py-space-xs rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-colors" type="button">
+            Linear Baseline
+          </button>
+</div>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base text-primary">download</span>
+<span>Export (PMML/ONNX)</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base text-secondary">speed</span>
+<span>Run Benchmark</span>
+</button>
+</div>
+</div>
+<!-- Retrained Timestamp Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant">
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-base text-primary">history</span>
+<span>Retrained: <strong class="text-on-surface font-medium">Today 04:00 IST</strong> on 90-day historical Parquet dataset (Trees: 100, Max Depth: 10, Impurity: Variance)</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<span class="text-outline">Partition Split: <span class="text-on-surface font-mono">80/20 Bagg</span></span>
+<span class="text-outline">Feature Dimension: <span class="text-on-surface font-mono">14 Dense</span></span>
+<span class="text-outline">Spark Latency: <span class="text-tertiary font-mono">18.4ms</span></span>
+</div>
+</div>
+<!-- Model Evaluation Metrics Ribbon -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- Metric 1: R2 -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">R² Coefficient</span>
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl font-bold text-primary font-mono tracking-tight">0.963</span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono font-semibold">▲ +0.014</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+          Exceptional variance explanation across 20 metropolitan zones.
+        </p>
+</div>
+<!-- Metric 2: MAE -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">MAE (Error)</span>
+<span class="material-symbols-outlined text-tertiary text-base">check_circle</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl font-bold text-tertiary font-mono tracking-tight">3.10</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">bays</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+          Within ±1.4% of actual capacity per hub threshold.
+        </p>
+</div>
+<!-- Metric 3: RMSE -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">RMSE (Dispersion)</span>
+<span class="material-symbols-outlined text-secondary text-base">square_foot</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl font-bold text-secondary font-mono tracking-tight">4.39</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">bays</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+          Penalizes rare extreme sudden surge deviations.
+        </p>
+</div>
+<!-- Metric 4: Horizon -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">Lookahead Horizon</span>
+<span class="material-symbols-outlined text-primary text-base">schedule</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface font-mono tracking-tight">30</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Minutes</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+          Forward interval for proactive municipal VMS rerouting.
+        </p>
+</div>
+<!-- Metric 5: Sample Size -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">Training Sample</span>
+<span class="material-symbols-outlined text-outline text-base">dataset</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface font-mono tracking-tight">2.42M</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">rows</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+          90 days × 20 zones × 288 daily 5m Parquet telemetry intervals.
+        </p>
+</div>
+</div>
+<!-- Main Two Column Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- LEFT COLUMN: Interactive What-If Simulation Laboratory (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Simulator Form Card -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-xl">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-2xl">tune</span>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Interactive Dynamic Demand Simulator</h2>
+</div>
+<span class="inline-flex items-center gap-1 px-space-2xs py-space-3xs rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="h-1.5 w-1.5 rounded-full bg-tertiary"></span>
+              Pyspark Ready
+            </span>
+</div>
+<!-- Scenario Presets -->
+<div class="flex flex-col gap-space-2xs mb-space-md">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Operational Scenario Presets</label>
+<div class="grid grid-cols-2 gap-space-2xs">
+<button class="px-space-xs py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest text-left text-on-surface text-body-sm font-body-sm transition-colors flex items-center gap-1.5" onclick="setPreset('monsoon')" type="button">
+<span class="material-symbols-outlined text-primary text-sm">thunderstorm</span>
+<span class="truncate">Heavy Monsoon</span>
+</button>
+<button class="px-space-xs py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest text-left text-on-surface text-body-sm font-body-sm transition-colors flex items-center gap-1.5" onclick="setPreset('cricket')" type="button">
+<span class="material-symbols-outlined text-secondary text-sm">sports_cricket</span>
+<span class="truncate">Wankhede Match</span>
+</button>
+<button class="px-space-xs py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest text-left text-on-surface text-body-sm font-body-sm transition-colors flex items-center gap-1.5" onclick="setPreset('diwali')" type="button">
+<span class="material-symbols-outlined text-tertiary text-sm">celebration</span>
+<span class="truncate">Diwali Festival</span>
+</button>
+<button class="px-space-xs py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest text-left text-on-surface text-body-sm font-body-sm transition-colors flex items-center gap-1.5" onclick="setPreset('normal')" type="button">
+<span class="material-symbols-outlined text-outline text-sm">routine</span>
+<span class="truncate">Weekday Evening</span>
+</button>
+</div>
+</div>
+<!-- Controls Stack -->
+<div class="flex flex-col gap-space-md">
+<!-- Control 1: Zone Select -->
+<div class="flex flex-col gap-space-3xs">
+<label class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider flex justify-between">
+<span>Target Municipal Zone</span>
+<span class="text-primary font-mono">Max: 250 Bays</span>
+</label>
+<select class="h-10 px-space-sm rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" id="simZone">
+<option value="Z001">Z001 — Colaba Waterfront Terminal (Cap: 180)</option>
+<option value="Z002">Z002 — Nariman Point Business District (Cap: 320)</option>
+<option selected="" value="Z003">Z003 — Lower Parel Tech Hub (Cap: 250 bays)</option>
+<option value="Z004">Z004 — Dadar Flower Market Commercial (Cap: 150)</option>
+<option value="Z005">Z005 — BKC Financial Complex (Cap: 450)</option>
+<option value="Z006">Z006 — Worli Sea Face Promenade (Cap: 200)</option>
+<option value="Z007">Z007 — Bandra Bandstand &amp; Carter Rd (Cap: 140)</option>
+<option value="Z008">Z008 — Bandra Kurla G-Block (Cap: 380)</option>
+<option value="Z009">Z009 — Kurla Phoenix Marketcity Hub (Cap: 300)</option>
+<option value="Z010">Z010 — Santacruz Domestic Airport Link (Cap: 280)</option>
+<option value="Z011">Z011 — Andheri West Link Road Mall (Cap: 220)</option>
+<option value="Z012">Z012 — Andheri East MIDC SEEPZ (Cap: 350)</option>
+<option value="Z013">Z013 — Powai Hiranandani Galleria (Cap: 190)</option>
+<option value="Z014">Z014 — Ghatkopar R-City Interchange (Cap: 270)</option>
+<option value="Z015">Z015"&gt;Z015 — Malad Inorbit Corridor (Cap: 310)</option>
+<option value="Z016">Z016 — Borivali West Station Plaza (Cap: 160)</option>
+<option value="Z017">Z017 — Vashi Sector 17 Commercial (Cap: 230)</option>
+<option value="Z018">Z018 — Thane Viviana Mall Hub (Cap: 340)</option>
+<option value="Z019">Z019 — Belapur CBD Station Complex (Cap: 210)</option>
+<option value="Z020">Z020 — Airoli Mindspace Tech Park (Cap: 290)</option>
+</select>
+</div>
+<!-- Control 2: Time of Day Slider -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Simulation Timestamp</label>
+<span class="font-label-md text-label-md font-mono font-bold text-primary" id="timeVal">18:30 IST (Peak Egress)</span>
+</div>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" id="timeSlider" max="1439" min="0" oninput="updateTime(this.value)" step="15" type="range" value="1110"/>
+<div class="flex justify-between font-label-sm text-label-sm text-outline font-mono">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+<span>23:45</span>
+</div>
+</div>
+<!-- Control 3: Day of Week -->
+<div class="flex flex-col gap-space-3xs">
+<label class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Day of Week</label>
+<div class="grid grid-cols-7 gap-1" id="dayButtons">
+<button class="day-btn py-1.5 text-center rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors" onclick="selectDay(this, 'Mon')" type="button">Mon</button>
+<button class="day-btn py-1.5 text-center rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors" onclick="selectDay(this, 'Tue')" type="button">Tue</button>
+<button class="day-btn py-1.5 text-center rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors" onclick="selectDay(this, 'Wed')" type="button">Wed</button>
+<button class="day-btn py-1.5 text-center rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors" onclick="selectDay(this, 'Thu')" type="button">Thu</button>
+<button class="day-btn py-1.5 text-center rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm" onclick="selectDay(this, 'Fri')" type="button">Fri</button>
+<button class="day-btn py-1.5 text-center rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors" onclick="selectDay(this, 'Sat')" type="button">Sat</button>
+<button class="day-btn py-1.5 text-center rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors" onclick="selectDay(this, 'Sun')" type="button">Sun</button>
+</div>
+</div>
+<!-- Control 4: Precipitation & Ambient Temperature -->
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-3xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Rainfall</label>
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold" id="rainVal">18 mm/h</span>
+</div>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" id="rainSlider" max="60" min="0" oninput="document.getElementById('rainVal').textContent=this.value+' mm/h'" type="range" value="18"/>
+<span class="font-label-sm text-label-sm text-outline">Moderate Shower</span>
+</div>
+<div class="flex flex-col gap-space-3xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Temperature</label>
+<span class="font-label-sm text-label-sm font-mono text-on-surface font-bold" id="tempVal">29°C</span>
+</div>
+<input class="w-full accent-secondary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" id="tempSlider" max="42" min="15" oninput="document.getElementById('tempVal').textContent=this.value+'°C'" type="range" value="29"/>
+<span class="font-label-sm text-label-sm text-outline">Humid Monsoon</span>
+</div>
+</div>
+<!-- Control 5: Current Live Occupancy -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Baseline Live Occupancy (t = 0)</label>
+<span class="font-label-md text-label-md font-mono font-bold text-tertiary" id="occVal">205 bays (82.0%)</span>
+</div>
+<input class="w-full accent-tertiary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" id="occSlider" max="250" min="0" oninput="updateOccupancy(this.value)" type="range" value="205"/>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>0 Bays (Empty)</span>
+<span>125 Bays (50%)</span>
+<span>250 Bays (Max)</span>
+</div>
+</div>
+<!-- Control 6: Commercial Event Toggle -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-xl">confirmation_number</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Active Commercial Event Factor</span>
+<span class="font-label-sm text-label-sm text-outline">Applies +12% egress/ingress coefficient</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="eventToggle" onchange="recalculateDemand()" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Big Action Button -->
+<button class="w-full py-space-sm px-space-md rounded-xl bg-primary-container hover:bg-primary text-on-primary-container font-headline-sm text-headline-sm font-bold tracking-tight transition-all duration-200 flex items-center justify-center gap-space-xs shadow-lg shadow-primary/20 active:scale-[0.99]" onclick="triggerInferenceAnimation()" type="button">
+<span class="material-symbols-outlined text-xl" id="calcIcon">neurology</span>
+<span id="calcText">Run MLlib Inference Simulator</span>
+</button>
+</div>
+</div>
+<!-- Instantaneous Prediction Outcome Card -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-xl">
+<div class="flex items-center justify-between pb-space-xs mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-xl">crisis_alert</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Projected Saturation Outcome (t + 30m)</h3>
+</div>
+<span class="inline-flex items-center gap-1.5 px-space-xs py-space-3xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold uppercase tracking-wider animate-pulse" id="criticalBadge">
+<span class="h-2 w-2 rounded-full bg-error"></span>
+              Critical Capacity Warning
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-space-md mb-space-md">
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Projected Occupancy</span>
+<div class="mt-1 flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-error font-mono" id="projBays">236</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-mono">/ 250 bays</span>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-error font-semibold mt-0.5" id="projPct">94.4% Saturation Rate</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Available Free Slots</span>
+<div class="mt-1 flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface font-mono" id="freeBays">14</span>
+<span class="font-body-md text-body-md text-outline font-mono">slots left</span>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-secondary font-semibold mt-0.5" id="netIngress">+31 net inflow / 30m</span>
+</div>
+</div>
+<!-- Capacity Bar Meter -->
+<div class="flex flex-col gap-space-3xs mb-space-md">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Capacity Fill Spectrum</span>
+<span class="text-error font-mono font-bold">94.4% (&gt; 85% Threshold)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary w-[60%]"></div>
+<div class="h-full bg-secondary w-[25%]"></div>
+<div class="h-full bg-error transition-all duration-500 w-[9.4%]" id="progCrimson"></div>
+<div class="h-full bg-surface-container-highest flex-1"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline font-mono mt-1">
+<span>0% Baseline</span>
+<span>Nominal (60%)</span>
+<span>Warning (85%)</span>
+<span class="text-error font-bold">Projected: 94.4%</span>
+</div>
+</div>
+<!-- Confidence Interval & Recommended Action -->
+<div class="flex flex-col gap-space-xs p-space-sm rounded-lg bg-surface-container-high/60">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-outline">Statistical 95% Confidence Bounds:</span>
+<span class="font-mono text-primary font-semibold" id="confInterval">[91.8% – 97.0%] ±4.2%</span>
+</div>
+<div class="flex items-start gap-space-xs pt-space-xs">
+<span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5">alt_route</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Automated Municipal Dispatch Recommendation:</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Trigger Dynamic VMS Reroute to <strong>Z006 Worli Sea Face (66 free bays)</strong> and step municipal dynamic pricing tier to <strong>Peak Surge 2.5x</strong>.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Deep ML Validation & Feature Interpretability (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Chart Card: Actual vs Predicted 24-Hour Occupancy Curve -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-xs mb-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">analytics</span>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">24-Hour Occupancy Telemetry vs Random Forest Forecast</h3>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Live streaming ingress (5-min aggregations) with 95% confidence ribbon envelope</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-1 bg-primary rounded-full"></span>
+<span class="text-on-surface">Actual (Kafka)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-1 bg-tertiary border-b border-dashed border-tertiary"></span>
+<span class="text-on-surface">RF v3.2 Pred</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 bg-primary/20 rounded-sm"></span>
+<span class="text-outline">95% CI Ribbon</span>
+</div>
+</div>
+</div>
+<!-- SVG Visual Chart Container -->
+<div class="relative w-full h-72 bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between overflow-hidden">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between p-space-sm pointer-events-none opacity-20">
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+</div>
+<!-- SVG Curves -->
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 700 220">
+<defs>
+<lineargradient id="ciGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4cd7f6" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#4cd7f6" stop-opacity="0.02"></stop>
+</lineargradient>
+</defs>
+<!-- 95% Confidence Interval Band (Polygonal Ribbon) -->
+<polygon fill="url(#ciGrad)" points="
+                30,175 60,170 100,165 140,150 180,120 220,105 260,110 300,95 340,90 380,80 420,95 460,70 500,50 540,32 580,30 620,40 660,65
+                660,95 620,70 580,55 540,60 500,75 460,100 420,125 380,115 340,120 300,125 260,135 220,135 180,150 140,175 100,185 60,190 30,195
+              "></polygon>
+<!-- Predicted Curve (Dashed Emerald) -->
+<polyline points="
+                30,185 60,180 100,175 140,162 180,135 220,120 260,122 300,110 340,105 380,98 420,110 460,85 500,62 540,46 580,42 620,55 660,80
+              " stroke="#4edea3" stroke-dasharray="5 3" stroke-linecap="round" stroke-width="2.5"></polyline>
+<!-- Actual Live Curve (Solid Cyan) -->
+<polyline points="
+                30,188 60,182 100,173 140,158 180,138 220,118 260,125 300,107 340,108 380,94 420,112 460,88 500,60 540,48 580,44 620,58 660,82
+              " stroke="#4cd7f6" stroke-linecap="round" stroke-width="3"></polyline>
+<!-- Highlight Callout at 18:30 (x=540) -->
+<line stroke="#4cd7f6" stroke-dasharray="2 2" stroke-width="1.5" x1="540" x2="540" y1="20" y2="200"></line>
+<circle cx="540" cy="48" fill="#4cd7f6" r="5" stroke="#0b1325" stroke-width="2"></circle>
+<circle cx="540" cy="46" fill="#4edea3" r="4" stroke="#0b1325" stroke-width="2"></circle>
+</svg>
+<!-- Floating Overlay Callout Card -->
+<div class="absolute top-4 right-20 p-space-xs rounded bg-surface-container-highest/95 backdrop-blur-md shadow-lg flex flex-col font-mono text-label-sm">
+<span class="text-outline font-label-sm">Peak Window: 18:30 IST</span>
+<span class="text-primary font-bold">Actual: 88.4% (221 Bays)</span>
+<span class="text-tertiary font-semibold">Predicted: 89.2% (223 Bays)</span>
+<span class="text-secondary font-medium">Residual Δ: -0.8% (2 Bays)</span>
+</div>
+<!-- Horizontal Time Scale -->
+<div class="flex justify-between items-center px-space-xs text-outline font-label-sm text-label-sm font-mono pt-1">
+<span>00:00</span>
+<span>04:00</span>
+<span>08:00</span>
+<span>12:00</span>
+<span>16:00</span>
+<span class="text-primary font-bold">18:30 NOW</span>
+<span>20:00</span>
+<span>23:59</span>
+</div>
+</div>
+<!-- Residual Error Sparkline Bar -->
+<div class="mt-space-sm flex items-center justify-between p-space-xs rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base">difference</span>
+<span class="text-outline">Residual Error Dispersion (e = y - ŷ):</span>
+</div>
+<div class="flex items-center gap-space-md font-mono">
+<span>Mean: <strong class="text-tertiary">-0.12 bays</strong></span>
+<span>Std Dev: <strong class="text-on-surface">1.84</strong></span>
+<span>Normality: <strong class="text-primary">Gaussian 99.1%</strong></span>
+</div>
+</div>
+</div>
+<!-- Feature Importance Card (Horizontal Bar Chart) -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-xl">
+<div class="flex items-center justify-between pb-space-xs mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-xl">bar_chart</span>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">MLlib Tree-Split Feature Importance Weights</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-mono">Gini Impurity Reduction (Σ = 100%)</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Feature 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">1. Current Live Occupancy (t = 0)</span>
+<span class="font-mono text-primary font-bold">38.4%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 38.4%"></div>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">2. Hour of Day (Sine/Cosine Cyclic Encoding)</span>
+<span class="font-mono text-primary font-bold">22.6%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary/90 rounded-full" style="width: 22.6%"></div>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">3. Total Hub Maximum Capacity</span>
+<span class="font-mono text-secondary font-bold">14.8%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 14.8%"></div>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">4. Day of Week (Weekday vs Weekend Cyclic Vector)</span>
+<span class="font-mono text-secondary font-bold">11.2%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary/80 rounded-full" style="width: 11.2%"></div>
+</div>
+</div>
+<!-- Feature 5 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">5. Recent Rate of Inflow (Last 15m Delta Influx)</span>
+<span class="font-mono text-tertiary font-bold">6.8%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 6.8%"></div>
+</div>
+</div>
+<!-- Feature 6 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">6. Precipitation &amp; Weather Condition (Monsoon Index)</span>
+<span class="font-mono text-tertiary font-bold">4.1%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary/70 rounded-full" style="width: 4.1%"></div>
+</div>
+</div>
+<!-- Feature 7 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">7. Historical 7-Day Same-Time Baseline Occupancy</span>
+<span class="font-mono text-outline font-bold">2.1%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 2.1%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 20-Zone Risk Forecast Matrix (Next 30 Minutes) -->
+<div class="flex flex-col p-space-lg rounded-xl bg-surface-container shadow-xl">
+<div class="flex items-center justify-between pb-space-xs mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">hub</span>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Cross-Metropolitan Zone Saturation Risk Matrix (+30m)</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-mono">20 Hub Fleet Telemetry</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-xs">
+<!-- Zone 1 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold">Z003</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Lower Parel Tech</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Cap: 250 • Free: 14 bays</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-error text-body-md">94.4%</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">CRITICAL</span>
+</div>
+</div>
+<!-- Zone 2 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold">Z005</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">BKC Financial Complex</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Cap: 450 • Free: 40 bays</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-error text-body-md">91.2%</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">CRITICAL</span>
+</div>
+</div>
+<!-- Zone 3 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold">Z011</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Andheri West Link Rd</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Cap: 220 • Free: 25 bays</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-error text-body-md">88.5%</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">CRITICAL</span>
+</div>
+</div>
+<!-- Zone 4 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold">Z018</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Thane Viviana Mall</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Cap: 340 • Free: 48 bays</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-error text-body-md">86.0%</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">CRITICAL</span>
+</div>
+</div>
+<!-- Zone 5 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold">Z004</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Dadar Flower Market</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Cap: 150 • Free: 29 bays</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-secondary text-body-md">81.0%</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">MODERATE</span>
+</div>
+</div>
+<!-- Zone 6 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold">Z001</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Colaba Pier Waterfront</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Cap: 180 • Free: 95 bays</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-tertiary text-body-md">47.5%</span>
+<span class="px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold">NOMINAL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Academic Viva Reference Card -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low text-on-surface shadow-sm">
+<div class="flex items-center gap-space-xs mb-space-2xs">
+<span class="material-symbols-outlined text-primary text-xl">school</span>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-primary">Academic Viva &amp; ML Architecture Reference</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<strong>Model Theory &amp; Formula:</strong> Random Forest ensemble of 100 decision trees trained with bootstrap aggregating (bagging) to minimize variance without overfitting. Prediction formula:
+            <span class="font-mono text-on-surface px-1.5 py-0.5 bg-surface-container rounded">ŷ = (1/B) Σ<sub>b=1..B</sub> T<sub>b</sub>(x)</span>.
+            Evaluated against hold-out test partition with <strong class="text-tertiary font-mono">R² = 0.963</strong>, proving strong linear correlation between predicted and observed vehicular volume without temporal lookahead data leakage.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initSidebar() {
+    try {
+      const links = document.querySelectorAll('aside nav a');
+      links.forEach(link => {
+        if (link.getAttribute('data-path') === 'demand-prediction') {
+          link.className = 'group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)] transition-colors';
+          const icon = link.querySelector('.material-symbols-outlined');
+          if (icon) icon.className = 'material-symbols-outlined text-on-primary-container text-xl';
+        } else {
+          link.className = 'group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors';
+        }
+      });
+    } catch(e) {
+      console.warn('Sidebar update bypassed', e);
+    }
+  })();
+
+  function updateTime(val) {
+    const hours = Math.floor(val / 60);
+    const mins = val % 60;
+    const hh = String(hours).padStart(2, '0');
+    const mm = String(mins).padStart(2, '0');
+    let label = '';
+    if (hours >= 8 && hours <= 10) label = ' (Morning Peak)';
+    else if (hours >= 17 && hours <= 20) label = ' (Peak Office Egress)';
+    else if (hours >= 23 || hours <= 5) label = ' (Night Baseline)';
+    else label = ' (Inter-peak)';
+    document.getElementById('timeVal').textContent = `${hh}:${mm} IST${label}`;
+    recalculateDemand();
+  }
+
+  function selectDay(btn, day) {
+    document.querySelectorAll('.day-btn').forEach(b => {
+      b.className = 'day-btn py-1.5 text-center rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors';
+    });
+    btn.className = 'day-btn py-1.5 text-center rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm';
+    recalculateDemand();
+  }
+
+  function updateOccupancy(val) {
+    const pct = ((val / 250) * 100).toFixed(1);
+    document.getElementById('occVal').textContent = `${val} bays (${pct}%)`;
+    recalculateDemand();
+  }
+
+  function setPreset(type) {
+    const timeSlider = document.getElementById('timeSlider');
+    const rainSlider = document.getElementById('rainSlider');
+    const tempSlider = document.getElementById('tempSlider');
+    const occSlider = document.getElementById('occSlider');
+    const eventToggle = document.getElementById('eventToggle');
+
+    if (type === 'monsoon') {
+      timeSlider.value = 1110;
+      rainSlider.value = 45;
+      tempSlider.value = 26;
+      occSlider.value = 210;
+      eventToggle.checked = false;
+    } else if (type === 'cricket') {
+      timeSlider.value = 1170; // 19:30
+      rainSlider.value = 0;
+      tempSlider.value = 31;
+      occSlider.value = 228;
+      eventToggle.checked = true;
+    } else if (type === 'diwali') {
+      timeSlider.value = 1200; // 20:00
+      rainSlider.value = 0;
+      tempSlider.value = 27;
+      occSlider.value = 235;
+      eventToggle.checked = true;
+    } else {
+      timeSlider.value = 1110; // 18:30
+      rainSlider.value = 18;
+      tempSlider.value = 29;
+      occSlider.value = 205;
+      eventToggle.checked = true;
+    }
+
+    updateTime(timeSlider.value);
+    document.getElementById('rainVal').textContent = rainSlider.value + ' mm/h';
+    document.getElementById('tempVal').textContent = tempSlider.value + '°C';
+    updateOccupancy(occSlider.value);
+  }
+
+  function recalculateDemand() {
+    const occ = parseInt(document.getElementById('occSlider').value, 10);
+    const rain = parseInt(document.getElementById('rainSlider').value, 10);
+    const eventOn = document.getElementById('eventToggle').checked;
+    
+    // ML Simulation heuristic matching Random Forest weights
+    let delta = 22; // baseline 30 min inflow
+    if (rain > 30) delta += 12; // rain drives motorists to car park
+    else if (rain > 10) delta += 6;
+    if (eventOn) delta += 8;
+
+    let projected = occ + delta;
+    if (projected > 248) projected = 248; // physical limit cap
+    const pct = ((projected / 250) * 100).toFixed(1);
+    const free = Math.max(250 - projected, 2);
+
+    document.getElementById('projBays').textContent = projected;
+    document.getElementById('projPct').textContent = `${pct}% Saturation Rate`;
+    document.getElementById('freeBays').textContent = free;
+    document.getElementById('netIngress').textContent = `+${projected - occ} net inflow / 30m`;
+    
+    // Confidence Bounds
+    const lower = Math.max(pct - 2.6, 10).toFixed(1);
+    const upper = Math.min(parseFloat(pct) + 2.6, 99.4).toFixed(1);
+    document.getElementById('confInterval').textContent = `[${lower}% – ${upper}%] ±4.2%`;
+
+    const crimsonBar = document.getElementById('progCrimson');
+    if (pct >= 85) {
+      crimsonBar.style.width = `${pct - 85}%`;
+    } else {
+      crimsonBar.style.width = '0%';
+    }
+  }
+
+  function triggerInferenceAnimation() {
+    const btnIcon = document.getElementById('calcIcon');
+    const btnText = document.getElementById('calcText');
+    btnIcon.classList.add('animate-spin');
+    btnText.textContent = 'Executing PySpark Bagging Ensemble...';
+    
+    setTimeout(() => {
+      btnIcon.classList.remove('animate-spin');
+      btnText.textContent = 'Inference Complete (18.4ms)';
+      recalculateDemand();
+      setTimeout(() => {
+        btnText.textContent = 'Run MLlib Inference Simulator';
+      }, 2000);
+    }, 450);
+  }
+</script></main></div></body></html>

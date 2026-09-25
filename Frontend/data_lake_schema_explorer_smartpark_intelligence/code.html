@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface-variant": "#bcc9cd",
+          "inverse-primary": "#00687a",
+          "secondary-fixed-dim": "#4fdbc8",
+          "surface-container-highest": "#2d3448",
+          "surface": "#0b1325",
+          "surface-variant": "#2d3448",
+          "primary": "#4cd7f6",
+          "on-tertiary-fixed": "#002113",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-container-lowest": "#060e1f",
+          "error": "#ffb4ab",
+          "on-secondary-fixed": "#00201c",
+          "on-secondary-container": "#003f38",
+          "inverse-on-surface": "#283043",
+          "error-container": "#93000a",
+          "primary-fixed-dim": "#4cd7f6",
+          "on-primary-container": "#00424f",
+          "primary-container": "#06b6d4",
+          "on-surface": "#dbe2fb",
+          "on-secondary-fixed-variant": "#005048",
+          "on-tertiary": "#003824",
+          "inverse-surface": "#dbe2fb",
+          "surface-bright": "#31394d",
+          "primary-fixed": "#acedff",
+          "surface-container-high": "#222a3d",
+          "on-primary-fixed": "#001f26",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#04b4a2",
+          "surface-dim": "#0b1325",
+          "outline-variant": "#3d494c",
+          "on-tertiary-container": "#00452e",
+          "background": "#0b1325",
+          "on-secondary": "#003731",
+          "on-error": "#690005",
+          "outline": "#869397",
+          "on-background": "#dbe2fb",
+          "tertiary-fixed-dim": "#4edea3",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-tint": "#4cd7f6",
+          "surface-container": "#171f32",
+          "surface-container-low": "#131b2d",
+          "tertiary": "#4edea3",
+          "on-primary-fixed-variant": "#004e5c",
+          "secondary-fixed": "#71f8e4",
+          "secondary": "#4fdbc8",
+          "tertiary-container": "#1bbd85",
+          "on-primary": "#003640"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.75rem",
+          "space-xs": "0.5rem",
+          "gutter-desktop": "1.5rem",
+          "space-md": "1rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-3xs": "0.125rem",
+          "space-xl": "2rem",
+          "space-2xs": "0.25rem",
+          "space-3xl": "4rem",
+          "margin-tablet": "1.5rem",
+          "margin-desktop": "2rem",
+          "space-2xl": "3rem"
+        },
+        "fontFamily": {
+          "display-lg": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "metric-xl": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ],
+          "headline-sm": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Inter"
+          ],
+          "metric-lg": [
+            "JetBrains Mono"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "display-lg": [
+            "3rem",
+            {
+              "lineHeight": "3.5rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "1.25rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-xl": [
+            "2.25rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.375rem",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.125rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "0.6875rem",
+            {
+              "lineHeight": "0.875rem",
+              "letterSpacing": "0.06em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.5rem",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/95 backdrop-blur-xl z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest/60"><div class="flex items-center gap-space-xs min-w-0"><img alt="SmartPark Intelligence Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYn3gRRWfeGs2tlUqsrZrOw145x2dtvj2KAOXcHbaGOx5tf0U1wbu6da9SufrUfGgoD_nc1qgKpTTIVmq7qWqeRNxwTjdwkEbJ8JWPcVhlbY6ta2eHelhTFEOopcT-fysllRfnMRyoO3RuI68yA2Q4RGG9E8Ob412oT7tpxBYpKrzHg12SDwK8jnnn4fEhd03BIBB5V2xTgZFZ-9EUrq9v6CZPEjG3DlVo5loloyJtPqGcKDAFTxV"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight truncate">SmartPark</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Intelligence</span></div></div><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-primary-fixed-dim font-medium tracking-wide border-0">v4.2-SPARK</span></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Mission Telemetry</span></div><nav class="flex-1 px-space-xs space-y-space-3xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]"><a aria-current="page" class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]" data-path="overview" href="#"><span class="material-symbols-outlined text-primary text-xl">dashboard</span><span class="font-body-md text-body-md tracking-tight flex-1">Overview</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="live-monitoring" href="#"><span class="material-symbols-outlined text-tertiary text-xl">sensors</span><span class="font-body-md text-body-md tracking-tight flex-1">Live Monitoring</span><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parking-map" href="#"><span class="material-symbols-outlined text-secondary text-xl">map</span><span class="font-body-md text-body-md tracking-tight flex-1">Parking Map</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="historical-analytics" href="#"><span class="material-symbols-outlined text-primary text-xl">monitoring</span><span class="font-body-md text-body-md tracking-tight flex-1">Historical Analytics</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="demand-prediction" href="#"><span class="material-symbols-outlined text-primary text-xl">neurology</span><span class="font-body-md text-body-md tracking-tight flex-1">Demand Prediction</span><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-tertiary font-semibold">AI</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="big-data-pipeline" href="#"><span class="material-symbols-outlined text-secondary text-xl">alt_route</span><span class="font-body-md text-body-md tracking-tight flex-1">Big Data Pipeline</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-explorer" href="#"><span class="material-symbols-outlined text-primary text-xl">database</span><span class="font-body-md text-body-md tracking-tight flex-1">Data Explorer</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-health" href="#"><span class="material-symbols-outlined text-tertiary text-xl">dns</span><span class="font-body-md text-body-md tracking-tight flex-1">System Health</span></a></nav></div><div class="p-space-xs bg-surface-container-lowest/80"><div class="p-space-xs rounded-lg bg-surface-container-high/60 flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Stream Engine</span><div class="flex items-center gap-space-2xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-tertiary font-medium">OK</span></div></div><div class="flex items-center gap-space-2xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">stream</span><span class="font-label-sm text-label-sm font-medium tracking-tight truncate">PySpark + Kafka • Active</span></div></div><div class="mt-space-xs flex items-center justify-between px-space-2xs py-space-3xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="font-label-sm text-label-sm">Collapse Dock</span><span class="material-symbols-outlined text-base">chevron_left</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Mumbai Metropolitan Region</span><span class="material-symbols-outlined text-outline text-base">chevron_right</span><span class="font-body-md text-body-md text-on-surface-variant font-medium">Executive Overview</span></div><div class="flex items-center gap-space-xs"><div class="relative hidden lg:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">location_city</span><span class="font-body-sm text-body-sm font-medium">All 20 Zones (Mumbai MMR)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="relative hidden xl:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">calendar_today</span><span class="font-body-sm text-body-sm font-medium">Live Window (Last 24 Hours)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm font-bold text-tertiary tracking-wide uppercase">LIVE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">403k ev/s</span></div><div class="hidden sm:flex items-center gap-space-2xs px-space-xs py-space-3xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-outline">sync</span><span class="font-label-sm text-label-sm font-mono">17:42:09 IST</span></div><button aria-label="Alerts" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBixsjrcwUYqit6t6xuYiw2Jz3-CdTUIRpwiggW1SGKjZnnu-z4T64dtvU2hbYdYUiW6rWBAiO7J5MpZkvyiIS5-4F204KwWDHkOWmxzmLfXg8IVOswBDWLiN3qd7W7cpV_0jPh-rHHvXtu9kMl_w2AJFN1KVHQ0ILLRikV2qYq58xB9MW5Zpf7sVtC4HK8qI5U21R-Q8stcDZyNs6PD55Aa0Hf46NgOU_eWCMq8sCbaZH_xFPIfhM"/><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Aanya Sharma</span><span class="font-label-sm text-label-sm text-outline font-medium">Lead Data Engineer</span></div><span class="material-symbols-outlined text-outline text-sm hidden md:block">expand_more</span></div></div></header><main class="w-full pt-16 px-space-lg pb-space-xl bg-background min-h-screen"><div class="flex flex-col w-full space-y-space-lg">
+<!-- Top Breadcrumb & Lakehouse Hero Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<div class="flex flex-col gap-space-2xs min-w-0">
+<div class="flex items-center gap-space-xs text-outline">
+<span class="material-symbols-outlined text-primary text-lg">dataset</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Metadata &amp; Storage Catalog</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Trino/Spark Metastore v3.4.1</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Data Lake &amp; Schema Explorer</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Multi-tiered Delta Parquet lakehouse storage, schema registries, and SQL query workbench engineered across 20 high-density Mumbai municipal telemetry nodes.
+      </p>
+</div>
+<!-- Action Toolbar -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-primary text-base">sync</span>
+<span>Sync Metastore</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-secondary text-base">terminal</span>
+<span>SQL Console</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-tertiary text-base">file_download</span>
+<span>Export Parquet</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-primary text-on-primary font-headline-sm text-headline-sm font-semibold hover:bg-secondary transition-all shadow-[0_0_16px_rgba(6,182,212,0.35)]" type="button">
+<span class="material-symbols-outlined text-lg">code</span>
+<span>DDL Schema (.sql)</span>
+</button>
+</div>
+</div>
+<!-- Storage KPI Strip -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-md">
+<!-- Total Volume -->
+<div class="flex flex-col bg-surface-container p-space-md rounded-xl shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Total Parquet Footprint</span>
+<span class="material-symbols-outlined text-primary text-lg">cloud_done</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface">4.82</span>
+<span class="font-metric-lg text-metric-lg text-primary font-bold">GB</span>
+</div>
+<div class="mt-space-2xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Snappy v2.6.4 (85.2% ratio)</span>
+<span class="text-tertiary">12.4M records</span>
+</div>
+</div>
+<!-- Bronze -->
+<div class="flex flex-col bg-surface-container p-space-md rounded-xl shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Tier 1 • Bronze Tables</span>
+<span class="material-symbols-outlined text-secondary text-lg">sensors</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface">1</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Raw Stream</span>
+</div>
+<div class="mt-space-2xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Unbounded append stream</span>
+<span class="text-secondary font-mono">100% fidelity</span>
+</div>
+</div>
+<!-- Silver -->
+<div class="flex flex-col bg-surface-container p-space-md rounded-xl shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Tier 2 • Silver Rollups</span>
+<span class="material-symbols-outlined text-primary text-lg">auto_mode</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface">3</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Rollup Views</span>
+</div>
+<div class="mt-space-2xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>5m, 1h, 24h materialized</span>
+<span class="text-primary font-mono">842k rows</span>
+</div>
+</div>
+<!-- Gold -->
+<div class="flex flex-col bg-surface-container p-space-md rounded-xl shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Tier 3 • ML Feature Store</span>
+<span class="material-symbols-outlined text-tertiary text-lg">neurology</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface">2</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Feature Stores</span>
+</div>
+<div class="mt-space-2xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Lag vectors + regressors</span>
+<span class="text-tertiary font-mono">180k rows</span>
+</div>
+</div>
+<!-- Data Quality -->
+<div class="flex flex-col bg-surface-container p-space-md rounded-xl shadow-md col-span-2 md:col-span-1 lg:col-span-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Quality Assurance</span>
+<div class="flex items-center gap-space-3xs">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Live</span>
+</div>
+</div>
+<div class="mt-space-xs flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-tertiary">99.84%</span>
+</div>
+<div class="mt-space-2xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Zero timestamp nulls</span>
+<span class="text-on-surface font-mono">Trino Checked</span>
+</div>
+</div>
+</div>
+<!-- Medallion Layer Selector Tabs -->
+<div class="bg-surface-container-low p-space-xs rounded-xl shadow-md">
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-xs" id="medallion-tabs">
+<!-- Bronze Tab -->
+<button class="group flex flex-col text-left p-space-sm rounded-lg bg-surface-container-high/40 hover:bg-surface-container-high transition-all" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-amber-400 text-lg">grain</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Bronze Layer</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-amber-500/10 text-amber-400 font-semibold">Raw Ingest</span>
+</div>
+<p class="mt-space-2xs font-body-sm text-body-sm text-on-surface-variant">Unbounded sensor events, append-only Kafka sink</p>
+<div class="mt-space-xs flex items-center gap-space-md font-label-sm text-label-sm text-outline">
+<span>Rows: <strong class="text-on-surface font-mono">12.4M</strong></span>
+<span>Retention: <strong class="text-on-surface font-mono">90 Days</strong></span>
+</div>
+</button>
+<!-- Silver Tab (Active) -->
+<button class="group flex flex-col text-left p-space-sm rounded-lg bg-primary-container/20 text-on-surface shadow-[0_0_16px_rgba(6,182,212,0.15)] transition-all" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-lg">cleaning_services</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Silver Layer</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-primary/20 text-primary font-bold">Selected</span>
+</div>
+<p class="mt-space-2xs font-body-sm text-body-sm text-on-surface-variant">Deduplicated 5-min window aggregates, cleaned schema</p>
+<div class="mt-space-xs flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant">
+<span>Rows: <strong class="text-primary font-mono">842k</strong></span>
+<span>Compression: <strong class="text-on-surface font-mono">Snappy</strong></span>
+</div>
+</button>
+<!-- Gold Tab -->
+<button class="group flex flex-col text-left p-space-sm rounded-lg bg-surface-container-high/40 hover:bg-surface-container-high transition-all" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-lg">workspace_premium</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Gold Layer</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-tertiary/10 text-tertiary font-semibold">Analytics</span>
+</div>
+<p class="mt-space-2xs font-body-sm text-body-sm text-on-surface-variant">ML feature vectors, weather interaction, zone metrics</p>
+<div class="mt-space-xs flex items-center gap-space-md font-label-sm text-label-sm text-outline">
+<span>Rows: <strong class="text-on-surface font-mono">180k</strong></span>
+<span>SLA: <strong class="text-tertiary font-mono">15m refresh</strong></span>
+</div>
+</button>
+<!-- Inferences Tab -->
+<button class="group flex flex-col text-left p-space-sm rounded-lg bg-surface-container-high/40 hover:bg-surface-container-high transition-all" type="button">
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-lg">batch_prediction</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Inference Store</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-secondary/10 text-secondary font-semibold">Model Ops</span>
+</div>
+<p class="mt-space-2xs font-body-sm text-body-sm text-on-surface-variant">LSTM/Prophet predictions, residuals &amp; drift logging</p>
+<div class="mt-space-xs flex items-center gap-space-md font-label-sm text-label-sm text-outline">
+<span>Rows: <strong class="text-on-surface font-mono">420k</strong></span>
+<span>Backtest: <strong class="text-secondary font-mono">Continuous</strong></span>
+</div>
+</button>
+</div>
+</div>
+<!-- Split Workspace: Schema Inspector (Left) & SQL Data Preview (Right) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Left Column: Schema Tree & Field Inspector (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<!-- Table Specification Card -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">folder_data</span>
+<div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface font-mono">mmr_silver_parking_5min_agg</span>
+<span class="block font-label-sm text-label-sm text-outline">Delta Lake Protocol v2.6.4</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded bg-surface-container-highest text-secondary font-mono">DELTA_TABLE</span>
+</div>
+<!-- Metadata Box -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg space-y-space-xs text-on-surface-variant font-label-sm text-label-sm font-mono">
+<div class="flex items-center justify-between">
+<span class="text-outline">S3 URI:</span>
+<span class="text-primary truncate ml-2">s3://smartpark-lakehouse-prod/silver/occupancy_5min/</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Format:</span>
+<span class="text-on-surface">Apache Parquet / Snappy (dict-encoded)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Partition Specs:</span>
+<span class="text-tertiary">[`partition_date`, `zone_id`]</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Z-Order Keys:</span>
+<span class="text-secondary font-mono">`timestamp` ASC</span>
+</div>
+</div>
+<!-- Schema Field Table -->
+<div class="flex flex-col">
+<div class="flex items-center justify-between pb-space-2xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Schema Definition (11 Fields)</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">STRUCT&lt;...&gt;</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-sm text-label-sm uppercase">
+<th class="py-space-xs px-space-xs font-semibold">Column</th>
+<th class="py-space-xs px-space-xs font-semibold">Type</th>
+<th class="py-space-xs px-space-xs font-semibold text-center">Null</th>
+<th class="py-space-xs px-space-xs font-semibold">Sample</th>
+</tr>
+</thead>
+<tbody class="text-on-surface font-mono text-body-sm divide-y-0">
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-secondary">schedule</span>
+<span class="font-semibold text-on-surface">timestamp</span>
+</td>
+<td class="py-space-xs px-space-xs text-primary font-label-sm text-label-sm">TIMESTAMP</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-error font-bold font-label-sm text-label-sm">NO</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">2024-10-31 17:40:00</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors bg-surface-container-low/40">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-tertiary">key</span>
+<span class="font-semibold text-tertiary">zone_id</span>
+<span class="font-label-sm text-label-sm px-1 rounded bg-tertiary/10 text-tertiary text-[9px]">PARTITION</span>
+</td>
+<td class="py-space-xs px-space-xs text-primary font-label-sm text-label-sm">VARCHAR(16)</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-error font-bold font-label-sm text-label-sm">NO</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">"Z003_BKC"</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-outline">pin</span>
+<span>current_occupancy</span>
+</td>
+<td class="py-space-xs px-space-xs text-secondary font-label-sm text-label-sm">INTEGER</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-error font-bold font-label-sm text-label-sm">NO</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">412</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors bg-surface-container-low/40">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-outline">domain</span>
+<span>total_capacity</span>
+</td>
+<td class="py-space-xs px-space-xs text-secondary font-label-sm text-label-sm">INTEGER</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-error font-bold font-label-sm text-label-sm">NO</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">450</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-outline">percent</span>
+<span>occupancy_rate</span>
+</td>
+<td class="py-space-xs px-space-xs text-amber-400 font-label-sm text-label-sm">FLOAT (IEEE754)</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-error font-bold font-label-sm text-label-sm">NO</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">0.9155</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors bg-surface-container-low/40">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-outline">timer</span>
+<span>avg_dwell_mins</span>
+</td>
+<td class="py-space-xs px-space-xs text-amber-400 font-label-sm text-label-sm">FLOAT</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-outline font-label-sm text-label-sm">YES</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">84.2</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-outline">swap_vert</span>
+<span>net_inflow_rate</span>
+</td>
+<td class="py-space-xs px-space-xs text-secondary font-label-sm text-label-sm">INTEGER</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-error font-bold font-label-sm text-label-sm">NO</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">+18</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors bg-surface-container-low/40">
+<td class="py-space-xs px-space-xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs text-tertiary">calendar_month</span>
+<span class="font-semibold text-tertiary">partition_date</span>
+<span class="font-label-sm text-label-sm px-1 rounded bg-tertiary/10 text-tertiary text-[9px]">PARTITION</span>
+</td>
+<td class="py-space-xs px-space-xs text-primary font-label-sm text-label-sm">DATE</td>
+<td class="py-space-xs px-space-xs text-center"><span class="text-error font-bold font-label-sm text-label-sm">NO</span></td>
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">2024-10-31</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Data Quality Constraints Box -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg space-y-space-2xs">
+<div class="flex items-center gap-space-xs text-outline font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-tertiary text-sm">verified_user</span>
+<span>Delta Lake Invariant Checks</span>
+</div>
+<div class="space-y-1 font-mono text-body-sm text-on-surface-variant">
+<div class="p-space-2xs rounded bg-surface-container-low flex items-center justify-between">
+<code class="text-primary font-label-sm text-label-sm">CHECK (occupancy_rate &gt;= 0.0 AND occupancy_rate &lt;= 1.0)</code>
+<span class="text-tertiary font-label-sm text-label-sm font-bold">PASS</span>
+</div>
+<div class="p-space-2xs rounded bg-surface-container-low flex items-center justify-between">
+<code class="text-primary font-label-sm text-label-sm">CHECK (available_bays &gt;= 0)</code>
+<span class="text-tertiary font-label-sm text-label-sm font-bold">PASS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive SQL Workbench & Preview (7 cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Trino SQL Terminal Card -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-lg">data_object</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Interactive Distributed Query</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-surface-container-highest text-on-surface-variant font-mono">Engine: Presto/Trino</span>
+<span class="px-space-2xs py-space-3xs rounded bg-tertiary/10 text-tertiary font-mono">38ms exec</span>
+</div>
+</div>
+<!-- SQL Query Box -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg relative font-mono text-body-sm overflow-x-auto">
+<div class="text-on-surface-variant space-y-1">
+<p><span class="text-primary font-bold">SELECT</span> timestamp, zone_id, current_occupancy, total_capacity,</p>
+<p>       occupancy_rate, avg_dwell_mins, net_inflow_rate</p>
+<p><span class="text-primary font-bold">FROM</span> silver.occupancy_5min</p>
+<p><span class="text-primary font-bold">WHERE</span> partition_date = <span class="text-secondary">'2024-10-31'</span></p>
+<p>  <span class="text-primary font-bold">AND</span> occupancy_rate &gt;= <span class="text-amber-400">0.85</span></p>
+<p><span class="text-primary font-bold">ORDER BY</span> timestamp <span class="text-primary font-bold">DESC</span></p>
+<p><span class="text-primary font-bold">LIMIT</span> <span class="text-amber-400">10</span>;</p>
+</div>
+<button class="absolute top-2 right-2 flex items-center gap-1 px-space-xs py-space-2xs rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-secondary transition-all" type="button">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+<span>Execute</span>
+</button>
+</div>
+<!-- Telemetry Performance Banner -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-tertiary text-sm">bolt</span>
+<span>Partition pruning applied: <strong class="text-on-surface font-mono">1/90 partitions scanned</strong> (98.9% IO avoided)</span>
+</div>
+<span class="text-outline font-mono">Bytes scanned: 1.42 MB</span>
+</div>
+</div>
+<!-- Live Row Preview Table -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-lg">table_rows</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Materialized Row Buffer (Top 5 Displayed)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold" type="button">Table Grid</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-low text-outline hover:text-on-surface font-label-sm text-label-sm" type="button">JSON Dump</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-sm text-label-sm uppercase">
+<th class="py-space-xs px-space-xs font-semibold">Event Time</th>
+<th class="py-space-xs px-space-xs font-semibold">Zone ID</th>
+<th class="py-space-xs px-space-xs font-semibold">Bays Fill</th>
+<th class="py-space-xs px-space-xs font-semibold">Occupancy %</th>
+<th class="py-space-xs px-space-xs font-semibold">Dwell</th>
+<th class="py-space-xs px-space-xs font-semibold text-right">Net Flow</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 font-mono text-on-surface">
+<!-- Row 1: BKC -->
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">17:40:00</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary">Z003</span>
+<span class="text-outline font-body-sm text-body-sm font-normal">BKC G-Block</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs">
+<span class="text-on-surface font-semibold">412</span>
+<span class="text-outline">/450</span>
+</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<div class="w-16 h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 91.5%;"></div>
+</div>
+<span class="text-error font-bold font-label-sm text-label-sm">91.6%</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs text-on-surface-variant">84.2m</td>
+<td class="py-space-xs px-space-xs text-right text-error font-bold">+18/5m</td>
+</tr>
+<!-- Row 2: Lower Parel -->
+<tr class="hover:bg-surface-container-high transition-colors bg-surface-container-low/40">
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">17:40:00</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary">Z005</span>
+<span class="text-outline font-body-sm text-body-sm font-normal">Lower Parel</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs">
+<span class="text-on-surface font-semibold">538</span>
+<span class="text-outline">/600</span>
+</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<div class="w-16 h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 89.6%;"></div>
+</div>
+<span class="text-error font-bold font-label-sm text-label-sm">89.7%</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs text-on-surface-variant">112.0m</td>
+<td class="py-space-xs px-space-xs text-right text-error font-bold">+24/5m</td>
+</tr>
+<!-- Row 3: Andheri East -->
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">17:35:00</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary">Z011</span>
+<span class="text-outline font-body-sm text-body-sm font-normal">Andheri E</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs">
+<span class="text-on-surface font-semibold">302</span>
+<span class="text-outline">/340</span>
+</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<div class="w-16 h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-amber-400 rounded-full" style="width: 88.8%;"></div>
+</div>
+<span class="text-amber-400 font-bold font-label-sm text-label-sm">88.8%</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs text-on-surface-variant">61.5m</td>
+<td class="py-space-xs px-space-xs text-right text-amber-400 font-bold">+9/5m</td>
+</tr>
+<!-- Row 4: Dadar Station -->
+<tr class="hover:bg-surface-container-high transition-colors bg-surface-container-low/40">
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">17:35:00</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary">Z002</span>
+<span class="text-outline font-body-sm text-body-sm font-normal">Dadar Stn</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs">
+<span class="text-on-surface font-semibold">278</span>
+<span class="text-outline">/310</span>
+</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<div class="w-16 h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-amber-400 rounded-full" style="width: 89.6%;"></div>
+</div>
+<span class="text-amber-400 font-bold font-label-sm text-label-sm">89.7%</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs text-on-surface-variant">42.8m</td>
+<td class="py-space-xs px-space-xs text-right text-amber-400 font-bold">+12/5m</td>
+</tr>
+<!-- Row 5: Colaba Causeway -->
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-space-xs px-space-xs text-on-surface-variant font-label-sm text-label-sm">17:30:00</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary">Z001</span>
+<span class="text-outline font-body-sm text-body-sm font-normal">Colaba</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs">
+<span class="text-on-surface font-semibold">218</span>
+<span class="text-outline">/250</span>
+</td>
+<td class="py-space-xs px-space-xs">
+<div class="flex items-center gap-space-2xs">
+<div class="w-16 h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-amber-400 rounded-full" style="width: 87.2%;"></div>
+</div>
+<span class="text-amber-400 font-bold font-label-sm text-label-sm">87.2%</span>
+</div>
+</td>
+<td class="py-space-xs px-space-xs text-on-surface-variant">95.0m</td>
+<td class="py-space-xs px-space-xs text-right text-tertiary font-bold">-4/5m</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Lakehouse Data Quality & Partition Distribution Matrix -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Partition Health & File Split Sizing (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container p-space-md rounded-xl shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-lg">pie_chart</span>
+<div>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Partition Distribution &amp; Small-File Mitigation</span>
+<span class="block font-label-sm text-label-sm text-outline">Target File Size: 12.4 MB (Spark Executor Split Alignment)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded bg-tertiary/10 text-tertiary font-mono">OPTIMAL</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs text-center font-mono">
+<div class="bg-surface-container-lowest p-space-xs rounded-lg">
+<span class="font-label-sm text-label-sm text-outline block">Files / Partition Day</span>
+<span class="font-metric-lg text-metric-lg font-bold text-on-surface">48</span>
+<span class="font-label-sm text-label-sm text-tertiary block">Balanced splits</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs rounded-lg">
+<span class="font-label-sm text-label-sm text-outline block">Avg Parquet Size</span>
+<span class="font-metric-lg text-metric-lg font-bold text-primary">12.4 MB</span>
+<span class="font-label-sm text-label-sm text-outline block">No 128KB churn</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs rounded-lg">
+<span class="font-label-sm text-label-sm text-outline block">Bloom Filter Footprint</span>
+<span class="font-metric-lg text-metric-lg font-bold text-secondary">318 KB</span>
+<span class="font-label-sm text-label-sm text-secondary block">FPP &lt; 1%</span>
+</div>
+</div>
+<!-- Partition Listing -->
+<div class="space-y-space-2xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Active Parquet Physical Partitions</span>
+<div class="space-y-1 font-mono text-body-sm">
+<div class="p-space-xs rounded bg-surface-container-low flex items-center justify-between">
+<span class="text-on-surface">partition_date=2024-10-31/zone_id=Z003/</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">48 files • 595.2 MB • Snappy</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low flex items-center justify-between">
+<span class="text-on-surface">partition_date=2024-10-31/zone_id=Z005/</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">48 files • 612.4 MB • Snappy</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low flex items-center justify-between">
+<span class="text-on-surface">partition_date=2024-10-31/zone_id=Z011/</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">48 files • 578.1 MB • Snappy</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Quality Scorecard (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container p-space-md rounded-xl shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-lg">fact_check</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Lakehouse Quality Scorecard</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded bg-surface-container-highest text-outline font-mono">Great Expectations</span>
+</div>
+<div class="space-y-space-xs">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest p-space-xs rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Timestamp Completeness</span>
+<span class="font-label-sm text-label-sm text-outline">Null checking on incoming Kafka payloads</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-metric-lg text-metric-lg font-bold text-tertiary font-mono">99.98%</span>
+<span class="material-symbols-outlined text-tertiary text-base">check_circle</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest p-space-xs rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Record Uniqueness</span>
+<span class="font-label-sm text-label-sm text-outline">Bloom filter deduplication on composite key</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-metric-lg text-metric-lg font-bold text-tertiary font-mono">99.92%</span>
+<span class="material-symbols-outlined text-tertiary text-base">check_circle</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest p-space-xs rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Timestamp Monotonicity</span>
+<span class="font-label-sm text-label-sm text-outline">Out-of-order late arrival watermark buffer (&lt;2m)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-metric-lg text-metric-lg font-bold text-primary font-mono">100.0%</span>
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest p-space-xs rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Schema Contract Compliance</span>
+<span class="font-label-sm text-label-sm text-outline">Strict Protobuf &amp; Parquet DDL enforcement</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-metric-lg text-metric-lg font-bold text-secondary font-mono">100.0%</span>
+<span class="material-symbols-outlined text-secondary text-base">verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Academic Viva Footnote: Technical Defense Callouts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<!-- Callout 1 -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">school</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Viva Defense: Why Columnar Parquet over CSV/JSON?</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Row-oriented formats (CSV/JSON) force the execution engine to deserialize irrelevant fields across the disk bus. By adopting 
+        <strong class="text-primary font-mono">Apache Parquet v2.6 with Snappy</strong>, SmartPark achieves an 
+        <strong class="text-tertiary">85.2% storage volume reduction</strong>. Crucially, analytical queries requesting only 
+        <code class="text-secondary font-mono">occupancy_rate</code> exploit <strong class="text-on-surface">Column Pruning</strong> and 
+        <strong class="text-on-surface">Dictionary-Encoded Vectorization</strong>, bypassing 85% of byte I/O during Trino scans.
+      </p>
+<div class="mt-space-2xs flex items-center gap-space-sm font-label-sm text-label-sm text-outline">
+<span>• SIMD CPU vectorization</span>
+<span>• Snappy fast decompression</span>
+<span>• Statistics min/max skipping</span>
+</div>
+</div>
+<!-- Callout 2 -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-xl">account_tree</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Viva Defense: Multi-Key Partitioning Strategy</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Partitioning exclusively by <code class="text-tertiary font-mono">date</code> creates monolithic partitions with scan latency bottlenecks, whereas partitioning down to sensor IDs produces the lethal 
+        <strong class="text-error">"Small File Problem"</strong> (millions of sub-megabyte files straining HDFS/S3 namenodes). SmartPark employs a balanced hierarchy: 
+        <strong class="text-secondary font-mono">partition_date/zone_id/</strong>, maintaining an optimal average file split of 
+        <strong class="text-on-surface font-mono">12.4 MB</strong> to saturate PySpark worker thread cores.
+      </p>
+<div class="mt-space-2xs flex items-center gap-space-sm font-label-sm text-label-sm text-outline">
+<span>• Predicate pushdown enabled</span>
+<span>• ZERO S3 full-table sweeps</span>
+<span>• Clean executor core balancing</span>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

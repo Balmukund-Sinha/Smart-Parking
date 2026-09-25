@@ -1,0 +1,21 @@
+zone_id,zone_name,capacity,latitude,longitude,peak_utilization_target,mean_duration_min
+Z001,Deonar Municipal Parking Hub,40,19.060496,72.907071,0.57,67.5
+Z002,Bhandup East Parking Hub,122,19.127212,72.933801,0.503,87.9
+Z003,Shastri Nagar Airport Road,108,19.093264,72.856799,0.775,134.6
+Z004,Chakala Metro Parking Hub,82,19.114731,72.862155,0.733,69.6
+Z005,Kurla West Parking Hub,81,19.06921,72.874047,0.747,51.1
+Z006,Mahim Parking Hub,133,19.043269,72.840437,0.773,74.5
+Z007,Santacruz West Parking Hub,40,19.08255,72.833291,0.661,75.8
+Z008,Wadala Sangam Nagar Hub,113,19.023658,72.874785,0.699,114.5
+Z009,Oshiwara West Parking Hub,54,19.115316,72.844929,0.549,103.5
+Z010,Powai Lake South Hub,41,19.0918,72.898078,0.54,127.3
+Z011,Saki Naka Parking Hub,93,19.106971,72.870158,0.734,114.8
+Z012,Govandi East Parking Hub,147,19.058543,72.917621,0.665,87.7
+Z013,Powai Saki Vihar Hub,118,19.132484,72.901732,0.698,130.5
+Z014,Jogeshwari East Parking Hub,121,19.123175,72.855184,0.768,62.5
+Z015,Vikhroli West Parking Hub,116,19.109406,72.917571,0.722,47.4
+Z016,Trombay Municipal Parking Hub,124,19.039357,72.914272,0.694,54.5
+Z017,BKC Connector Parking Hub,91,19.072007,72.864197,0.696,120.8
+Z018,Prabhadevi South Parking Hub,45,19.021256,72.852299,0.606,93.5
+Z019,Fertilizer Colony Parking Hub,130,19.034515,72.899599,0.511,61.9
+Z020,Vile Parle Nehru Nagar Hub,84,19.097966,72.83447,0.653,97.6

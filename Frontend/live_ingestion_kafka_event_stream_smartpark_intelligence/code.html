@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface-variant": "#bcc9cd",
+          "inverse-primary": "#00687a",
+          "secondary-fixed-dim": "#4fdbc8",
+          "surface-container-highest": "#2d3448",
+          "surface": "#0b1325",
+          "surface-variant": "#2d3448",
+          "primary": "#4cd7f6",
+          "on-tertiary-fixed": "#002113",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-container-lowest": "#060e1f",
+          "error": "#ffb4ab",
+          "on-secondary-fixed": "#00201c",
+          "on-secondary-container": "#003f38",
+          "inverse-on-surface": "#283043",
+          "error-container": "#93000a",
+          "primary-fixed-dim": "#4cd7f6",
+          "on-primary-container": "#00424f",
+          "primary-container": "#06b6d4",
+          "on-surface": "#dbe2fb",
+          "on-secondary-fixed-variant": "#005048",
+          "on-tertiary": "#003824",
+          "inverse-surface": "#dbe2fb",
+          "surface-bright": "#31394d",
+          "primary-fixed": "#acedff",
+          "surface-container-high": "#222a3d",
+          "on-primary-fixed": "#001f26",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#04b4a2",
+          "surface-dim": "#0b1325",
+          "outline-variant": "#3d494c",
+          "on-tertiary-container": "#00452e",
+          "background": "#0b1325",
+          "on-secondary": "#003731",
+          "on-error": "#690005",
+          "outline": "#869397",
+          "on-background": "#dbe2fb",
+          "tertiary-fixed-dim": "#4edea3",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-tint": "#4cd7f6",
+          "surface-container": "#171f32",
+          "surface-container-low": "#131b2d",
+          "tertiary": "#4edea3",
+          "on-primary-fixed-variant": "#004e5c",
+          "secondary-fixed": "#71f8e4",
+          "secondary": "#4fdbc8",
+          "tertiary-container": "#1bbd85",
+          "on-primary": "#003640"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.75rem",
+          "space-xs": "0.5rem",
+          "gutter-desktop": "1.5rem",
+          "space-md": "1rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-3xs": "0.125rem",
+          "space-xl": "2rem",
+          "space-2xs": "0.25rem",
+          "space-3xl": "4rem",
+          "margin-tablet": "1.5rem",
+          "margin-desktop": "2rem",
+          "space-2xl": "3rem"
+        },
+        "fontFamily": {
+          "display-lg": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "metric-xl": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ],
+          "headline-sm": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Inter"
+          ],
+          "metric-lg": [
+            "JetBrains Mono"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "display-lg": [
+            "3rem",
+            {
+              "lineHeight": "3.5rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "1.25rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-xl": [
+            "2.25rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.375rem",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.125rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "0.6875rem",
+            {
+              "lineHeight": "0.875rem",
+              "letterSpacing": "0.06em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.5rem",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/95 backdrop-blur-xl z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest/60"><div class="flex items-center gap-space-xs min-w-0"><img alt="SmartPark Intelligence Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYn3gRRWfeGs2tlUqsrZrOw145x2dtvj2KAOXcHbaGOx5tf0U1wbu6da9SufrUfGgoD_nc1qgKpTTIVmq7qWqeRNxwTjdwkEbJ8JWPcVhlbY6ta2eHelhTFEOopcT-fysllRfnMRyoO3RuI68yA2Q4RGG9E8Ob412oT7tpxBYpKrzHg12SDwK8jnnn4fEhd03BIBB5V2xTgZFZ-9EUrq9v6CZPEjG3DlVo5loloyJtPqGcKDAFTxV"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight truncate">SmartPark</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Intelligence</span></div></div><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-primary-fixed-dim font-medium tracking-wide border-0">v4.2-SPARK</span></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Mission Telemetry</span></div><nav class="flex-1 px-space-xs space-y-space-3xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]"><a aria-current="page" class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]" data-path="overview" href="#"><span class="material-symbols-outlined text-primary text-xl">dashboard</span><span class="font-body-md text-body-md tracking-tight flex-1">Overview</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="live-monitoring" href="#"><span class="material-symbols-outlined text-tertiary text-xl">sensors</span><span class="font-body-md text-body-md tracking-tight flex-1">Live Monitoring</span><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parking-map" href="#"><span class="material-symbols-outlined text-secondary text-xl">map</span><span class="font-body-md text-body-md tracking-tight flex-1">Parking Map</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="historical-analytics" href="#"><span class="material-symbols-outlined text-primary text-xl">monitoring</span><span class="font-body-md text-body-md tracking-tight flex-1">Historical Analytics</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="demand-prediction" href="#"><span class="material-symbols-outlined text-primary text-xl">neurology</span><span class="font-body-md text-body-md tracking-tight flex-1">Demand Prediction</span><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-tertiary font-semibold">AI</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="big-data-pipeline" href="#"><span class="material-symbols-outlined text-secondary text-xl">alt_route</span><span class="font-body-md text-body-md tracking-tight flex-1">Big Data Pipeline</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-explorer" href="#"><span class="material-symbols-outlined text-primary text-xl">database</span><span class="font-body-md text-body-md tracking-tight flex-1">Data Explorer</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-health" href="#"><span class="material-symbols-outlined text-tertiary text-xl">dns</span><span class="font-body-md text-body-md tracking-tight flex-1">System Health</span></a></nav></div><div class="p-space-xs bg-surface-container-lowest/80"><div class="p-space-xs rounded-lg bg-surface-container-high/60 flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Stream Engine</span><div class="flex items-center gap-space-2xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-tertiary font-medium">OK</span></div></div><div class="flex items-center gap-space-2xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">stream</span><span class="font-label-sm text-label-sm font-medium tracking-tight truncate">PySpark + Kafka • Active</span></div></div><div class="mt-space-xs flex items-center justify-between px-space-2xs py-space-3xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="font-label-sm text-label-sm">Collapse Dock</span><span class="material-symbols-outlined text-base">chevron_left</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Mumbai Metropolitan Region</span><span class="material-symbols-outlined text-outline text-base">chevron_right</span><span class="font-body-md text-body-md text-on-surface-variant font-medium">Executive Overview</span></div><div class="flex items-center gap-space-xs"><div class="relative hidden lg:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">location_city</span><span class="font-body-sm text-body-sm font-medium">All 20 Zones (Mumbai MMR)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="relative hidden xl:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">calendar_today</span><span class="font-body-sm text-body-sm font-medium">Live Window (Last 24 Hours)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm font-bold text-tertiary tracking-wide uppercase">LIVE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">403k ev/s</span></div><div class="hidden sm:flex items-center gap-space-2xs px-space-xs py-space-3xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-outline">sync</span><span class="font-label-sm text-label-sm font-mono">17:42:09 IST</span></div><button aria-label="Alerts" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBixsjrcwUYqit6t6xuYiw2Jz3-CdTUIRpwiggW1SGKjZnnu-z4T64dtvU2hbYdYUiW6rWBAiO7J5MpZkvyiIS5-4F204KwWDHkOWmxzmLfXg8IVOswBDWLiN3qd7W7cpV_0jPh-rHHvXtu9kMl_w2AJFN1KVHQ0ILLRikV2qYq58xB9MW5Zpf7sVtC4HK8qI5U21R-Q8stcDZyNs6PD55Aa0Hf46NgOU_eWCMq8sCbaZH_xFPIfhM"/><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Aanya Sharma</span><span class="font-label-sm text-label-sm text-outline font-medium">Lead Data Engineer</span></div><span class="material-symbols-outlined text-outline text-sm hidden md:block">expand_more</span></div></div></header><main class="w-full pt-16 px-space-lg pb-space-xl bg-background min-h-screen"><div class="flex flex-col w-full space-y-space-md">
+<!-- TOP OPERATIONAL BAR & STREAM CONTROL DECK -->
+<div class="w-full flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-sm p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-sm min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase font-semibold">MMR Sensor Backbone</span>
+<span class="material-symbols-outlined text-outline text-xs">chevron_right</span>
+<div class="flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-surface-container-highest">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-tight">KAFKA CLUSTER : ONLINE</span>
+</div>
+</div>
+<div class="hidden sm:block h-4 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Broker Epoch:</span>
+<span class="font-label-sm text-label-sm font-mono text-primary font-semibold">#94,208,114</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Topic:</span>
+<span class="font-label-sm text-label-sm font-mono text-secondary font-semibold">mumbai.telemetry.v4</span>
+</div>
+</div>
+<!-- Live Controls Ribbon -->
+<div class="flex flex-wrap items-center gap-space-xs w-full xl:w-auto justify-start xl:justify-end">
+<!-- Play/Pause Live Toggle -->
+<button class="group flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-primary text-on-primary font-semibold hover:bg-secondary transition-all shadow-sm active:scale-95" id="stream-toggle" type="button">
+<span class="material-symbols-outlined text-base" id="stream-toggle-icon">pause</span>
+<span class="font-body-sm text-body-sm tracking-tight uppercase" id="stream-toggle-text">Live Ingestion</span>
+</button>
+<!-- Refresh Interval Pill -->
+<div class="flex items-center bg-surface-container rounded-lg p-space-3xs text-on-surface-variant">
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-semibold bg-primary-container text-on-primary-container shadow-sm" type="button">1s</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm hover:text-on-surface transition-colors" type="button">2s</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm hover:text-on-surface transition-colors" type="button">5s</button>
+</div>
+<!-- Action Buttons -->
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" title="Purge local buffer" type="button">
+<span class="material-symbols-outlined text-outline text-base">delete_sweep</span>
+<span class="font-body-sm text-body-sm">Purge Buffer</span>
+</button>
+<div class="relative group">
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-primary text-base">file_download</span>
+<span class="font-body-sm text-body-sm">Export Stream</span>
+<span class="material-symbols-outlined text-outline text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- REAL-TIME TELEMETRY STATS RIBBON (5 KPI CARDS) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-sm">
+<!-- KPI 1: Ingestion Velocity -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Ingestion Velocity</span>
+<span class="material-symbols-outlined text-primary text-lg">bolt</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl text-primary font-mono tracking-tight font-bold">348</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-mono">ev/sec</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant font-mono pt-space-xs border-t border-surface-variant/40">
+<span>Peak: 412 ev/s</span>
+<span class="text-tertiary">12 Partitions</span>
+</div>
+</div>
+<!-- KPI 2: PySpark Micro-batch -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Micro-batch Latency</span>
+<span class="material-symbols-outlined text-secondary text-lg">speed</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl text-secondary font-mono tracking-tight font-bold">1.02</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-mono">sec</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant font-mono pt-space-xs border-t border-surface-variant/40">
+<span>Trigger: 1.0s</span>
+<span class="text-secondary">PySpark v4.2</span>
+</div>
+</div>
+<!-- KPI 3: Kafka Consumer Lag -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Consumer Lag</span>
+<span class="material-symbols-outlined text-tertiary text-lg">sync_saved_locally</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl text-tertiary font-mono tracking-tight font-bold">0.78</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-mono">ms</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant font-mono pt-space-xs border-t border-surface-variant/40">
+<span>Drop Rate: 0.00%</span>
+<span class="text-tertiary">99.99% SLA</span>
+</div>
+</div>
+<!-- KPI 4: Bloom Filter Rejections -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Deduplication Purge</span>
+<span class="material-symbols-outlined text-primary-fixed text-lg">filter_alt</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl text-on-surface font-mono tracking-tight font-bold">1,842</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-mono">drops</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant font-mono pt-space-xs border-t border-surface-variant/40">
+<span>FP Rate: 0.08%</span>
+<span class="text-primary font-semibold">k=7 Murmur3</span>
+</div>
+</div>
+<!-- KPI 5: Watermark Horizon -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Late Watermark</span>
+<span class="material-symbols-outlined text-outline text-lg">schedule</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl text-on-surface font-mono tracking-tight font-bold">10</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-mono">mins</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant font-mono pt-space-xs border-t border-surface-variant/40">
+<span>Threshold: -600s</span>
+<span class="text-on-surface-variant">Evict &lt;17:32</span>
+</div>
+</div>
+</div>
+<!-- BLOOM FILTER ARCHITECTURAL EXPLORATION & VIVA CARD -->
+<div class="w-full p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col space-y-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm border-b border-surface-variant/40 pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-2xl">account_tree</span>
+<div>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Bloom Filter Ingestion Pipeline &amp; Deduplication Telemetry</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">O(k) Probabilistic Membership Filter running in Spark Structured Streaming Driver Memory</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase font-mono">Memory Footprint:</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono font-bold">128 KB (1,048,576 bits)</span>
+</div>
+</div>
+<!-- Hashing & Logic Diagram Flow -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center py-space-xs">
+<!-- Step 1: Raw UUID Ingestion -->
+<div class="md:col-span-3 p-space-sm rounded-lg bg-surface-container flex flex-col space-y-space-2xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono font-semibold">Stage 01: Ingress</span>
+<span class="material-symbols-outlined text-primary text-sm">login</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-mono truncate">ev_uuid_7f8a91</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Raw incoming sensor payload with node timestamp and zone context.</p>
+</div>
+<!-- Arrow 1 -->
+<div class="hidden md:flex md:col-span-1 justify-center">
+<span class="material-symbols-outlined text-primary text-xl animate-pulse">arrow_forward</span>
+</div>
+<!-- Step 2: 7 Hash Functions -->
+<div class="md:col-span-4 p-space-sm rounded-lg bg-surface-container flex flex-col space-y-space-2xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-mono font-semibold">Stage 02: Hashing Array (k=7)</span>
+<span class="material-symbols-outlined text-secondary text-sm">tag</span>
+</div>
+<div class="grid grid-cols-4 gap-space-3xs text-center font-mono font-label-sm text-label-sm">
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-primary">h₁: 4029</span>
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-primary">h₂: 8812</span>
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-primary">h₃: 91402</span>
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-secondary">h₄: 33491</span>
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-secondary">h₅: 71201</span>
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-secondary">h₆: 9011</span>
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-tertiary">h₇: 54109</span>
+<span class="bg-surface-container-high py-space-3xs px-space-2xs rounded text-on-surface-variant">SHA-256</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">7 independent Murmur3 salted hashes mapping to vector m=2²⁰.</p>
+</div>
+<!-- Arrow 2 -->
+<div class="hidden md:flex md:col-span-1 justify-center">
+<span class="material-symbols-outlined text-primary text-xl animate-pulse">arrow_forward</span>
+</div>
+<!-- Step 3: Bit Vector Lookup & Branching -->
+<div class="md:col-span-3 p-space-sm rounded-lg bg-surface-container flex flex-col space-y-space-2xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-mono font-semibold">Stage 03: Decision Gate</span>
+<span class="material-symbols-outlined text-tertiary text-sm">verified_user</span>
+</div>
+<div class="flex items-center justify-between gap-space-2xs">
+<div class="flex-1 px-space-xs py-space-2xs rounded bg-surface-container-high flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">ALL 1s</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Drop Dup</span>
+</div>
+<div class="flex-1 px-space-xs py-space-2xs rounded bg-surface-container-high flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm text-primary font-bold">ANY 0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Commit Parquet</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero I/O disk latency; executed in sub-microsecond driver tick.</p>
+</div>
+</div>
+<!-- Saturation Gauge & Metric Breakdown Strip -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center bg-surface-container/60 p-space-md rounded-xl">
+<!-- Saturation Progress -->
+<div class="md:col-span-5 flex flex-col space-y-space-2xs">
+<div class="flex justify-between items-baseline">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Bit Vector Saturation Level</span>
+<span class="font-label-md text-label-md font-mono font-bold text-primary">14.2% [148,897 / 1,048,576 bits]</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary via-secondary to-tertiary rounded-full" style="width: 14.2%"></div>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Re-hash threshold target: 50.0% bits saturation (~350,000 unique records per epoch window)</span>
+</div>
+<!-- Metric Counters -->
+<div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-space-xs border-t md:border-t-0 md:border-l border-surface-variant/40 pt-space-xs md:pt-0 md:pl-space-md font-mono text-center">
+<div>
+<span class="font-label-sm text-label-sm text-outline block">TOTAL CHECKED</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">403,912</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-tertiary block">ACCEPTED</span>
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary">402,070</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-error block">PURGED DUPS</span>
+<span class="font-headline-sm text-headline-sm font-bold text-error">1,842</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">MEMORY</span>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">128 KB</span>
+</div>
+</div>
+</div>
+<!-- Viva Academic Explainer Note -->
+<div class="p-space-sm rounded-lg bg-surface-container-high/40 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-xl shrink-0 mt-0.5">school</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Academic &amp; Viva Operational Summary</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+          The <span class="text-primary font-semibold">Bloom Filter</span> deduplication layer discards redundant IoT sensor heartbeats caused by multi-hop mesh re-transmissions. By employing an array of <span class="font-mono text-secondary">m = 1,048,576 bits (128 KB)</span> and <span class="font-mono text-secondary">k = 7 hash functions</span>, it provides instantaneous <span class="font-mono text-on-surface font-semibold">O(k)</span> verification with <span class="text-tertiary font-semibold">0% False Negatives</span> (critical events are never accidentally dropped) and a rigorously bounded <span class="font-mono text-on-surface font-semibold">&lt;0.08% False Positive</span> probability, preserving downstream Bronze Parquet storage and Spark state storage.
+        </p>
+</div>
+</div>
+</div>
+<!-- LIVE EVENT STREAM FILTER & SEARCH TOOLBELT -->
+<div class="w-full flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<!-- Search Bar -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="w-full pl-10 pr-space-md py-space-xs rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary transition-all" id="table-search" placeholder="Search by Vehicle Reg (MH-01-...) or Event UUID..." type="text"/>
+</div>
+<!-- Zone Dropdown Multi-Filter -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="relative">
+<select class="appearance-none bg-surface-container text-on-surface font-body-sm text-body-sm px-space-md py-space-xs pr-8 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="all">All 20 MMR Zones</option>
+<option value="z003">Z003 - Lower Parel Commercial</option>
+<option value="z005">Z005 - BKC Financial G-Block</option>
+<option value="z001">Z001 - Colaba Gateway Pier</option>
+<option value="z011">Z011 - Andheri West Lokhandwala</option>
+<option value="z008">Z008 - Powai Tech Park</option>
+<option value="z014">Z014 - Dadar West Flower Market</option>
+<option value="z017">Z017 - Thane Majiwada Hub</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">expand_more</span>
+</div>
+<!-- Event Type Tabs -->
+<div class="flex items-center bg-surface-container rounded-lg p-space-3xs text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-highest text-on-surface font-semibold shadow-sm">All (403k)</button>
+<button class="px-space-xs py-space-3xs rounded hover:text-on-surface transition-colors flex items-center gap-space-3xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> ENTRY (214k)
+        </button>
+<button class="px-space-xs py-space-3xs rounded hover:text-on-surface transition-colors flex items-center gap-space-3xs">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> EXIT (188k)
+        </button>
+<button class="px-space-xs py-space-3xs rounded hover:text-on-surface transition-colors flex items-center gap-space-3xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span> Filter Drops (1.8k)
+        </button>
+</div>
+<!-- Pipeline Stage Filter -->
+<div class="relative">
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm" type="button">
+<span class="material-symbols-outlined text-outline text-base">tune</span>
+<span>Status: Verified</span>
+<span class="material-symbols-outlined text-outline text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- MODERN LIVE EVENT STREAMING TABLE -->
+<div class="w-full rounded-xl bg-surface-container-low shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-lowest/80 text-outline uppercase font-label-sm text-label-sm font-semibold tracking-wider border-b border-surface-variant/30">
+<th class="py-space-sm px-space-md">Event UUID</th>
+<th class="py-space-sm px-space-md">Timestamp (IST)</th>
+<th class="py-space-sm px-space-md">Zone ID &amp; Facility</th>
+<th class="py-space-sm px-space-md">Vehicle Registration</th>
+<th class="py-space-sm px-space-md">Event</th>
+<th class="py-space-sm px-space-md">Zone Occupancy</th>
+<th class="py-space-sm px-space-md">Sensor &amp; Telemetry</th>
+<th class="py-space-sm px-space-md">Pipeline Status</th>
+<th class="py-space-sm px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/20" id="stream-table-body">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-md font-mono text-primary flex items-center gap-space-2xs">
+<span>ev_7f8a9140</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-outline hover:text-on-surface" title="Copy UUID" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</td>
+<td class="py-space-sm px-space-md font-mono text-on-surface-variant">17:42:09.184</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-secondary font-semibold">Z003</span>
+<span class="font-medium text-on-surface">Lower Parel Tech Park</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono font-semibold text-on-surface">MH-01-DE-4412</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-tertiary/15 text-tertiary">ENTRY</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col space-y-space-3xs w-28">
+<div class="flex justify-between font-mono font-label-sm text-label-sm">
+<span class="text-on-surface">223/250</span>
+<span class="text-error font-semibold">89%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 89%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono text-xs">
+<span class="flex items-center gap-0.5" title="Ultrasonic Node"><span class="material-symbols-outlined text-xs text-primary">sensors</span>#14</span>
+<span class="flex items-center gap-0.5" title="Ambient Temp"><span class="material-symbols-outlined text-xs text-outline">thermostat</span>31°C</span>
+<span class="text-secondary" title="Precipitation">Rain: 0mm</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container/20 text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span> Bronze Committed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-md font-mono text-primary flex items-center gap-space-2xs">
+<span>ev_8b21c099</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-outline hover:text-on-surface" title="Copy UUID" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</td>
+<td class="py-space-sm px-space-md font-mono text-on-surface-variant">17:42:08.992</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-secondary font-semibold">Z005</span>
+<span class="font-medium text-on-surface">BKC Financial G-Block</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono font-semibold text-on-surface">MH-02-CP-8902</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-error/15 text-error">EXIT</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col space-y-space-3xs w-28">
+<div class="flex justify-between font-mono font-label-sm text-label-sm">
+<span class="text-on-surface">312/400</span>
+<span class="text-primary font-semibold">78%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono text-xs">
+<span class="flex items-center gap-0.5" title="Ultrasonic Node"><span class="material-symbols-outlined text-xs text-primary">sensors</span>#08</span>
+<span class="flex items-center gap-0.5" title="Ambient Temp"><span class="material-symbols-outlined text-xs text-outline">thermostat</span>30°C</span>
+<span class="text-secondary" title="Precipitation">Rain: 0mm</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container/20 text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span> Bronze Committed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Deduplicated Dropped Row -->
+<tr class="hover:bg-surface-container/60 transition-colors group bg-surface-container-highest/20">
+<td class="py-space-sm px-space-md font-mono text-outline flex items-center gap-space-2xs">
+<span class="line-through">ev_7f8a9140</span>
+<span class="font-label-sm text-label-sm text-error bg-error/10 px-1 rounded">DUP</span>
+</td>
+<td class="py-space-sm px-space-md font-mono text-outline">17:42:08.841</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-outline font-semibold">Z003</span>
+<span class="font-medium text-outline line-through">Lower Parel Tech Park</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono text-outline line-through">MH-01-DE-4412</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-surface-variant text-outline">ENTRY (DUP)</span>
+</td>
+<td class="py-space-sm px-space-md text-outline font-mono text-xs">
+<span>Skipped Occupancy</span>
+</td>
+<td class="py-space-sm px-space-md text-outline">
+<span class="font-mono text-xs">Node #14 (Re-tx)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-error/15 text-error font-medium">
+<span class="material-symbols-outlined text-xs">block</span> Bloom Filter Purged
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-md font-mono text-primary flex items-center gap-space-2xs">
+<span>ev_5a10ef23</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-outline hover:text-on-surface" title="Copy UUID" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</td>
+<td class="py-space-sm px-space-md font-mono text-on-surface-variant">17:42:08.520</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-secondary font-semibold">Z001</span>
+<span class="font-medium text-on-surface">Colaba Pier Marine Bay</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono font-semibold text-on-surface">MH-01-AB-1904</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-tertiary/15 text-tertiary">ENTRY</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col space-y-space-3xs w-28">
+<div class="flex justify-between font-mono font-label-sm text-label-sm">
+<span class="text-on-surface">118/180</span>
+<span class="text-tertiary font-semibold">65%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono text-xs">
+<span class="flex items-center gap-0.5" title="Ultrasonic Node"><span class="material-symbols-outlined text-xs text-primary">sensors</span>#03</span>
+<span class="flex items-center gap-0.5" title="Ambient Temp"><span class="material-symbols-outlined text-xs text-outline">thermostat</span>29°C</span>
+<span class="text-secondary" title="Precipitation">Rain: 0mm</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container/20 text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span> Bronze Committed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-md font-mono text-primary flex items-center gap-space-2xs">
+<span>ev_3d98aa77</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-outline hover:text-on-surface" title="Copy UUID" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</td>
+<td class="py-space-sm px-space-md font-mono text-on-surface-variant">17:42:08.115</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-secondary font-semibold">Z011</span>
+<span class="font-medium text-on-surface">Andheri West Lokhandwala</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono font-semibold text-on-surface">MH-02-EE-3298</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-error/15 text-error">EXIT</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col space-y-space-3xs w-28">
+<div class="flex justify-between font-mono font-label-sm text-label-sm">
+<span class="text-on-surface">288/300</span>
+<span class="text-error font-semibold">96%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 96%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono text-xs">
+<span class="flex items-center gap-0.5" title="Ultrasonic Node"><span class="material-symbols-outlined text-xs text-primary">sensors</span>#22</span>
+<span class="flex items-center gap-0.5" title="Ambient Temp"><span class="material-symbols-outlined text-xs text-outline">thermostat</span>32°C</span>
+<span class="text-secondary" title="Precipitation">Rain: 0mm</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container/20 text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span> Bronze Committed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-md font-mono text-primary flex items-center gap-space-2xs">
+<span>ev_44cf1902</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-outline hover:text-on-surface" title="Copy UUID" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</td>
+<td class="py-space-sm px-space-md font-mono text-on-surface-variant">17:42:07.892</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-secondary font-semibold">Z008</span>
+<span class="font-medium text-on-surface">Powai Hiranandani Tech</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono font-semibold text-on-surface">MH-03-TC-5011</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-tertiary/15 text-tertiary">ENTRY</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col space-y-space-3xs w-28">
+<div class="flex justify-between font-mono font-label-sm text-label-sm">
+<span class="text-on-surface">190/350</span>
+<span class="text-tertiary font-semibold">54%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 54%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono text-xs">
+<span class="flex items-center gap-0.5" title="Ultrasonic Node"><span class="material-symbols-outlined text-xs text-primary">sensors</span>#19</span>
+<span class="flex items-center gap-0.5" title="Ambient Temp"><span class="material-symbols-outlined text-xs text-outline">thermostat</span>30°C</span>
+<span class="text-secondary" title="Precipitation">Rain: 0mm</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container/20 text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span> Bronze Committed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-md font-mono text-primary flex items-center gap-space-2xs">
+<span>ev_19ba4899</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-outline hover:text-on-surface" title="Copy UUID" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</td>
+<td class="py-space-sm px-space-md font-mono text-on-surface-variant">17:42:07.410</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-secondary font-semibold">Z014</span>
+<span class="font-medium text-on-surface">Dadar Flower Market Central</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono font-semibold text-on-surface">MH-01-BK-7721</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-error/15 text-error">EXIT</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col space-y-space-3xs w-28">
+<div class="flex justify-between font-mono font-label-sm text-label-sm">
+<span class="text-on-surface">142/150</span>
+<span class="text-error font-semibold">95%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 95%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono text-xs">
+<span class="flex items-center gap-0.5" title="Ultrasonic Node"><span class="material-symbols-outlined text-xs text-primary">sensors</span>#04</span>
+<span class="flex items-center gap-0.5" title="Ambient Temp"><span class="material-symbols-outlined text-xs text-outline">thermostat</span>31°C</span>
+<span class="text-secondary" title="Precipitation">Rain: 0mm</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container/20 text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span> Bronze Committed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-md font-mono text-primary flex items-center gap-space-2xs">
+<span>ev_63e0021b</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-outline hover:text-on-surface" title="Copy UUID" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+</button>
+</td>
+<td class="py-space-sm px-space-md font-mono text-on-surface-variant">17:42:07.012</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-sm text-label-sm font-mono px-space-2xs py-space-3xs rounded bg-surface-container text-secondary font-semibold">Z017</span>
+<span class="font-medium text-on-surface">Thane Majiwada Junction</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-mono font-semibold text-on-surface">MH-04-AX-9910</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm font-bold bg-tertiary/15 text-tertiary">ENTRY</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col space-y-space-3xs w-28">
+<div class="flex justify-between font-mono font-label-sm text-label-sm">
+<span class="text-on-surface">210/280</span>
+<span class="text-primary font-semibold">75%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono text-xs">
+<span class="flex items-center gap-0.5" title="Ultrasonic Node"><span class="material-symbols-outlined text-xs text-primary">sensors</span>#11</span>
+<span class="flex items-center gap-0.5" title="Ambient Temp"><span class="material-symbols-outlined text-xs text-outline">thermostat</span>31°C</span>
+<span class="text-secondary" title="Precipitation">Rain: 0mm</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-space-3xs px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container/20 text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span> Bronze Committed
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="p-space-3xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Buffer Stats Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm px-space-md py-space-sm bg-surface-container-lowest/90 border-t border-surface-variant/30 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-mono text-xs">Ingesting chunk #12,892 • 403,912 frames held in ring buffer</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container text-outline hover:text-on-surface font-mono text-xs">&lt; Prev 50</button>
+<span class="font-mono text-xs text-on-surface">Page 1 of 8,078</span>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-mono text-xs">Next 50 &gt;</button>
+</div>
+</div>
+</div>
+<!-- KAFKA PARTITIONS & SPARK BATCH MINI-CHART PANEL -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left: 12 Kafka Partitions Health & Consumer Lag -->
+<div class="lg:col-span-6 p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">view_column</span>
+<div>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Kafka Partition Lag Distribution</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Partition 00 through 11 • Consumer Group: spark-telemetry-engine</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-tertiary bg-tertiary/10 px-space-2xs py-space-3xs rounded font-bold">ALL HEALTHY</span>
+</div>
+<!-- 12 Partition Micro-Grid -->
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-space-xs pt-space-xs font-mono">
+<!-- P00 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-00</span>
+<span class="text-tertiary">0.6ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 25%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">29.1k ev/s</span>
+</div>
+<!-- P01 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-01</span>
+<span class="text-tertiary">0.8ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 32%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">31.4k ev/s</span>
+</div>
+<!-- P02 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-02</span>
+<span class="text-primary">1.1ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 44%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">34.8k ev/s</span>
+</div>
+<!-- P03 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-03</span>
+<span class="text-tertiary">0.5ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 20%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">28.0k ev/s</span>
+</div>
+<!-- P04 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-04</span>
+<span class="text-tertiary">0.7ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 28%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">30.2k ev/s</span>
+</div>
+<!-- P05 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-05</span>
+<span class="text-secondary">0.9ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 36%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">32.6k ev/s</span>
+</div>
+<!-- P06 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-06</span>
+<span class="text-tertiary">0.6ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 24%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">29.8k ev/s</span>
+</div>
+<!-- P07 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-07</span>
+<span class="text-primary">1.2ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 48%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">36.1k ev/s</span>
+</div>
+<!-- P08 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-08</span>
+<span class="text-tertiary">0.7ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 29%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">30.9k ev/s</span>
+</div>
+<!-- P09 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-09</span>
+<span class="text-tertiary">0.8ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 32%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">31.7k ev/s</span>
+</div>
+<!-- P10 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-10</span>
+<span class="text-tertiary">0.5ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 22%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">27.9k ev/s</span>
+</div>
+<!-- P11 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col space-y-space-3xs">
+<div class="flex justify-between text-outline text-label-sm">
+<span>P-11</span>
+<span class="text-tertiary">0.7ms</span>
+</div>
+<div class="w-full h-1 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 28%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate">29.5k ev/s</span>
+</div>
+</div>
+</div>
+<!-- Right: Spark Micro-Batch Execution Time Mini-Chart -->
+<div class="lg:col-span-6 p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-xl">query_stats</span>
+<div>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">PySpark Micro-Batch Execution (Last 60s)</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Target Trigger ProcessingTime = 1.00s • Max jitter = 0.08s</span>
+</div>
+</div>
+<div class="flex items-center gap-space-3xs font-mono font-label-sm text-label-sm text-primary">
+<span>Avg: 1.02s</span>
+</div>
+</div>
+<!-- Inline SVG Sparkline Micro-Chart -->
+<div class="w-full h-24 relative flex items-end">
+<svg class="w-full h-full text-secondary" fill="none" preserveaspectratio="none" viewbox="0 0 600 100">
+<defs>
+<lineargradient id="sparkGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="currentColor" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Safe Target 1.0s Line -->
+<line stroke="#3d494c" stroke-dasharray="4,4" stroke-width="1" x1="0" x2="600" y1="50" y2="50"></line>
+<!-- Sparkline Path -->
+<path d="M 0,55 Q 30,48 60,52 T 120,49 T 180,51 T 240,46 T 300,54 T 360,50 T 420,48 T 480,53 T 540,49 T 600,51 L 600,100 L 0,100 Z" fill="url(#sparkGradient)"></path>
+<path d="M 0,55 Q 30,48 60,52 T 120,49 T 180,51 T 240,46 T 300,54 T 360,50 T 420,48 T 480,53 T 540,49 T 600,51" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+<!-- Footer Labels -->
+<div class="flex items-center justify-between text-on-surface-variant font-mono text-label-sm pt-space-xs border-t border-surface-variant/30">
+<span>-60s</span>
+<span>-45s</span>
+<span>-30s</span>
+<span>-15s</span>
+<span class="text-tertiary">Current [T=0]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Micro-Behaviors -->
+<script>
+  (function() {
+    // Live Stream Pause / Resume Interactive Toggle
+    const streamToggleBtn = document.getElementById('stream-toggle');
+    const streamToggleIcon = document.getElementById('stream-toggle-icon');
+    const streamToggleText = document.getElementById('stream-toggle-text');
+    let isStreaming = true;
+
+    if (streamToggleBtn) {
+      streamToggleBtn.addEventListener('click', function() {
+        isStreaming = !isStreaming;
+        if (isStreaming) {
+          streamToggleIcon.textContent = 'pause';
+          streamToggleText.textContent = 'Live Ingestion';
+          streamToggleBtn.classList.remove('bg-surface-variant', 'text-on-surface');
+          streamToggleBtn.classList.add('bg-primary', 'text-on-primary');
+        } else {
+          streamToggleIcon.textContent = 'play_arrow';
+          streamToggleText.textContent = 'Stream Paused';
+          streamToggleBtn.classList.remove('bg-primary', 'text-on-primary');
+          streamToggleBtn.classList.add('bg-surface-variant', 'text-on-surface');
+        }
+      });
+    }
+
+    // Interactive Search Filtering
+    const searchInput = document.getElementById('table-search');
+    const tableBody = document.getElementById('stream-table-body');
+
+    if (searchInput && tableBody) {
+      searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        const rows = tableBody.querySelectorAll('tr');
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          if (text.includes(query)) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    }
+  })();
+</script></main></div></body></html>

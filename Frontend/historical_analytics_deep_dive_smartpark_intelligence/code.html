@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface-variant": "#bcc9cd",
+          "inverse-primary": "#00687a",
+          "secondary-fixed-dim": "#4fdbc8",
+          "surface-container-highest": "#2d3448",
+          "surface": "#0b1325",
+          "surface-variant": "#2d3448",
+          "primary": "#4cd7f6",
+          "on-tertiary-fixed": "#002113",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-container-lowest": "#060e1f",
+          "error": "#ffb4ab",
+          "on-secondary-fixed": "#00201c",
+          "on-secondary-container": "#003f38",
+          "inverse-on-surface": "#283043",
+          "error-container": "#93000a",
+          "primary-fixed-dim": "#4cd7f6",
+          "on-primary-container": "#00424f",
+          "primary-container": "#06b6d4",
+          "on-surface": "#dbe2fb",
+          "on-secondary-fixed-variant": "#005048",
+          "on-tertiary": "#003824",
+          "inverse-surface": "#dbe2fb",
+          "surface-bright": "#31394d",
+          "primary-fixed": "#acedff",
+          "surface-container-high": "#222a3d",
+          "on-primary-fixed": "#001f26",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#04b4a2",
+          "surface-dim": "#0b1325",
+          "outline-variant": "#3d494c",
+          "on-tertiary-container": "#00452e",
+          "background": "#0b1325",
+          "on-secondary": "#003731",
+          "on-error": "#690005",
+          "outline": "#869397",
+          "on-background": "#dbe2fb",
+          "tertiary-fixed-dim": "#4edea3",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-tint": "#4cd7f6",
+          "surface-container": "#171f32",
+          "surface-container-low": "#131b2d",
+          "tertiary": "#4edea3",
+          "on-primary-fixed-variant": "#004e5c",
+          "secondary-fixed": "#71f8e4",
+          "secondary": "#4fdbc8",
+          "tertiary-container": "#1bbd85",
+          "on-primary": "#003640"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.75rem",
+          "space-xs": "0.5rem",
+          "gutter-desktop": "1.5rem",
+          "space-md": "1rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-3xs": "0.125rem",
+          "space-xl": "2rem",
+          "space-2xs": "0.25rem",
+          "space-3xl": "4rem",
+          "margin-tablet": "1.5rem",
+          "margin-desktop": "2rem",
+          "space-2xl": "3rem"
+        },
+        "fontFamily": {
+          "display-lg": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "metric-xl": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ],
+          "headline-sm": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Inter"
+          ],
+          "metric-lg": [
+            "JetBrains Mono"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "display-lg": [
+            "3rem",
+            {
+              "lineHeight": "3.5rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "1.25rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-xl": [
+            "2.25rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.375rem",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.125rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "0.6875rem",
+            {
+              "lineHeight": "0.875rem",
+              "letterSpacing": "0.06em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.5rem",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/95 backdrop-blur-xl z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest/60"><div class="flex items-center gap-space-xs min-w-0"><img alt="SmartPark Intelligence Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYn3gRRWfeGs2tlUqsrZrOw145x2dtvj2KAOXcHbaGOx5tf0U1wbu6da9SufrUfGgoD_nc1qgKpTTIVmq7qWqeRNxwTjdwkEbJ8JWPcVhlbY6ta2eHelhTFEOopcT-fysllRfnMRyoO3RuI68yA2Q4RGG9E8Ob412oT7tpxBYpKrzHg12SDwK8jnnn4fEhd03BIBB5V2xTgZFZ-9EUrq9v6CZPEjG3DlVo5loloyJtPqGcKDAFTxV"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight truncate">SmartPark</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Intelligence</span></div></div><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-primary-fixed-dim font-medium tracking-wide border-0">v4.2-SPARK</span></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Mission Telemetry</span></div><nav class="flex-1 px-space-xs space-y-space-3xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]"><a aria-current="page" class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]" data-path="overview" href="#"><span class="material-symbols-outlined text-primary text-xl">dashboard</span><span class="font-body-md text-body-md tracking-tight flex-1">Overview</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="live-monitoring" href="#"><span class="material-symbols-outlined text-tertiary text-xl">sensors</span><span class="font-body-md text-body-md tracking-tight flex-1">Live Monitoring</span><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parking-map" href="#"><span class="material-symbols-outlined text-secondary text-xl">map</span><span class="font-body-md text-body-md tracking-tight flex-1">Parking Map</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="historical-analytics" href="#"><span class="material-symbols-outlined text-primary text-xl">monitoring</span><span class="font-body-md text-body-md tracking-tight flex-1">Historical Analytics</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="demand-prediction" href="#"><span class="material-symbols-outlined text-primary text-xl">neurology</span><span class="font-body-md text-body-md tracking-tight flex-1">Demand Prediction</span><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-tertiary font-semibold">AI</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="big-data-pipeline" href="#"><span class="material-symbols-outlined text-secondary text-xl">alt_route</span><span class="font-body-md text-body-md tracking-tight flex-1">Big Data Pipeline</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-explorer" href="#"><span class="material-symbols-outlined text-primary text-xl">database</span><span class="font-body-md text-body-md tracking-tight flex-1">Data Explorer</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-health" href="#"><span class="material-symbols-outlined text-tertiary text-xl">dns</span><span class="font-body-md text-body-md tracking-tight flex-1">System Health</span></a></nav></div><div class="p-space-xs bg-surface-container-lowest/80"><div class="p-space-xs rounded-lg bg-surface-container-high/60 flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Stream Engine</span><div class="flex items-center gap-space-2xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-tertiary font-medium">OK</span></div></div><div class="flex items-center gap-space-2xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">stream</span><span class="font-label-sm text-label-sm font-medium tracking-tight truncate">PySpark + Kafka • Active</span></div></div><div class="mt-space-xs flex items-center justify-between px-space-2xs py-space-3xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="font-label-sm text-label-sm">Collapse Dock</span><span class="material-symbols-outlined text-base">chevron_left</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Mumbai Metropolitan Region</span><span class="material-symbols-outlined text-outline text-base">chevron_right</span><span class="font-body-md text-body-md text-on-surface-variant font-medium">Executive Overview</span></div><div class="flex items-center gap-space-xs"><div class="relative hidden lg:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">location_city</span><span class="font-body-sm text-body-sm font-medium">All 20 Zones (Mumbai MMR)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="relative hidden xl:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">calendar_today</span><span class="font-body-sm text-body-sm font-medium">Live Window (Last 24 Hours)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm font-bold text-tertiary tracking-wide uppercase">LIVE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">403k ev/s</span></div><div class="hidden sm:flex items-center gap-space-2xs px-space-xs py-space-3xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-outline">sync</span><span class="font-label-sm text-label-sm font-mono">17:42:09 IST</span></div><button aria-label="Alerts" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBixsjrcwUYqit6t6xuYiw2Jz3-CdTUIRpwiggW1SGKjZnnu-z4T64dtvU2hbYdYUiW6rWBAiO7J5MpZkvyiIS5-4F204KwWDHkOWmxzmLfXg8IVOswBDWLiN3qd7W7cpV_0jPh-rHHvXtu9kMl_w2AJFN1KVHQ0ILLRikV2qYq58xB9MW5Zpf7sVtC4HK8qI5U21R-Q8stcDZyNs6PD55Aa0Hf46NgOU_eWCMq8sCbaZH_xFPIfhM"/><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Aanya Sharma</span><span class="font-label-sm text-label-sm text-outline font-medium">Lead Data Engineer</span></div><span class="material-symbols-outlined text-outline text-sm hidden md:block">expand_more</span></div></div></header><main class="w-full pt-16 px-space-lg pb-space-xl bg-background min-h-screen"><div class="flex flex-col w-full space-y-space-lg">
+<!-- Top Header Controls & Filter Deck -->
+<div class="flex flex-col gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs mb-space-3xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Parquet Delta Lakehouse • Tier-2 Telemetry</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-outline font-mono">OLAP Engine: Apache Spark 3.5.1</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight">Historical Analytics &amp; Multi-Zone Deep Dive</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-3xs">Aggregated Parquet lakehouse telemetry across 20 Mumbai municipal zones (30-day baseline partition)</p>
+</div>
+<!-- Lakehouse Sync & Automated Reports -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors shadow-sm text-body-sm font-medium" id="syncPartitionBtn">
+<span class="material-symbols-outlined text-primary text-base">cloud_sync</span>
+<span>Sync Lakehouse Partition</span>
+</button>
+<div class="relative inline-block text-left" id="exportDropdownWrapper">
+<button class="flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container font-semibold hover:bg-secondary-container transition-all shadow-[0_0_16px_rgba(6,182,212,0.25)] text-body-sm active:scale-95" id="exportDropdownBtn">
+<span class="material-symbols-outlined text-base">ios_share</span>
+<span>Automated Report Exporter</span>
+<span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+</button>
+<!-- Export Dropdown Options -->
+<div class="hidden absolute right-0 mt-space-2xs w-64 rounded-xl bg-surface-container-high shadow-2xl p-space-2xs z-30 flex flex-col gap-space-3xs" id="exportMenu">
+<button class="flex items-center gap-space-xs px-space-sm py-space-2xs rounded-lg text-left text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-error text-base">picture_as_pdf</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">Executive PDF Briefing</span>
+<span class="font-label-sm text-label-sm text-outline">High-res charts &amp; heatmaps</span>
+</div>
+</button>
+<button class="flex items-center gap-space-xs px-space-sm py-space-2xs rounded-lg text-left text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-tertiary text-base">data_table</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">Tidy CSV Rollup (5-min)</span>
+<span class="font-label-sm text-label-sm text-outline">Flat tabular aggregates</span>
+</div>
+</button>
+<button class="flex items-center gap-space-xs px-space-sm py-space-2xs rounded-lg text-left text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-secondary text-base">grain</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">Snappy Parquet Dataset</span>
+<span class="font-label-sm text-label-sm text-outline">Compressed Silver tier slices</span>
+</div>
+</button>
+<button class="flex items-center gap-space-xs px-space-sm py-space-2xs rounded-lg text-left text-on-surface hover:bg-surface-container-highest transition-colors bg-surface-container-highest/60">
+<span class="material-symbols-outlined text-primary text-base">school</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-primary">LaTeX Viva Brief Document</span>
+<span class="font-label-sm text-label-sm text-outline">Academic evaluation package</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Parameter Filter Matrix -->
+<div class="pt-space-sm flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Date Range & Preset Selector -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-lg bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">date_range</span>
+<span class="font-body-sm text-body-sm font-semibold">Oct 01, 2024 – Oct 31, 2024</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">(Last 30 Days)</span>
+</div>
+<div class="flex items-center p-space-3xs bg-surface-container rounded-lg">
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors">7D</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors">14D</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold shadow-sm">30D</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors">Quarter</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors">Custom</button>
+</div>
+<!-- Granularity -->
+<div class="flex items-center bg-surface-container rounded-lg px-space-xs py-space-3xs">
+<span class="font-label-sm text-label-sm text-outline mr-space-2xs">Resolution:</span>
+<select class="bg-transparent text-on-surface font-label-sm text-label-sm focus:outline-none cursor-pointer">
+<option class="bg-surface-container-high text-on-surface" selected="" value="hourly">Hourly (5-min Parquet rollups)</option>
+<option class="bg-surface-container-high text-on-surface" value="daily">Daily Summary Mean</option>
+<option class="bg-surface-container-high text-on-surface" value="weekly">Weekly Aggregate Trend</option>
+</select>
+</div>
+</div>
+<!-- Metric Dimension Switcher -->
+<div class="flex items-center gap-space-3xs p-space-3xs rounded-lg bg-surface-container self-start lg:self-auto overflow-x-auto">
+<button class="px-space-sm py-space-3xs rounded-md bg-surface-container-high text-primary font-body-sm text-body-sm font-semibold shadow-sm whitespace-nowrap">Occupancy %</button>
+<button class="px-space-sm py-space-3xs rounded-md text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors">Inflow/Outflow Vol</button>
+<button class="px-space-sm py-space-3xs rounded-md text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors">Turnover Rate</button>
+<button class="px-space-sm py-space-3xs rounded-md text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors">Revenue (₹ Lakhs)</button>
+</div>
+</div>
+<!-- Active Multi-Zone Comparator Badges -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Active Comp Clust:</span>
+<div class="flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-primary/10 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm font-bold font-mono">Z003</span>
+<span class="font-body-sm text-body-sm font-medium">Lower Parel (South MMR)</span>
+<button class="hover:text-on-surface transition-colors ml-space-3xs"><span class="material-symbols-outlined text-xs">close</span></button>
+</div>
+<div class="flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-tertiary/10 text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm font-bold font-mono">Z005</span>
+<span class="font-body-sm text-body-sm font-medium">BKC Commercial CBD</span>
+<button class="hover:text-on-surface transition-colors ml-space-3xs"><span class="material-symbols-outlined text-xs">close</span></button>
+</div>
+<div class="flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-secondary-container/20 text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-bold font-mono">Z011</span>
+<span class="font-body-sm text-body-sm font-medium">Andheri Transit West</span>
+<button class="hover:text-on-surface transition-colors ml-space-3xs"><span class="material-symbols-outlined text-xs">close</span></button>
+</div>
+<div class="flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-surface-container-highest text-primary-fixed">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-label-sm text-label-sm font-bold font-mono">Z001</span>
+<span class="font-body-sm text-body-sm font-medium">Colaba Heritage Core</span>
+<button class="hover:text-on-surface transition-colors ml-space-3xs"><span class="material-symbols-outlined text-xs">close</span></button>
+</div>
+<button class="flex items-center gap-space-3xs px-space-sm py-space-3xs rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Compare Zone</span>
+</button>
+</div>
+</div>
+<!-- Summary Metrics Ribbon (Historical aggregates across 30 days) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-space-md">
+<!-- Metric 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Total Bronze Sinks</span>
+<span class="material-symbols-outlined text-primary text-xl">dataset</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface">12.4M</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">+18.2%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Events (Snappy Parquet partitioned)</span>
+</div>
+<div class="flex items-center gap-space-2xs text-outline font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Kafka ingress buffer zero-loss</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Mean MMR Occupancy</span>
+<span class="material-symbols-outlined text-tertiary text-xl">speed</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface">54.8%</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Nominal</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Peak: 92.4% (Diwali Weekend)</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 54.8%"></div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Average Dwell Time</span>
+<span class="material-symbols-outlined text-secondary text-xl">timelapse</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-on-surface">82.4</span>
+<span class="font-body-md text-body-md text-outline">mins</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">σ = 28.1 min (Log-Normal Fit)</span>
+</div>
+<div class="flex items-center gap-space-2xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs text-primary">functions</span>
+<span class="font-mono">μ_log = 4.31, s = 0.42</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Peak Congestion Slot</span>
+<span class="material-symbols-outlined text-error text-xl">emergency_home</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface font-mono">17:30–19:45</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Weekdays (BKC &amp; Lower Parel)</span>
+</div>
+<div class="flex items-center gap-space-2xs text-error font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+<span>91.2% Saturation Threshold</span>
+</div>
+</div>
+<!-- Metric 5 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Precipitation Elasticity</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-xl">rainy</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-xl text-metric-xl font-bold text-error font-mono">-14.2%</span>
+<span class="font-label-sm text-label-sm text-outline">curbside</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">During rain (&gt;25 mm/h downpours)</span>
+</div>
+<div class="flex items-center gap-space-2xs text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+<span>+18.4% Covered Garages</span>
+</div>
+</div>
+</div>
+<!-- Main Chart Section: Multi-Zone Comparative Occupancy Over Time -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-2xs">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Multi-Zone Comparative Occupancy Timeline</h2>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded bg-surface-container-highest text-primary font-mono font-medium">30-Day Time Horizon</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Comparative diurnal occupancy fluctuations tracking critical capacity (85%) &amp; nominal threshold (60%)</p>
+</div>
+<!-- Legend -->
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container px-space-md py-space-2xs rounded-lg">
+<div class="flex items-center gap-space-3xs font-label-sm text-label-sm">
+<span class="w-3 h-1 bg-primary rounded-full"></span>
+<span class="text-on-surface font-semibold">Z003 Lower Parel</span>
+</div>
+<div class="flex items-center gap-space-3xs font-label-sm text-label-sm">
+<span class="w-3 h-1 bg-tertiary rounded-full"></span>
+<span class="text-on-surface font-semibold">Z005 BKC</span>
+</div>
+<div class="flex items-center gap-space-3xs font-label-sm text-label-sm">
+<span class="w-3 h-1 bg-secondary rounded-full"></span>
+<span class="text-on-surface font-semibold">Z011 Andheri</span>
+</div>
+<div class="flex items-center gap-space-3xs font-label-sm text-label-sm">
+<span class="w-3 h-1 bg-primary-fixed rounded-full"></span>
+<span class="text-on-surface font-semibold">Z001 Colaba</span>
+</div>
+</div>
+</div>
+<!-- SVG Multi-Zone Chart Graphic -->
+<div class="relative w-full h-80 bg-surface-container-lowest/60 rounded-xl p-space-md overflow-hidden flex flex-col justify-between">
+<!-- Threshold Line Markers -->
+<div class="absolute inset-x-space-md top-[15%] flex items-center gap-space-xs pointer-events-none">
+<span class="font-label-sm text-label-sm text-error font-mono font-bold bg-error-container/40 px-space-3xs rounded">85% CRITICAL LIMIT</span>
+<div class="flex-1 border-b border-dashed border-error/40 h-px"></div>
+</div>
+<div class="absolute inset-x-space-md top-[40%] flex items-center gap-space-xs pointer-events-none">
+<span class="font-label-sm text-label-sm text-tertiary font-mono font-medium bg-tertiary/10 px-space-3xs rounded">60% OPTIMAL FILL</span>
+<div class="flex-1 border-b border-dashed border-tertiary/30 h-px"></div>
+</div>
+<!-- Vector SVG Rendering with Waveforms -->
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 1000 240">
+<defs>
+<lineargradient id="gradParel" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4cd7f6" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#4cd7f6" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="gradBKC" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4edea3" stop-opacity="0.20"></stop>
+<stop offset="100%" stop-color="#4edea3" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines Vertical -->
+<line stroke="#2d3448" stroke-opacity="0.5" stroke-width="0.75" x1="125" x2="125" y1="0" y2="240"></line>
+<line stroke="#2d3448" stroke-opacity="0.5" stroke-width="0.75" x1="250" x2="250" y1="0" y2="240"></line>
+<line stroke="#2d3448" stroke-opacity="0.5" stroke-width="0.75" x1="375" x2="375" y1="0" y2="240"></line>
+<line stroke="#2d3448" stroke-opacity="0.5" stroke-width="0.75" x1="500" x2="500" y1="0" y2="240"></line>
+<line stroke="#2d3448" stroke-opacity="0.5" stroke-width="0.75" x1="625" x2="625" y1="0" y2="240"></line>
+<line stroke="#2d3448" stroke-opacity="0.5" stroke-width="0.75" x1="750" x2="750" y1="0" y2="240"></line>
+<line stroke="#2d3448" stroke-opacity="0.5" stroke-width="0.75" x1="875" x2="875" y1="0" y2="240"></line>
+<!-- Area fills for Depth -->
+<path d="M0,180 C80,180 120,70 200,90 C280,110 320,40 400,60 C480,80 520,190 600,160 C680,130 720,30 800,45 C880,60 920,110 1000,100 L1000,240 L0,240 Z" fill="url(#gradParel)"></path>
+<path d="M0,200 C80,210 120,130 200,80 C280,30 320,150 400,170 C480,190 520,60 600,75 C680,90 720,120 800,140 C880,160 920,85 1000,70 L1000,240 L0,240 Z" fill="url(#gradBKC)"></path>
+<!-- Z003 Lower Parel (Cyan) -->
+<path d="M0,180 C80,180 120,70 200,90 C280,110 320,40 400,60 C480,80 520,190 600,160 C680,130 720,30 800,45 C880,60 920,110 1000,100" stroke="#4cd7f6" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Z005 BKC (Emerald) -->
+<path d="M0,200 C80,210 120,130 200,80 C280,30 320,150 400,170 C480,190 520,60 600,75 C680,90 720,120 800,140 C880,160 920,85 1000,70" stroke="#4edea3" stroke-linecap="round" stroke-width="2.2"></path>
+<!-- Z011 Andheri (Secondary Cyan-Teal) -->
+<path d="M0,150 C80,140 120,110 200,120 C280,130 320,100 400,115 C480,130 520,120 600,110 C680,100 720,90 800,95 C880,100 920,130 1000,140" stroke="#4fdbc8" stroke-dasharray="4 3" stroke-linecap="round" stroke-width="1.8"></path>
+<!-- Z001 Colaba (Primary Fixed Pale) -->
+<path d="M0,190 C80,185 120,160 200,170 C280,180 320,170 400,165 C480,160 520,175 600,180 C680,185 720,160 800,155 C880,150 920,165 1000,160" stroke="#acedff" stroke-linecap="round" stroke-width="1.5"></path>
+<!-- Interactive Crosshair Hover Marker (Oct 24, 18:00 IST) -->
+<g transform="translate(800, 0)">
+<line stroke="#4cd7f6" stroke-dasharray="2 2" stroke-width="1.5" x1="0" x2="0" y1="0" y2="240"></line>
+<!-- Lower Parel Marker Node -->
+<circle class="animate-pulse" cx="0" cy="45" fill="#4cd7f6" r="5"></circle>
+<!-- BKC Node -->
+<circle cx="0" cy="140" fill="#4edea3" r="4"></circle>
+</g>
+</svg>
+<!-- Hover Tooltip Box Anchored at Marker (Oct 24, 18:00 IST) -->
+<div class="absolute right-[12%] top-6 bg-surface-container-high/95 backdrop-blur-md p-space-sm rounded-xl shadow-2xl z-10 w-60 border-0">
+<div class="flex items-center justify-between pb-space-3xs border-b border-surface-container-highest/60 mb-space-2xs">
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold">Oct 24, 18:00 IST</span>
+<span class="font-label-sm text-label-sm text-outline">Diwali Eve</span>
+</div>
+<div class="space-y-space-3xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-primary font-medium">Z003 Lower Parel:</span>
+<span class="font-mono font-bold text-error">91.4% [Critical]</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-tertiary font-medium">Z005 BKC:</span>
+<span class="font-mono font-bold text-on-surface">58.2% [Optimal]</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary font-medium">Z011 Andheri:</span>
+<span class="font-mono font-bold text-on-surface">72.6% [Moderate]</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-primary-fixed font-medium">Z001 Colaba:</span>
+<span class="font-mono font-bold text-on-surface">49.8% [Low]</span>
+</div>
+</div>
+</div>
+<!-- X-Axis Timeline Labels -->
+<div class="flex justify-between items-center text-outline font-label-sm text-label-sm font-mono pt-space-xs">
+<span>Oct 01</span>
+<span>Oct 05</span>
+<span>Oct 10</span>
+<span>Oct 15 (Mid-Month)</span>
+<span>Oct 20</span>
+<span class="text-primary font-bold">Oct 24 (Diwali Eve)</span>
+<span>Oct 28</span>
+<span>Oct 31</span>
+</div>
+</div>
+<!-- Explanatory Caption Box for Non-Technical / Evaluator Stakeholders -->
+<div class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container">
+<span class="material-symbols-outlined text-primary text-xl mt-space-3xs">insights</span>
+<div class="flex-1">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Temporal Variance Analysis</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-3xs">
+          Silver Parquet aggregated 5-minute averages reveal distinct commercial peak patterns in <strong class="text-tertiary font-semibold">BKC (Z005)</strong> peaking predictably during office egress (17:00–18:30 IST weekdays), whereas <strong class="text-primary font-semibold">Lower Parel (Z003)</strong> sustains heavy weekend evening demand (up to 92.4% capacity) driven by dense retail, culinary, and nightlife clusters.
+        </p>
+</div>
+<div class="hidden lg:flex flex-col items-end shrink-0 font-label-sm text-label-sm font-mono text-outline">
+<span>Silver Lake Table: mmr_zone_hourly_agg</span>
+<span class="text-tertiary">Snappy Partition: date=2024-10</span>
+</div>
+</div>
+</div>
+<!-- Mid-Row Analytics Bento: Heatmap Matrix & Duration Distribution -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Day-of-Week vs. Hour-of-Day Congestion Heatmap Matrix (7 cols) -->
+<div class="lg:col-span-7 p-space-lg rounded-xl bg-surface-container-low shadow-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-2xs">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Congestion Heatmap Matrix</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Day-of-Week vs. Hour-of-Day MMR Metropolitan Aggregates</p>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-error-container/40 text-error font-mono font-bold">Peak: 93.8%</span>
+</div>
+<!-- Heatmap Grid Container -->
+<div class="mt-space-md overflow-x-auto">
+<div class="min-w-[540px]">
+<!-- Hour Labels (X-Axis) -->
+<div class="grid grid-cols-25 gap-1 text-center font-label-sm text-label-sm font-mono text-outline mb-space-2xs">
+<span class="w-8"></span>
+<span class="col-span-2">00</span>
+<span class="col-span-2">02</span>
+<span class="col-span-2">04</span>
+<span class="col-span-2">06</span>
+<span class="col-span-2">08</span>
+<span class="col-span-2 text-primary font-bold">10</span>
+<span class="col-span-2">12</span>
+<span class="col-span-2">14</span>
+<span class="col-span-2">16</span>
+<span class="col-span-2 text-error font-bold">18</span>
+<span class="col-span-2">20</span>
+<span class="col-span-2">22</span>
+</div>
+<!-- Heatmap Rows (Mon to Sun) -->
+<div class="space-y-1.5">
+<!-- Monday -->
+<div class="flex items-center gap-1">
+<span class="w-8 font-label-sm text-label-sm font-mono text-on-surface-variant">Mon</span>
+<div class="grid grid-cols-24 gap-1 flex-1 h-6">
+<div class="bg-surface-container-highest/40 rounded-xs" title="00:00 - 12%"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/60 rounded-xs"></div>
+<div class="bg-primary/30 rounded-xs"></div>
+<div class="bg-primary/50 rounded-xs"></div>
+<div class="bg-primary/80 rounded-xs" title="08:00 - 64%"></div>
+<div class="bg-error/70 rounded-xs" title="09:00 - 82%"></div>
+<div class="bg-error/85 rounded-xs" title="10:00 - 87%"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/50 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/75 rounded-xs"></div>
+<div class="bg-error/75 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs" title="17:00 - 89%"></div>
+<div class="bg-error/95 rounded-xs" title="18:00 - 91%"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/50 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="flex items-center gap-1">
+<span class="w-8 font-label-sm text-label-sm font-mono text-on-surface-variant">Tue</span>
+<div class="grid grid-cols-24 gap-1 flex-1 h-6">
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/50 rounded-xs"></div>
+<div class="bg-primary/30 rounded-xs"></div>
+<div class="bg-primary/50 rounded-xs"></div>
+<div class="bg-primary/80 rounded-xs"></div>
+<div class="bg-error/75 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/50 rounded-xs"></div>
+<div class="bg-primary/65 rounded-xs"></div>
+<div class="bg-primary/80 rounded-xs"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/75 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="flex items-center gap-1">
+<span class="w-8 font-label-sm text-label-sm font-mono text-on-surface-variant">Wed</span>
+<div class="grid grid-cols-24 gap-1 flex-1 h-6">
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/50 rounded-xs"></div>
+<div class="bg-primary/30 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/85 rounded-xs"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/65 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/85 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-error/95 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/70 rounded-xs"></div>
+<div class="bg-primary/55 rounded-xs"></div>
+<div class="bg-primary/35 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+</div>
+</div>
+<!-- Thursday -->
+<div class="flex items-center gap-1">
+<span class="w-8 font-label-sm text-label-sm font-mono text-on-surface-variant">Thu</span>
+<div class="grid grid-cols-24 gap-1 flex-1 h-6">
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/50 rounded-xs"></div>
+<div class="bg-primary/35 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/80 rounded-xs"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/65 rounded-xs"></div>
+<div class="bg-primary/65 rounded-xs"></div>
+<div class="bg-primary/75 rounded-xs"></div>
+<div class="bg-primary/90 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-error/95 rounded-xs"></div>
+<div class="bg-error/95 rounded-xs"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-primary/65 rounded-xs"></div>
+<div class="bg-primary/45 rounded-xs"></div>
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+</div>
+</div>
+<!-- Friday -->
+<div class="flex items-center gap-1">
+<span class="w-8 font-label-sm text-label-sm font-mono text-primary font-bold">Fri</span>
+<div class="grid grid-cols-24 gap-1 flex-1 h-6">
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/50 rounded-xs"></div>
+<div class="bg-primary/40 rounded-xs"></div>
+<div class="bg-primary/65 rounded-xs"></div>
+<div class="bg-primary/85 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-primary/80 rounded-xs"></div>
+<div class="bg-primary/75 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/95 rounded-xs"></div>
+<div class="bg-error/100 rounded-xs shadow-[0_0_8px_rgba(239,68,68,0.5)]" title="18:30 IST - 93.8% MAXIMUM"></div>
+<div class="bg-error/100 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/45 rounded-xs"></div>
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+</div>
+</div>
+<!-- Saturday -->
+<div class="flex items-center gap-1">
+<span class="w-8 font-label-sm text-label-sm font-mono text-tertiary font-bold">Sat</span>
+<div class="grid grid-cols-24 gap-1 flex-1 h-6">
+<div class="bg-surface-container-highest/50 rounded-xs"></div>
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-primary/30 rounded-xs"></div>
+<div class="bg-primary/45 rounded-xs"></div>
+<div class="bg-primary/55 rounded-xs"></div>
+<div class="bg-primary/65 rounded-xs"></div>
+<div class="bg-primary/75 rounded-xs"></div>
+<div class="bg-primary/85 rounded-xs"></div>
+<div class="bg-primary/80 rounded-xs"></div>
+<div class="bg-primary/85 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/95 rounded-xs"></div>
+<div class="bg-error/95 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/50 rounded-xs"></div>
+<div class="bg-surface-container-highest/50 rounded-xs"></div>
+</div>
+</div>
+<!-- Sunday -->
+<div class="flex items-center gap-1">
+<span class="w-8 font-label-sm text-label-sm font-mono text-secondary font-bold">Sun</span>
+<div class="grid grid-cols-24 gap-1 flex-1 h-6">
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/20 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-primary/35 rounded-xs"></div>
+<div class="bg-primary/45 rounded-xs"></div>
+<div class="bg-primary/60 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/75 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/75 rounded-xs"></div>
+<div class="bg-primary/80 rounded-xs"></div>
+<div class="bg-error/80 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/90 rounded-xs"></div>
+<div class="bg-error/85 rounded-xs"></div>
+<div class="bg-primary/70 rounded-xs"></div>
+<div class="bg-primary/50 rounded-xs"></div>
+<div class="bg-surface-container-highest/40 rounded-xs"></div>
+<div class="bg-surface-container-highest/30 rounded-xs"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Heatmap Color Legend Scale -->
+<div class="flex items-center justify-between mt-space-md pt-space-xs border-t border-surface-container-highest/50 font-label-sm text-label-sm text-outline">
+<span>0% (Empty)</span>
+<div class="flex items-center gap-1">
+<span class="w-5 h-3 bg-surface-container-highest/40 rounded-xs"></span>
+<span class="w-5 h-3 bg-primary/40 rounded-xs"></span>
+<span class="w-5 h-3 bg-primary/80 rounded-xs"></span>
+<span class="w-5 h-3 bg-error/75 rounded-xs"></span>
+<span class="w-5 h-3 bg-error/100 rounded-xs"></span>
+</div>
+<span class="text-error font-bold">100% (Saturated)</span>
+</div>
+</div>
+<!-- Heatmap Summary Insight Footnote -->
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-lg">warning</span>
+<span class="font-body-sm text-body-sm text-on-surface">Worst Congestion Slot: <strong class="text-error font-semibold">Friday 18:30 IST (93.8% across MMR hubs)</strong></span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-mono hidden sm:inline">P99 Saturation Index</span>
+</div>
+</div>
+<!-- Parking Duration Distribution Histogram (Log-Normal Curve) (5 cols) -->
+<div class="lg:col-span-5 p-space-lg rounded-xl bg-surface-container-low shadow-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-2xs">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Dwell Time Distribution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Log-normal probability density function fit</p>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded bg-surface-container-highest text-secondary font-mono font-medium">N=12.4M sessions</span>
+</div>
+<!-- Histogram Chart with Density Curve Overlay -->
+<div class="relative w-full h-56 mt-space-md flex items-end gap-space-2xs pb-space-lg">
+<!-- Bins -->
+<div class="flex-1 flex flex-col items-center gap-space-3xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline font-mono">14%</span>
+<div class="w-full bg-surface-container-highest rounded-t hover:bg-primary/70 transition-colors" style="height: 35%"></div>
+<span class="font-label-sm text-label-sm text-outline font-mono text-center">0-15m</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-space-3xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-primary font-mono font-bold">28%</span>
+<div class="w-full bg-primary-container rounded-t hover:bg-primary transition-colors" style="height: 80%"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-mono font-bold text-center">15-30m</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-space-3xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-primary font-mono font-bold">32%</span>
+<div class="w-full bg-primary rounded-t shadow-[0_0_12px_rgba(76,215,246,0.3)]" style="height: 95%"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-mono font-bold text-center">30-60m</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-space-3xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline font-mono">15%</span>
+<div class="w-full bg-secondary rounded-t hover:bg-secondary-fixed transition-colors" style="height: 48%"></div>
+<span class="font-label-sm text-label-sm text-outline font-mono text-center">60-120</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-space-3xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline font-mono">6%</span>
+<div class="w-full bg-surface-container-highest rounded-t" style="height: 22%"></div>
+<span class="font-label-sm text-label-sm text-outline font-mono text-center">120-180</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-space-3xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline font-mono">3%</span>
+<div class="w-full bg-surface-container-highest rounded-t" style="height: 12%"></div>
+<span class="font-label-sm text-label-sm text-outline font-mono text-center">180-240</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-space-3xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline font-mono">2%</span>
+<div class="w-full bg-surface-container-highest rounded-t" style="height: 8%"></div>
+<span class="font-label-sm text-label-sm text-outline font-mono text-center">240m+</span>
+</div>
+<!-- Theoretical Probability Density Fit Line overlay -->
+<svg class="absolute inset-x-0 bottom-space-lg h-44 w-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 0,95 Q 12,20 28,10 T 50,45 T 75,85 T 100,98" fill="none" stroke="#4edea3" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<!-- Statistical Quartile Breakdown -->
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container p-space-sm rounded-lg text-center font-mono">
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Mode</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">45 min</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Median (P50)</span>
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary">78 min</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline block">P90 Tail</span>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">165 min</span>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-md">
+        Short-stay quick errands account for 28% of turnover in <strong class="text-primary font-semibold">Dadar (Z004)</strong>, while office commuters in <strong class="text-tertiary font-semibold">BKC (Z005)</strong> exhibit a bimodal distribution with 480-minute workday stays.
+      </p>
+</div>
+</div>
+<!-- Bottom Row Analytics Bento: Weather Correlation & Capacity vs Peak Matrix -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Weather vs Occupancy Correlation Scatter Plot (6 cols) -->
+<div class="lg:col-span-6 p-space-lg rounded-xl bg-surface-container-low shadow-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-2xs">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Weather vs. Occupancy Elasticity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Precipitation (mm/hr) regression correlation</p>
+</div>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded bg-surface-container-highest text-primary font-mono">Pearson r = -0.68 (p &lt; 0.001)</span>
+</div>
+<!-- Scatter Plot Canvas Area -->
+<div class="relative w-full h-64 bg-surface-container-lowest/50 rounded-xl p-space-md my-space-sm flex flex-col justify-between overflow-hidden">
+<!-- Scatter Data Points SVG -->
+<svg class="w-full h-full" fill="none" viewbox="0 0 400 200">
+<!-- Grid Lines -->
+<line stroke="#2d3448" stroke-opacity="0.4" stroke-width="0.75" x1="0" x2="400" y1="50" y2="50"></line>
+<line stroke="#2d3448" stroke-opacity="0.4" stroke-width="0.75" x1="0" x2="400" y1="100" y2="100"></line>
+<line stroke="#2d3448" stroke-opacity="0.4" stroke-width="0.75" x1="0" x2="400" y1="150" y2="150"></line>
+<line stroke="#2d3448" stroke-opacity="0.4" stroke-width="0.75" x1="100" x2="100" y1="0" y2="200"></line>
+<line stroke="#2d3448" stroke-opacity="0.4" stroke-width="0.75" x1="200" x2="200" y1="0" y2="200"></line>
+<line stroke="#2d3448" stroke-opacity="0.4" stroke-width="0.75" x1="300" x2="300" y1="0" y2="200"></line>
+<!-- Curbside / Open Street Lots (Drop sharply with rain) Cyan Points -->
+<circle cx="20" cy="30" fill="#4cd7f6" opacity="0.8" r="3.5"></circle>
+<circle cx="35" cy="40" fill="#4cd7f6" opacity="0.8" r="3"></circle>
+<circle cx="50" cy="45" fill="#4cd7f6" opacity="0.9" r="4"></circle>
+<circle cx="80" cy="65" fill="#4cd7f6" opacity="0.8" r="3.5"></circle>
+<circle cx="110" cy="80" fill="#4cd7f6" opacity="0.8" r="3"></circle>
+<circle cx="140" cy="95" fill="#4cd7f6" opacity="0.9" r="4"></circle>
+<circle cx="170" cy="115" fill="#4cd7f6" opacity="0.8" r="3.5"></circle>
+<circle cx="210" cy="130" fill="#4cd7f6" opacity="0.9" r="4.5"></circle>
+<circle cx="260" cy="148" fill="#4cd7f6" opacity="0.8" r="3.5"></circle>
+<circle cx="310" cy="165" fill="#4cd7f6" opacity="0.8" r="4"></circle>
+<circle cx="360" cy="180" fill="#4cd7f6" opacity="0.8" r="3.5"></circle>
+<!-- Multi-Level Covered Garages (Invert / Surge with rain) Emerald Points -->
+<circle cx="30" cy="120" fill="#4edea3" opacity="0.7" r="3.5"></circle>
+<circle cx="70" cy="110" fill="#4edea3" opacity="0.8" r="4"></circle>
+<circle cx="120" cy="90" fill="#4edea3" opacity="0.8" r="3"></circle>
+<circle cx="180" cy="70" fill="#4edea3" opacity="0.85" r="4"></circle>
+<circle cx="240" cy="55" fill="#4edea3" opacity="0.9" r="4.5"></circle>
+<circle cx="300" cy="40" fill="#4edea3" opacity="0.9" r="4"></circle>
+<circle cx="370" cy="25" fill="#4edea3" opacity="1.0" r="5"></circle>
+<!-- Fitted Linear Regression Slope for Curbside (Negative) -->
+<line stroke="#4cd7f6" stroke-dasharray="4 2" stroke-width="2" x1="15" x2="385" y1="28" y2="185"></line>
+<!-- Regression for Covered Garages (Positive) -->
+<line stroke="#4edea3" stroke-dasharray="4 2" stroke-width="2" x1="20" x2="385" y1="125" y2="20"></line>
+</svg>
+<!-- Axes Labels -->
+<div class="flex justify-between items-center text-outline font-label-sm text-label-sm font-mono">
+<span>0 mm/h (Dry)</span>
+<span>15 mm/h</span>
+<span>30 mm/h (Monsoon Downpour)</span>
+<span>50 mm/h (Extreme)</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-space-3xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-on-surface">Curbside / Open Lots (-22% at 40mm)</span>
+</div>
+<div class="flex items-center gap-space-3xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-medium text-on-surface">Multi-Level Covered (+18.4%)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container text-body-sm text-body-sm text-on-surface-variant">
+        Significant demand displacement observed during severe monsoon rainfall. Outdoor curbside bays in Fort and Dadar experience immediate evacuation, while enclosed multi-level car parks in BKC (Z005) and Viviana (Z018) surge toward capacity.
+      </div>
+</div>
+<!-- Zone Capacity vs. Peak Utilization Horizontal Bar Matrix (6 cols) -->
+<div class="lg:col-span-6 p-space-lg rounded-xl bg-surface-container-low shadow-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-2xs">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Zone Capacity vs. Peak Utilization</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Top 8 monitored zones (Nominal vs Recorded Oct Peak)</p>
+</div>
+<span class="material-symbols-outlined text-outline text-xl">bar_chart</span>
+</div>
+<!-- Comparative Bars -->
+<div class="space-y-space-xs mt-space-md">
+<!-- Zone 1: Lower Parel -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary font-mono">Z003</span>
+<span class="text-on-surface font-semibold">Lower Parel (South MMR)</span>
+<span class="text-outline font-mono">3,450 Bays</span>
+</div>
+<div class="flex items-center gap-space-2xs font-mono">
+<span class="text-error font-bold">92.4% Peak</span>
+<span class="px-space-3xs py-0.5 rounded bg-error-container/30 text-error font-bold text-[10px]">CRITICAL</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden flex">
+<div class="bg-error h-full rounded-full" style="width: 92.4%"></div>
+</div>
+</div>
+<!-- Zone 2: Dadar Central -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-secondary font-mono">Z004</span>
+<span class="text-on-surface font-semibold">Dadar Central Market</span>
+<span class="text-outline font-mono">2,100 Bays</span>
+</div>
+<div class="flex items-center gap-space-2xs font-mono">
+<span class="text-error font-bold">89.8% Peak</span>
+<span class="px-space-3xs py-0.5 rounded bg-error-container/30 text-error font-bold text-[10px]">CRITICAL</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden flex">
+<div class="bg-error h-full rounded-full" style="width: 89.8%"></div>
+</div>
+</div>
+<!-- Zone 3: BKC -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-tertiary font-mono">Z005</span>
+<span class="text-on-surface font-semibold">BKC Commercial CBD</span>
+<span class="text-outline font-mono">7,200 Bays</span>
+</div>
+<div class="flex items-center gap-space-2xs font-mono">
+<span class="text-on-surface font-semibold">82.1% Peak</span>
+<span class="px-space-3xs py-0.5 rounded bg-surface-container-highest text-secondary font-medium text-[10px]">MODERATE</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-full rounded-full" style="width: 82.1%"></div>
+</div>
+</div>
+<!-- Zone 4: Andheri West -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary font-mono">Z011</span>
+<span class="text-on-surface font-semibold">Andheri West Transit Hub</span>
+<span class="text-outline font-mono">4,120 Bays</span>
+</div>
+<div class="flex items-center gap-space-2xs font-mono">
+<span class="text-on-surface font-semibold">79.5% Peak</span>
+<span class="px-space-3xs py-0.5 rounded bg-surface-container-highest text-secondary font-medium text-[10px]">MODERATE</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary h-full rounded-full" style="width: 79.5%"></div>
+</div>
+</div>
+<!-- Zone 5: Colaba -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-primary-fixed font-mono">Z001</span>
+<span class="text-on-surface font-semibold">Colaba Heritage Core</span>
+<span class="text-outline font-mono">1,850 Bays</span>
+</div>
+<div class="flex items-center gap-space-2xs font-mono">
+<span class="text-tertiary font-semibold">58.4% Peak</span>
+<span class="px-space-3xs py-0.5 rounded bg-tertiary/10 text-tertiary font-medium text-[10px]">OPTIMAL</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden flex">
+<div class="bg-tertiary h-full rounded-full" style="width: 58.4%"></div>
+</div>
+</div>
+<!-- Zone 6: Thane West -->
+<div class="flex flex-col gap-space-3xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-bold text-on-surface font-mono">Z018</span>
+<span class="text-on-surface font-semibold">Thane West Viviana Core</span>
+<span class="text-outline font-mono">5,600 Bays</span>
+</div>
+<div class="flex items-center gap-space-2xs font-mono">
+<span class="text-on-surface font-semibold">74.2% Peak</span>
+<span class="px-space-3xs py-0.5 rounded bg-surface-container-highest text-secondary font-medium text-[10px]">MODERATE</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary h-full rounded-full" style="width: 74.2%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-surface-container-highest/60 flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Capacity Thresholds: Emerald (&lt;60%), Amber (60-84%), Red (≥85%)</span>
+<span class="font-mono text-primary font-semibold">24,320 Total Sensor Bays Active</span>
+</div>
+</div>
+</div>
+<!-- Academic Viva Reference Callout: PySpark & Lakehouse Architecture -->
+<div class="p-space-lg rounded-xl bg-surface-container border-0 relative overflow-hidden shadow-xl">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="p-space-xs rounded-xl bg-primary-container text-on-primary-container shrink-0 mt-1">
+<span class="material-symbols-outlined text-2xl">school</span>
+</div>
+<div class="space-y-space-3xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Academic Viva Reference: Distributed Telemetry Pipeline</span>
+<span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-tertiary font-mono font-semibold">IEEE Big Data 2024 Arch</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-4xl">
+            Downsampled from <strong class="text-on-surface font-semibold">12.4M raw streaming Kafka events</strong> via PySpark structured streaming window aggregations: <code class="font-mono text-primary bg-surface-container-highest/80 px-1.5 py-0.5 rounded text-xs">window(timestamp, '5 minutes')</code>, serialized directly into columnar partitioned Snappy Parquet files: <code class="font-mono text-tertiary bg-surface-container-highest/80 px-1.5 py-0.5 rounded text-xs">date=YYYY-MM-DD/zone_id=ZXXX</code>. Analytical queries execute with sub-second OLAP latency via min/max predicate pushdown, columnar projection, and dictionary encoding.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end lg:self-center">
+<button class="flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-sm">code</span>
+<span>View PySpark Job Spec</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container text-body-sm font-semibold hover:bg-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Viva Brief LaTeX (.tex)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // Dropdown toggle logic
+    const exportBtn = document.getElementById('exportDropdownBtn');
+    const exportMenu = document.getElementById('exportMenu');
+
+    if (exportBtn && exportMenu) {
+      exportBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        exportMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!exportMenu.contains(e.target) && !exportBtn.contains(e.target)) {
+          exportMenu.classList.add('hidden');
+        }
+      });
+    }
+
+    // Sync button feedback
+    const syncBtn = document.getElementById('syncPartitionBtn');
+    if (syncBtn) {
+      syncBtn.addEventListener('click', function() {
+        const icon = syncBtn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.classList.add('animate-spin');
+          setTimeout(() => {
+            icon.classList.remove('animate-spin');
+          }, 1400);
+        }
+      });
+    }
+  })();
+</script></main></div></body></html>

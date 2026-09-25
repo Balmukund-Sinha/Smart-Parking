@@ -1,0 +1,6 @@
+# Web/API runtime (local frontend and Vercel Function)
+pandas>=2.2,<3
+numpy>=2,<3
+joblib>=1.4,<2
+pyarrow>=17,<24
+reportlab>=4.2,<5

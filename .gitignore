@@ -1,0 +1,78 @@
+# Python environments and bytecode
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# Test, lint, and coverage output
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local runtime state, browser profiles, logs, and temporary files
+.runtime/
+.tmp/
+checkpoints/
+*.log
+*.tmp
+*.bak
+*.swp
+Frontend/server.out.log
+Frontend/server.err.log
+
+# Spark/Hadoop output markers
+*.crc
+_SUCCESS
+
+# Generated datasets and lakehouse output
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/zones.csv
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/dashboard_data.csv
+!data/processed/ml_dataset.csv
+!data/processed/occupancy_trend.csv
+!data/processed/predictions.csv
+
+# Generated ML artifacts
+ml/*.pkl
+ml/*.joblib
+ml/feature_importance.csv
+!ml/feature_importance.csv
+
+# Generated R artifacts
+r-analytics/model.rds
+r-analytics/feature_importance_r.csv
+r-analytics/output/
+r-analytics/plots/
+r-analytics/report/*.html
+r-analytics/report/*.pdf
+data/processed/predictions_r.csv
+
+# Jupyter runtime state
+.ipynb_checkpoints/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build/package output
+build/
+dist/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
+<script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #070d18; }
+    ::-webkit-scrollbar-thumb { background: #1f2e47; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #32476b; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#94a3b8",
+            "outline-variant": "#1e293b",
+            "surface-container-lowest": "#040810",
+            "surface-container-low": "#070d18",
+            "surface-container": "#0c1524",
+            "surface-container-high": "#121e33",
+            "surface-container-highest": "#182742",
+            "surface": "#070d18",
+            "background": "#040810",
+            "on-surface": "#e2e8f0",
+            "on-background": "#e2e8f0",
+            "primary": "#38bdf8",
+            "primary-container": "#0284c7",
+            "on-primary-container": "#f0f9ff",
+            "secondary": "#2dd4bf",
+            "secondary-container": "#0f766e",
+            "tertiary": "#34d399",
+            "tertiary-container": "#059669",
+            "error": "#f87171",
+            "error-container": "#7f1d1d",
+            "on-error-container": "#fef2f2",
+            "outline": "#475569"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#040810] font-sans text-xs text-slate-200 min-h-screen antialiased selection:bg-cyan-500/20 selection:text-cyan-200">
+<!-- TOP APP BAR / MISSION TELEMETRY HEADER -->
+<header class="fixed top-0 left-0 right-0 h-14 bg-[#070d18]/95 backdrop-blur-md border-b border-white/[0.08] z-50 flex items-center justify-between px-4">
+<!-- Brand / Node Status -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2.5">
+<img alt="SmartPark Intelligence Logo" class="h-7 w-7 object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Uupi7i-tCEhDZ_Ebte0liFpUiEXKvW0vJEiH7i3OrUeQ5MleeLVzNiBsu2GMaMzln1odYsWeNdP8tyWlJJRZSigP1pLi6CLKR5jG-FIZtasb_V-4kEe3tNflTsZ7iD_I3FQ4kSWomo4w7bFwIE6NPNb36P2BjfCYQfGb09Rkc-He-6Ymfk22DgB4iOJXz0v6oVu_LeGodyW7lRCqcNXeadO7Y1zt1Zje9ernKq1xQVWpopPYmqSP7_IGQ"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-bold tracking-tight text-white text-sm font-sans">SmartPark</span>
+<span class="text-[10px] font-mono tracking-widest text-cyan-400 font-semibold uppercase px-1.5 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30">OP-CENTER</span>
+</div>
+<span class="text-[10px] text-slate-400 font-mono leading-none">MMR Municipal Telemetry • v4.2-SPARK</span>
+</div>
+</div>
+<div class="h-5 w-px bg-white/10 hidden md:block"></div>
+<!-- Scope selector -->
+<div class="hidden lg:flex items-center gap-2 text-slate-300">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0d1726] border border-white/10 text-xs">
+<span class="material-symbols-outlined text-cyan-400 text-sm">hub</span>
+<span class="font-medium text-white">Mumbai MMR</span>
+<span class="text-slate-500 text-[10px]">•</span>
+<span class="font-mono text-[11px] text-cyan-300">20 Zones Active</span>
+<span class="material-symbols-outlined text-slate-500 text-xs ml-1">unfold_more</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0d1726] border border-white/10 text-xs">
+<span class="material-symbols-outlined text-emerald-400 text-sm">schedule</span>
+<span class="font-medium text-slate-200">Live Window (24h)</span>
+<span class="material-symbols-outlined text-slate-500 text-xs ml-1">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Cluster Telemetry Indicators + Profile -->
+<div class="flex items-center gap-3">
+<!-- Live Stream Pill -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#0d1726] border border-emerald-500/30">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+</span>
+<span class="font-mono text-[11px] font-semibold text-emerald-300">403.9k ev/s</span>
+<span class="text-slate-600 text-[10px]">|</span>
+<span class="font-mono text-[10px] text-slate-400">0.8ms lag</span>
+</div>
+<!-- Pipeline Health Metric -->
+<div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded bg-[#0d1726] border border-white/10 text-[11px] font-mono text-slate-300">
+<span class="text-slate-400">KAFKA:</span>
+<span class="text-cyan-400 font-semibold">12P OK</span>
+<span class="text-slate-600">/</span>
+<span class="text-slate-400">SPARK:</span>
+<span class="text-emerald-400 font-semibold">BATCH #1492</span>
+</div>
+<!-- Sync Time -->
+<div class="hidden sm:flex items-center gap-1 text-[11px] font-mono text-slate-400">
+<span class="material-symbols-outlined text-slate-500 text-xs">sync</span>
+<span>17:42:09 IST</span>
+</div>
+<!-- Alerts button -->
+<button aria-label="Alerts" class="relative p-1.5 rounded bg-[#0d1726] hover:bg-slate-800 text-slate-300 border border-white/10 transition-colors" type="button">
+<span class="material-symbols-outlined text-base">notifications</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-mono font-bold text-white ring-2 ring-[#070d18]">4</span>
+</button>
+<!-- User Profile -->
+<div class="flex items-center gap-2 pl-2 border-l border-white/10">
+<img alt="Lead Data Engineer" class="w-7 h-7 rounded-full object-cover ring-1 ring-cyan-500/40" src="https://lh3.googleusercontent.com/aida/AEtjO1VnYy2QFULJaFOTYgo0KVOS2AGu0EyhqoY9QYi-vnGYjRTKXzLKUNnBt2y3f6rwSWBiQ5vBztjj8JOOCoN9tdUqHKIQODxtIKVDj9tqdPzLSGH_HgD_fwn-KS4W7W0Jn8LJTXQKZgO95KJ9gxHHnqMMftJ5Vrm2RvDbCSnMnCV76eCDYu18WyW5cZe4rZ26Apea8D8FLGwWMdQjGD62M15GXd0fPWWseFbkreqJ72FkTf98g3JwHaRqZzs"/>
+<div class="hidden md:flex flex-col text-left">
+<span class="text-xs font-semibold text-slate-200 leading-none">Aanya Sharma</span>
+<span class="text-[10px] text-slate-400 font-mono leading-tight">Lead Data Eng</span>
+</div>
+</div>
+</div>
+</header>
+<!-- FIXED LEFT CONTROL DOCK -->
+<aside class="fixed left-0 top-14 bottom-0 w-60 bg-[#070d18] border-r border-white/[0.08] z-40 flex flex-col justify-between py-3">
+<div class="flex flex-col space-y-4">
+<div class="px-4">
+<span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold">Navigation Matrix</span>
+</div>
+<nav class="space-y-0.5 px-2">
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md bg-cyan-950/60 border border-cyan-500/30 text-white font-medium shadow-sm group" href="#">
+<span class="material-symbols-outlined text-cyan-400 text-lg">dashboard</span>
+<span class="flex-1 text-xs tracking-tight">Overview Telemetry</span>
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-emerald-400 text-lg">sensors</span>
+<span class="flex-1 text-xs tracking-tight">Live Sensors</span>
+<span class="text-[10px] font-mono text-emerald-400/80">20/20</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-teal-400 text-lg">map</span>
+<span class="flex-1 text-xs tracking-tight">Geospatial Explorer</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-cyan-400 text-lg">monitoring</span>
+<span class="flex-1 text-xs tracking-tight">Historical Analytics</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-cyan-400 text-lg">psychology</span>
+<span class="flex-1 text-xs tracking-tight">Demand Prediction</span>
+<span class="px-1 py-0.2 rounded bg-cyan-900/60 text-[9px] font-mono text-cyan-300 font-semibold">RF-30m</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-teal-400 text-lg">alt_route</span>
+<span class="flex-1 text-xs tracking-tight">Big Data Pipeline</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-cyan-400 text-lg">database</span>
+<span class="flex-1 text-xs tracking-tight">Parquet Lakehouse</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-emerald-400 text-lg">dns</span>
+<span class="flex-1 text-xs tracking-tight">Cluster Diagnostics</span>
+</a>
+</nav>
+</div>
+<!-- Engine Heartbeat Widget in Sidebar Bottom -->
+<div class="px-3">
+<div class="p-3 rounded-lg bg-[#0c1524] border border-white/10 space-y-2">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-mono text-slate-400">STREAM CLUSTER</span>
+<span class="flex items-center gap-1 font-mono text-emerald-400 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ACTIVE
+          </span>
+</div>
+<div class="space-y-1 font-mono text-[10px] text-slate-400">
+<div class="flex justify-between">
+<span>Kafka Ingest:</span>
+<span class="text-slate-200">340 ev/s</span>
+</div>
+<div class="flex justify-between">
+<span>PySpark Lag:</span>
+<span class="text-cyan-300">0.8 ms</span>
+</div>
+<div class="flex justify-between">
+<span>Bloom Filter:</span>
+<span class="text-emerald-300">0% false neg</span>
+</div>
+</div>
+</div>
+<div class="mt-2 text-center">
+<span class="text-[10px] font-mono text-slate-400">Brihanmumbai Municipal Corp.</span>
+</div>
+</div>
+</aside>
+<!-- MAIN DASHBOARD CONTENT AREA -->
+<main class="pl-60 pt-14 bg-[#040810] min-h-screen text-slate-200 pb-8">
+<div class="p-4 space-y-4 max-w-[1720px] mx-auto">
+<!-- AI DISPATCH & BOTTLENECK ADVISORY (SLIM HIGH-CONTRAST BANNER) -->
+<div id="sp-advisory-banner" class="p-2.5 rounded-lg bg-[#0c1524] border border-cyan-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="px-2 py-0.5 rounded bg-cyan-950 border border-cyan-400/40 text-cyan-300 font-mono text-[10px] font-bold shrink-0">
+            AI DISPATCH ADVISORY
+          </span>
+<span id="sp-advisory-copy" class="text-slate-300 truncate">
+<span class="font-semibold text-white">Loading live capacity advisory…</span>
+          </span>
+</div>
+<div class="flex items-center gap-2 shrink-0 self-end md:self-auto">
+<button class="px-2.5 py-1 rounded bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-xs flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">alt_route</span>
+            Apply Smart Reroute
+          </button>
+<button class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-xs transition-colors" type="button">
+            Dismiss
+          </button>
+</div>
+</div>
+<!-- 1. HIGH-DENSITY 6-KPI OPERATIONAL TELEMETRY STRIP -->
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
+<!-- KPI 1: Municipal Occupancy -->
+<div class="p-3 rounded-lg bg-[#0c1524] border border-white/10 hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-slate-400 mb-1">
+<span class="font-mono text-[10px] uppercase tracking-wider">MMR Occupancy</span>
+<span class="material-symbols-outlined text-cyan-400 text-sm">local_parking</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-mono tracking-tight text-white">42.3%</span>
+<span class="text-[10px] font-mono text-emerald-400 flex items-center">
+<span class="material-symbols-outlined text-xs">arrow_downward</span> 3.8%
+              </span>
+</div>
+<span class="text-[10px] text-slate-400">vs 1h prior across 20 zones</span>
+</div>
+<!-- Sparkline -->
+<div class="mt-2 pt-2 border-t border-white/5">
+<svg class="w-full h-5" fill="none" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 16 Q 25 14, 45 10 T 75 12 T 100 6" fill="none" stroke="#38bdf8" stroke-linecap="round" stroke-width="1.8"></path>
+<path d="M0 16 Q 25 14, 45 10 T 75 12 T 100 6 L 100 20 L 0 20 Z" fill="#38bdf8" fill-opacity="0.1"></path>
+</svg>
+<div class="flex justify-between text-[9px] font-mono text-slate-400 mt-0.5">
+<span>24h Min: 21%</span>
+<span>Max: 76%</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Available Spaces -->
+<div class="p-3 rounded-lg bg-[#0c1524] border border-white/10 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-slate-400 mb-1">
+<span class="font-mono text-[10px] uppercase tracking-wider">Available Bays</span>
+<span class="material-symbols-outlined text-emerald-400 text-sm">directions_car</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-mono tracking-tight text-emerald-400">1,146</span>
+<span class="text-[10px] font-mono text-slate-400">/ 1,985</span>
+</div>
+<span class="text-[10px] text-emerald-300 font-mono">+84 bays released (15m)</span>
+</div>
+<!-- Progress micro-bar -->
+<div class="mt-2 pt-2 border-t border-white/5">
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-cyan-500 h-full" style="width: 42.3%"></div>
+<div class="bg-emerald-400 h-full" style="width: 57.7%"></div>
+</div>
+<div class="flex justify-between text-[9px] font-mono text-slate-400 mt-1">
+<span>839 In Use</span>
+<span>57.7% Free</span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Live Coverage & Heartbeat -->
+<div class="p-3 rounded-lg bg-[#0c1524] border border-white/10 hover:border-teal-500/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-slate-400 mb-1">
+<span class="font-mono text-[10px] uppercase tracking-wider">Zone Heartbeat</span>
+<span class="material-symbols-outlined text-teal-400 text-sm">sensors</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-mono tracking-tight text-white">20/20</span>
+<span class="text-[10px] font-mono text-emerald-400 font-semibold">100% ONLINE</span>
+</div>
+<span class="text-[10px] text-slate-400">99.98% IoT sensor SLA</span>
+</div>
+<div class="mt-2 pt-2 border-t border-white/5">
+<svg class="w-full h-5" fill="none" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 10 L 25 10 L 30 3 L 38 17 L 43 10 L 100 10" stroke="#2dd4bf" stroke-linecap="round" stroke-width="1.8"></path>
+</svg>
+<div class="flex justify-between text-[9px] font-mono text-slate-400 mt-0.5">
+<span>Zero dropped frames</span>
+<span>MQTT v3.1</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Stream Ingestion Rate -->
+<div class="p-3 rounded-lg bg-[#0c1524] border border-white/10 hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-slate-400 mb-1">
+<span class="font-mono text-[10px] uppercase tracking-wider">Events Ingested</span>
+<span class="material-symbols-outlined text-cyan-400 text-sm">bolt</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-mono tracking-tight text-cyan-300">403.9k</span>
+<span class="text-[10px] font-mono text-slate-400">today</span>
+</div>
+<span class="text-[10px] font-mono text-slate-400">~340 ev/sec sustained</span>
+</div>
+<div class="mt-2 pt-2 border-t border-white/5">
+<svg class="w-full h-5" fill="none" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 18 Q 30 16, 50 11 T 85 6 T 100 4" fill="none" stroke="#38bdf8" stroke-width="1.8"></path>
+</svg>
+<div class="flex justify-between text-[9px] font-mono text-slate-400 mt-0.5">
+<span>+12.4% vs y'day</span>
+<span>Kafka 12p</span>
+</div>
+</div>
+</div>
+<!-- KPI 5: 30m ML Risk Nodes -->
+<div class="p-3 rounded-lg bg-[#0c1524] border border-red-500/30 hover:border-red-500/60 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-slate-400 mb-1">
+<span class="font-mono text-[10px] uppercase tracking-wider text-red-400 font-semibold">30m ML Risk Hubs</span>
+<span class="material-symbols-outlined text-red-400 text-sm">warning</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-mono tracking-tight text-red-400">4 Zones</span>
+<span class="text-[10px] font-mono text-red-300 font-semibold">&gt;85% CAP</span>
+</div>
+<span class="text-[10px] font-mono text-slate-400 truncate">Z003, Z005, Z011, Z018</span>
+</div>
+<div class="mt-2 pt-2 border-t border-white/5">
+<div class="flex items-center gap-1.5 text-[9px] font-mono text-red-400">
+<span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping"></span>
+<span>Predicted sat. within 28 min</span>
+</div>
+<div class="flex justify-between text-[9px] font-mono text-slate-400 mt-0.5">
+<span>Model: RF-100</span>
+<span>R²: 0.963</span>
+</div>
+</div>
+</div>
+<!-- KPI 6: Mean Duration & Turnover -->
+<div class="p-3 rounded-lg bg-[#0c1524] border border-white/10 hover:border-teal-500/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-slate-400 mb-1">
+<span class="font-mono text-[10px] uppercase tracking-wider">Median Dwell</span>
+<span class="material-symbols-outlined text-teal-400 text-sm">timelapse</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-mono tracking-tight text-white">78.4<span class="text-sm font-normal text-slate-400">m</span></span>
+<span class="text-[10px] font-mono text-slate-400">median 65m</span>
+</div>
+<span class="text-[10px] text-slate-400">1.84 turnovers/day/bay</span>
+</div>
+<div class="mt-2 pt-2 border-t border-white/5">
+<svg class="w-full h-5" fill="none" preserveaspectratio="none" viewbox="0 0 100 20">
+<!-- Bell-curve snippet -->
+<path d="M0 18 Q 30 18, 40 12 Q 50 3, 60 12 Q 70 18, 100 18" fill="none" stroke="#2dd4bf" stroke-width="1.8"></path>
+</svg>
+<div class="flex justify-between text-[9px] font-mono text-slate-400 mt-0.5">
+<span>Silver Delta Parquet</span>
+<span>σ = 18m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. CENTERPIECE: GEOSPATIAL TELEMETRY (WIDER/TALLER) + ZONE RISK LEADERBOARD -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-4">
+<!-- MAP TELEMETRY VIEW (Col 8) -->
+<div class="xl:col-span-8 flex flex-col rounded-xl bg-[#070d18] border border-white/10 p-3.5 space-y-3 relative overflow-hidden">
+<!-- Header Controls Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-white/[0.08]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-lg">travel_explore</span>
+<div>
+<h2 class="text-sm font-bold text-white tracking-tight flex items-center gap-2">
+                  Mumbai Metropolitan Region Geospatial Telemetry
+                  <span class="px-1.5 py-0.2 rounded bg-cyan-950 text-cyan-300 font-mono text-[9px] border border-cyan-500/30">EPSG:4326 LIVE</span>
+</h2>
+<p class="text-[11px] text-slate-400 font-mono">Cartographic viewport: South Mumbai • BKC Corridor • Western Suburbs • Thane Creek</p>
+</div>
+</div>
+<!-- Layer Toggles -->
+<div class="flex items-center gap-1.5 self-start sm:self-auto flex-wrap">
+<div class="flex rounded bg-[#0c1524] border border-white/10 p-0.5 text-[11px] font-mono">
+<button class="px-2 py-0.5 rounded bg-cyan-600 text-white font-semibold" type="button">Heatmap</button>
+<button class="px-2 py-0.5 rounded text-slate-400 hover:text-white" type="button">Slots</button>
+<button class="px-2 py-0.5 rounded text-slate-400 hover:text-white" type="button">Risk ML</button>
+<button class="px-2 py-0.5 rounded text-slate-400 hover:text-white" type="button">Vectors</button>
+</div>
+<div class="flex rounded bg-[#0c1524] border border-white/10 p-0.5 text-slate-400">
+<button aria-label="Zoom in" class="p-1 hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-xs leading-none">add</span>
+</button>
+<button aria-label="Zoom out" class="p-1 hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-xs leading-none">remove</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Legend Bar -->
+<div class="flex items-center justify-between px-3 py-1.5 rounded bg-[#0c1524] border border-white/5 text-[11px] font-mono">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5 text-emerald-400">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Normal &lt;60%
+              </span>
+<span class="flex items-center gap-1.5 text-cyan-400">
+<span class="w-2 h-2 rounded-full bg-cyan-400"></span> Moderate 60–84%
+              </span>
+<span class="flex items-center gap-1.5 text-red-400 font-semibold">
+<span class="w-2 h-2 rounded-full bg-red-400 animate-ping"></span> Critical Risk ≥85%
+              </span>
+</div>
+<span class="text-slate-400 hidden md:inline">Micro-Batch Stream Refresh: 1.0s</span>
+</div>
+<!-- MAP CANVAS (EXPANDED PROPORTION 560px) -->
+<div class="relative w-full h-[540px] rounded-lg bg-[#040810] border border-white/[0.08] overflow-hidden select-none">
+<!-- SVG MAP LAYER -->
+<svg class="absolute inset-0 w-full h-full" fill="none" preserveaspectratio="xMidYMid slice" viewbox="0 0 900 560">
+<rect fill="#040810" height="560" width="900"></rect>
+<!-- Subtle Cartographic Grid -->
+<pattern height="50" id="cartoGrid" patternunits="userSpaceOnUse" width="50">
+<path d="M 50 0 L 0 0 0 50" fill="none" stroke="#101b2e" stroke-width="0.75"></path>
+</pattern>
+<rect fill="url(#cartoGrid)" height="560" opacity="0.6" width="900"></rect>
+<!-- Waterbodies: Arabian Sea & Thane Creek -->
+<!-- Coastal Island Landmass -->
+<path d="M 260 550
+                       C 240 500, 220 460, 230 400
+                       C 235 370, 240 330, 250 280
+                       C 255 240, 245 200, 260 150
+                       C 275 100, 290 60, 320 20
+                       L 530 20
+                       C 550 80, 580 140, 595 210
+                       C 610 290, 630 360, 670 430
+                       L 660 550
+                       Z" fill="#091220" stroke="#17263d" stroke-width="2"></path>
+<!-- Thane Creek Ingress Waterway -->
+<path d="M 370 410
+                       C 400 370, 440 300, 470 230
+                       C 480 200, 485 160, 480 110
+                       L 500 110
+                       C 510 180, 490 250, 460 320
+                       C 435 380, 400 450, 360 550
+                       Z" fill="#040810" opacity="0.95" stroke="#15243a" stroke-width="1.2"></path>
+<!-- Major Arterials & Sea Link / Trans-Harbour Links -->
+<path d="M 265 520 Q 275 350 310 190 T 335 20" stroke="#1f3352" stroke-dasharray="3 3" stroke-width="2"></path>
+<path d="M 310 520 Q 345 350 420 200 T 490 30" stroke="#1f3352" stroke-dasharray="3 3" stroke-width="2"></path>
+<!-- Bandra-Worli Sea Link & MTHL Bridge -->
+<path d="M 285 340 Q 380 325 470 335 T 640 400" stroke="#253e63" stroke-width="2.5"></path>
+<!-- Labeled Cartographic Regions / Bays -->
+<text fill="#253c5e" font-family="JetBrains Mono" font-size="11" font-weight="600" letter-spacing="4" x="80" y="280">ARABIAN SEA</text>
+<text fill="#253c5e" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="3" x="560" y="500">THANE CREEK / HARBOR</text>
+<!-- Zone Region Labels -->
+<text fill="#38bdf8" font-family="Inter" font-size="9" font-weight="700" opacity="0.4" x="270" y="515">SOUTH CORRIDOR</text>
+<text fill="#38bdf8" font-family="Inter" font-size="9" font-weight="700" opacity="0.4" x="350" y="325">BKC CENTRAL</text>
+<text fill="#38bdf8" font-family="Inter" font-size="9" font-weight="700" opacity="0.4" x="280" y="175">WESTERN SUBURBS</text>
+<text fill="#38bdf8" font-family="Inter" font-size="9" font-weight="700" opacity="0.4" x="610" y="310">NAVI MUMBAI NODE</text>
+</svg>
+<!-- LIVE ZONE STATUS PINS (Key Municipal Hubs) -->
+<!-- Z001: Colaba (South) -->
+<div class="group absolute left-[30%] top-[89%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px] shadow-sm hover:scale-105 transition-transform">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z001 45%</span>
+</div>
+</div>
+<!-- Z002: Nariman Point (Financial) -->
+<div class="group absolute left-[26%] top-[84%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-cyan-500/40 text-cyan-300 font-mono text-[10px] shadow-sm hover:scale-105 transition-transform">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+<span>Z002 78%</span>
+</div>
+</div>
+<!-- Z003: Lower Parel Tech Hub (CRITICAL FOCUS ANCHOR) -->
+<div class="absolute left-[32%] top-[72%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-30">
+<div class="relative flex items-center gap-1 px-2 py-0.5 rounded bg-red-950/90 border border-red-500 text-red-300 font-mono text-[11px] font-bold shadow-md">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+<span>Z003 89%</span>
+</div>
+</div>
+<!-- Z004: Dadar Terminal -->
+<div class="group absolute left-[35%] top-[64%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-cyan-500/40 text-cyan-300 font-mono text-[10px] shadow-sm hover:scale-105 transition-transform">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+<span>Z004 82%</span>
+</div>
+</div>
+<!-- Z005: BKC Central Financial Hub (CRITICAL) -->
+<div class="group absolute left-[45%] top-[55%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-red-950/90 border border-red-500 text-red-300 font-mono text-[10px] font-bold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+<span>Z005 91%</span>
+</div>
+</div>
+<!-- Z006: Worli Sea Face -->
+<div class="group absolute left-[26%] top-[69%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px] shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z006 34%</span>
+</div>
+</div>
+<!-- Z007: Bandra Kurla East -->
+<div class="group absolute left-[47%] top-[49%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-cyan-500/40 text-cyan-300 font-mono text-[10px] shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+<span>Z007 66%</span>
+</div>
+</div>
+<!-- Z008: Bandra West (Linking Rd) -->
+<div class="group absolute left-[31%] top-[53%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px] shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z008 38%</span>
+</div>
+</div>
+<!-- Z009: Juhu Beach -->
+<div class="group absolute left-[28%] top-[44%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z009 52%</span>
+</div>
+</div>
+<!-- Z011: Andheri Station West (CRITICAL) -->
+<div class="group absolute left-[32%] top-[37%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-red-950/90 border border-red-500 text-red-300 font-mono text-[10px] font-bold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+<span>Z011 87%</span>
+</div>
+</div>
+<!-- Z012: Powai Hiranandani -->
+<div class="group absolute left-[48%] top-[34%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z012 41%</span>
+</div>
+</div>
+<!-- Z016: Malad Inorbit -->
+<div class="group absolute left-[31%] top-[24%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z016 58%</span>
+</div>
+</div>
+<!-- Z018: Thane Viviana Mall (CRITICAL) -->
+<div class="group absolute left-[60%] top-[16%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-red-950/90 border border-red-500 text-red-300 font-mono text-[10px] font-bold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+<span>Z018 86%</span>
+</div>
+</div>
+<!-- Z019: Vashi Sector 17 (Navi Mumbai) -->
+<div class="group absolute left-[70%] top-[56%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z019 44%</span>
+</div>
+</div>
+<!-- Z020: Belapur CBD -->
+<div class="group absolute left-[76%] top-[70%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#070d18]/95 border border-emerald-500/40 text-emerald-400 font-mono text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Z020 31%</span>
+</div>
+</div>
+<!-- INTEGRATED DOCKED ZONE INSPECTOR CARD (FOR Z003) -->
+<div class="absolute right-3 bottom-3 w-80 rounded-lg bg-[#070d18]/95 border border-white/10 p-3 shadow-xl backdrop-blur-md z-40">
+<div class="flex items-center justify-between pb-2 border-b border-white/10">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-red-950 border border-red-500/50 text-red-400 font-mono text-[10px] font-bold">Z003</span>
+<span class="text-xs font-semibold text-white">Lower Parel Tech Hub</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-red-900/60 text-red-300 font-mono text-[9px] font-bold">CRITICAL RISK</span>
+</div>
+<!-- Micro grid telemetry metrics -->
+<div class="grid grid-cols-2 gap-2 my-2 text-[10px] font-mono">
+<div class="p-1.5 rounded bg-[#0c1524] border border-white/5">
+<span class="text-slate-400 block text-[9px]">REAL-TIME OCC</span>
+<span class="text-red-400 font-bold text-xs">89%</span>
+<span class="text-slate-400"> (223/250)</span>
+</div>
+<div class="p-1.5 rounded bg-[#0c1524] border border-white/5">
+<span class="text-slate-400 block text-[9px]">30m ML FORECAST</span>
+<span class="text-red-400 font-bold text-xs">94%</span>
+<span class="text-red-300/80"> (+5%)</span>
+</div>
+<div class="p-1.5 rounded bg-[#0c1524] border border-white/5">
+<span class="text-slate-400 block text-[9px]">MEDIAN DWELL</span>
+<span class="text-slate-200 font-bold text-xs">112m</span>
+<span class="text-slate-400"> High load</span>
+</div>
+<div class="p-1.5 rounded bg-[#0c1524] border border-white/5">
+<span class="text-slate-400 block text-[9px]">MICRO-WEATHER</span>
+<span class="text-cyan-300 font-bold text-xs">31°C</span>
+<span class="text-slate-400"> Clear, 0mm</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-white/5">
+<button class="flex-1 py-1 rounded bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-[11px] transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">alt_route</span>
+<span>Reroute Traffic</span>
+</button>
+<button class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-[10px] transition-colors" type="button">
+                  Telemetry
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ZONE AVAILABILITY & RISK LEADERBOARD (Col 4) -->
+<div class="xl:col-span-4 flex flex-col rounded-xl bg-[#070d18] border border-white/10 p-3.5 space-y-3 justify-between">
+<div class="space-y-3">
+<div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-base">format_list_numbered</span>
+<h3 class="text-sm font-bold text-white tracking-tight">Zone Risk Leaderboard</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-[#0c1524] border border-white/10 text-cyan-400 font-mono text-[10px]">20 Hubs Ranked</span>
+</div>
+<!-- Search + Filter Pills -->
+<div class="space-y-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-slate-500 text-base">search</span>
+<input class="w-full h-8 pl-8 pr-3 rounded bg-[#0c1524] border border-white/10 text-slate-200 placeholder:text-slate-500 text-xs font-mono outline-none focus:border-cyan-500/50 transition-colors" placeholder="Filter zone by ID or name..." type="text"/>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto text-[10px] font-mono pb-0.5">
+<button class="px-2 py-0.5 rounded bg-cyan-600 text-white font-semibold whitespace-nowrap" type="button">All (20)</button>
+<button class="px-2 py-0.5 rounded bg-[#0c1524] border border-red-500/40 text-red-300 hover:bg-slate-800 whitespace-nowrap font-medium" type="button">Critical (4)</button>
+<button class="px-2 py-0.5 rounded bg-[#0c1524] border border-cyan-500/40 text-cyan-300 hover:bg-slate-800 whitespace-nowrap font-medium" type="button">Moderate (6)</button>
+<button class="px-2 py-0.5 rounded bg-[#0c1524] border border-emerald-500/40 text-emerald-300 hover:bg-slate-800 whitespace-nowrap font-medium" type="button">Normal (10)</button>
+</div>
+</div>
+<!-- Clean Ranked Hubs List -->
+<div class="space-y-1.5 max-h-[360px] overflow-y-auto pr-1">
+<!-- Item 1: BKC -->
+<div class="p-2 rounded bg-[#0c1524] border border-red-500/30 hover:border-red-500/60 transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-red-400">Z005</span>
+<span class="text-white font-medium">BKC Financial Center</span>
+</div>
+<span class="font-mono font-bold text-red-400">91%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
+<div class="bg-red-500 h-full rounded-full" style="width: 91%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-slate-400">
+<span>18 slots open of 200</span>
+<span class="text-red-400 font-semibold">CRITICAL RISK</span>
+</div>
+</div>
+<!-- Item 2: Lower Parel -->
+<div class="p-2 rounded bg-[#0c1524] border border-red-500/30 hover:border-red-500/60 transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-red-400">Z003</span>
+<span class="text-white font-medium">Lower Parel Tech Hub</span>
+</div>
+<span class="font-mono font-bold text-red-400">89%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
+<div class="bg-red-500 h-full rounded-full" style="width: 89%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-slate-400">
+<span>27 slots open of 250</span>
+<span class="text-red-400 font-semibold">CRITICAL RISK</span>
+</div>
+</div>
+<!-- Item 3: Andheri West -->
+<div class="p-2 rounded bg-[#0c1524] border border-red-500/30 hover:border-red-500/60 transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-red-400">Z011</span>
+<span class="text-white font-medium">Andheri Station West</span>
+</div>
+<span class="font-mono font-bold text-red-400">87%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
+<div class="bg-red-500 h-full rounded-full" style="width: 87%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-slate-400">
+<span>21 slots open of 160</span>
+<span class="text-red-400 font-semibold">CRITICAL RISK</span>
+</div>
+</div>
+<!-- Item 4: Thane Viviana -->
+<div class="p-2 rounded bg-[#0c1524] border border-red-500/30 hover:border-red-500/60 transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-red-400">Z018</span>
+<span class="text-white font-medium">Thane Viviana Mall</span>
+</div>
+<span class="font-mono font-bold text-red-400">86%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
+<div class="bg-red-500 h-full rounded-full" style="width: 86%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-slate-400">
+<span>24 slots open of 170</span>
+<span class="text-red-400 font-semibold">CRITICAL RISK</span>
+</div>
+</div>
+<!-- Item 5: Dadar Market -->
+<div class="p-2 rounded bg-[#0c1524] border border-white/10 hover:border-cyan-500/40 transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-cyan-400">Z004</span>
+<span class="text-white font-medium">Dadar Flower Market</span>
+</div>
+<span class="font-mono font-bold text-cyan-400">82%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
+<div class="bg-cyan-400 h-full rounded-full" style="width: 82%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-slate-400">
+<span>32 slots open of 180</span>
+<span class="text-cyan-400 font-semibold">MODERATE</span>
+</div>
+</div>
+<!-- Item 6: Nariman Point -->
+<div class="p-2 rounded bg-[#0c1524] border border-white/10 hover:border-cyan-500/40 transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-cyan-400">Z002</span>
+<span class="text-white font-medium">Nariman Point South</span>
+</div>
+<span class="font-mono font-bold text-cyan-400">78%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
+<div class="bg-cyan-400 h-full rounded-full" style="width: 78%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-slate-400">
+<span>44 slots open of 200</span>
+<span class="text-cyan-400 font-semibold">MODERATE</span>
+</div>
+</div>
+<!-- Item 7: Bandra West -->
+<div class="p-2 rounded bg-[#0c1524] border border-white/10 hover:border-emerald-500/40 transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-emerald-400">Z008</span>
+<span class="text-white font-medium">Bandra Linking Road</span>
+</div>
+<span class="font-mono font-bold text-emerald-400">38%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
+<div class="bg-emerald-400 h-full rounded-full" style="width: 38%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-slate-400">
+<span>93 slots open of 150</span>
+<span class="text-emerald-400 font-semibold">NORMAL LOAD</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-2 rounded bg-[#0c1524] hover:bg-slate-800 border border-white/10 text-cyan-300 font-mono text-xs transition-colors flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-xs">download</span>
+<span>Export 20 Zones GeoJSON / CSV</span>
+</button>
+</div>
+</div>
+<!-- 3. ANALYTICS & OPERATIONAL CHARTS -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+<!-- Chart 1: 24-Hour Demand: Actual vs RF ML Forecast (Col 5) -->
+<div class="lg:col-span-5 rounded-xl bg-[#070d18] border border-white/10 p-3.5 space-y-2 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-sm">show_chart</span>
+<h3 class="text-xs font-bold text-white tracking-tight">24h Demand: Historical Actual vs Random Forest Backtest</h3>
+</div>
+<span class="px-1.5 py-0.2 rounded bg-cyan-950 border border-cyan-500/30 text-cyan-300 font-mono text-[10px] font-semibold">R² = 0.963</span>
+</div>
+<p class="text-[11px] text-slate-400 font-mono">Solid cyan: PySpark telemetry • Dashed emerald: 30m horizon with 95% confidence ribbon</p>
+<!-- SVG Line Chart with confidence interval -->
+<div class="mt-3 relative w-full h-40">
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 420 150">
+<!-- Gridlines -->
+<line stroke="#142236" stroke-dasharray="2 3" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="#142236" stroke-dasharray="2 3" x1="0" x2="420" y1="70" y2="70"></line>
+<line stroke="#142236" stroke-dasharray="2 3" x1="0" x2="420" y1="110" y2="110"></line>
+<!-- 95% Confidence corridor after 17:42 -->
+<path d="M 280 75 
+                         C 310 60, 340 45, 370 30 
+                         C 390 20, 410 25, 420 28
+                         L 420 48
+                         C 400 45, 380 40, 350 55
+                         C 320 70, 300 85, 280 85 Z" fill="#38bdf8" fill-opacity="0.12"></path>
+<!-- Actual Telemetry Line (00:00 to 17:42) -->
+<path d="M 0 125 
+                         C 40 125, 75 130, 110 105 
+                         C 140 85, 175 75, 210 55 
+                         C 245 40, 265 70, 280 80" stroke="#38bdf8" stroke-linecap="round" stroke-width="2.2"></path>
+<!-- Shaded Area Under Actual Line -->
+<path d="M 0 125 
+                         C 40 125, 75 130, 110 105 
+                         C 140 85, 175 75, 210 55 
+                         C 245 40, 265 70, 280 80 
+                         L 280 150 L 0 150 Z" fill="url(#actualGrad)"></path>
+<!-- Predicted Future Line (17:42 to 24:00) -->
+<path d="M 280 80 
+                         C 310 65, 340 48, 370 35 
+                         C 395 24, 410 32, 420 34" stroke="#34d399" stroke-dasharray="4 3" stroke-linecap="round" stroke-width="2"></path>
+<!-- Current Time Marker Line -->
+<line stroke="#38bdf8" stroke-dasharray="2 2" stroke-width="1.2" x1="280" x2="280" y1="10" y2="150"></line>
+<circle cx="280" cy="80" fill="#040810" r="4" stroke="#38bdf8" stroke-width="2"></circle>
+<defs>
+<lineargradient id="actualGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#38bdf8" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Annotation Pill -->
+<div class="absolute left-[66%] top-2 -translate-x-1/2 px-1.5 py-0.5 rounded bg-[#0c1524] border border-cyan-500/40 text-cyan-300 font-mono text-[9px]">
+                17:42 Live: 42.3% (err -0.8%)
+              </div>
+</div>
+<!-- Horizontal Axes -->
+<div class="flex justify-between font-mono text-[9px] text-slate-400 pt-1 border-t border-white/5">
+<span>00:00</span>
+<span>04:00</span>
+<span>08:00</span>
+<span>12:00</span>
+<span class="text-cyan-400 font-bold">Latest sample</span>
+<span>20:00</span>
+<span>24:00</span>
+</div>
+</div>
+<div class="text-[10px] text-slate-400 font-mono pt-1">
+<span>Model: loading validated Random Forest metadata…</span>
+</div>
+</div>
+<!-- Chart 2: Hub Capacity Pressure & Allocation (Col 4) -->
+<div class="lg:col-span-4 rounded-xl bg-[#070d18] border border-white/10 p-3.5 space-y-2 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-teal-400 text-sm">stacked_bar_chart</span>
+<h3 class="text-xs font-bold text-white tracking-tight">Hub Capacity Pressure</h3>
+</div>
+<span class="text-slate-400 font-mono text-[10px]">Top 5 Bottlenecks</span>
+</div>
+<p class="text-[11px] text-slate-400 font-mono">Live occupied vs available slot allocation</p>
+<!-- Stacked bar list -->
+<div class="mt-3 space-y-2.5">
+<div>
+<div class="flex justify-between font-mono text-[10px] mb-1">
+<span class="text-white font-medium">BKC Financial (Z005)</span>
+<span class="text-red-400 font-bold">182 / 200 (91%)</span>
+</div>
+<div class="w-full h-2 rounded bg-slate-800 flex overflow-hidden">
+<div class="bg-red-500 h-full" style="width: 91%"></div>
+<div class="bg-emerald-400 h-full" style="width: 9%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono text-[10px] mb-1">
+<span class="text-white font-medium">Lower Parel (Z003)</span>
+<span class="text-red-400 font-bold">223 / 250 (89%)</span>
+</div>
+<div class="w-full h-2 rounded bg-slate-800 flex overflow-hidden">
+<div class="bg-red-500 h-full" style="width: 89%"></div>
+<div class="bg-emerald-400 h-full" style="width: 11%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono text-[10px] mb-1">
+<span class="text-white font-medium">Andheri West (Z011)</span>
+<span class="text-red-400 font-bold">139 / 160 (87%)</span>
+</div>
+<div class="w-full h-2 rounded bg-slate-800 flex overflow-hidden">
+<div class="bg-red-500 h-full" style="width: 87%"></div>
+<div class="bg-emerald-400 h-full" style="width: 13%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono text-[10px] mb-1">
+<span class="text-white font-medium">Thane Viviana (Z018)</span>
+<span class="text-red-400 font-bold">146 / 170 (86%)</span>
+</div>
+<div class="w-full h-2 rounded bg-slate-800 flex overflow-hidden">
+<div class="bg-red-500 h-full" style="width: 86%"></div>
+<div class="bg-emerald-400 h-full" style="width: 14%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono text-[10px] mb-1">
+<span class="text-white font-medium">Dadar Market (Z004)</span>
+<span class="text-cyan-400 font-bold">148 / 180 (82%)</span>
+</div>
+<div class="w-full h-2 rounded bg-slate-800 flex overflow-hidden">
+<div class="bg-cyan-400 h-full" style="width: 82%"></div>
+<div class="bg-emerald-400 h-full" style="width: 18%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded bg-red-500"></span> Occupied</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded bg-emerald-400"></span> Free Bays</span>
+<span>Sync: 5.0s</span>
+</div>
+</div>
+<!-- Chart 3: Dynamic Inflow vs Outflow Rates (Col 3) -->
+<div class="lg:col-span-3 rounded-xl bg-[#070d18] border border-white/10 p-3.5 space-y-2 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-sm">swap_vertical_circle</span>
+<h3 class="text-xs font-bold text-white tracking-tight">Dynamic Flow Delta</h3>
+</div>
+<span class="px-1.5 py-0.2 rounded bg-emerald-950 border border-emerald-500/30 text-emerald-300 font-mono text-[10px] font-semibold">+38 net</span>
+</div>
+<p class="text-[11px] text-slate-400 font-mono">Net vehicular accumulation / min</p>
+<!-- Dual Directional Flow Chart -->
+<div class="mt-3 relative w-full h-36">
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 200 120">
+<line stroke="#1e2e47" stroke-width="1.2" x1="0" x2="200" y1="60" y2="60"></line>
+<!-- Inflow (Positive Emerald Area) -->
+<path d="M 0 60 Q 30 35, 70 20 T 130 30 T 170 15 L 200 25 L 200 60 Z" fill="#34d399" fill-opacity="0.2"></path>
+<path d="M 0 60 Q 30 35, 70 20 T 130 30 T 170 15 L 200 25" stroke="#34d399" stroke-width="2"></path>
+<!-- Outflow (Negative Pink/Red Area) -->
+<path d="M 0 60 Q 40 75, 80 88 T 140 70 T 180 98 L 200 90 L 200 60 Z" fill="#f87171" fill-opacity="0.2"></path>
+<path d="M 0 60 Q 40 75, 80 88 T 140 70 T 180 98 L 200 90" stroke="#f87171" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between text-[10px] font-mono pt-1">
+<span class="text-emerald-400 font-semibold">▲ In: 184 cars/m</span>
+<span class="text-red-400 font-semibold">▼ Out: 146 cars/m</span>
+</div>
+</div>
+<div class="p-2 rounded bg-[#0c1524] border border-white/5 text-[10px] font-mono">
+<span class="text-slate-400 block">Peak Inflow Spike</span>
+<span class="text-slate-200 font-bold">184 cars/min @ 17:15 IST</span>
+</div>
+</div>
+</div>
+<!-- 4. BIG DATA PIPELINE & VIVA EXPLAINER STRIP -->
+<div class="rounded-xl bg-[#070d18] border border-white/10 p-3.5 space-y-3">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-white/[0.08]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-base">alt_route</span>
+<div>
+<h4 class="text-xs font-bold text-white tracking-tight uppercase">Big Data Telemetry Architecture &amp; Execution Pipeline</h4>
+<p class="text-[11px] text-slate-400 font-mono">End-to-end streaming dataflow from IoT edge sensors to executive command intelligence</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-[#0c1524] border border-white/10 text-slate-300 font-mono text-[10px]">
+              VIVA EXAM REFERENCE PROTOCOL
+            </span>
+</div>
+</div>
+<!-- 7-Stage Horizontal Pipeline Flow Diagram -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-7 gap-2 pt-1 text-xs">
+<!-- Stage 1: Sensors -->
+<div class="p-2.5 rounded bg-[#0c1524] border border-white/10 space-y-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-cyan-400">
+<span class="font-bold">STAGE 01</span>
+<span class="material-symbols-outlined text-xs">sensors</span>
+</div>
+<span class="font-bold text-white block text-[11px]">IoT Edge Sensors</span>
+<span class="text-[10px] text-slate-400 block font-mono">JSON event producer</span>
+<p class="text-[10px] text-slate-400 leading-tight pt-1">
+              Simulated edge sensors publish typed ENTRY and EXIT telemetry.
+            </p>
+</div>
+<!-- Stage 2: Kafka Ingestion -->
+<div class="p-2.5 rounded bg-[#0c1524] border border-white/10 space-y-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-cyan-400">
+<span class="font-bold">STAGE 02</span>
+<span class="material-symbols-outlined text-xs">sync_alt</span>
+</div>
+<span class="font-bold text-white block text-[11px]">Kafka Ingestion</span>
+<span class="text-[10px] text-cyan-300 block font-mono">Loading broker telemetry…</span>
+<p class="text-[10px] text-slate-400 leading-tight pt-1">
+              Replayable parking-events topic feeding the Structured Streaming consumer.
+            </p>
+</div>
+<!-- Stage 3: PySpark Streaming -->
+<div class="p-2.5 rounded bg-[#0c1524] border border-white/10 space-y-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-emerald-400">
+<span class="font-bold">STAGE 03</span>
+<span class="material-symbols-outlined text-xs">stream</span>
+</div>
+<span class="font-bold text-white block text-[11px]">PySpark 4.2 Stream</span>
+<span class="text-[10px] text-emerald-300 block font-mono">Loading stream cadence…</span>
+<p class="text-[10px] text-slate-400 leading-tight pt-1">
+              Event-time watermarking protects late and out-of-order telemetry.
+            </p>
+</div>
+<!-- Stage 4: Bloom Deduplication -->
+<div class="p-2.5 rounded bg-[#0c1524] border border-white/10 space-y-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-teal-400">
+<span class="font-bold">STAGE 04</span>
+<span class="material-symbols-outlined text-xs">filter_alt</span>
+</div>
+<span class="font-bold text-white block text-[11px]">Bloom Deduplication</span>
+<span class="text-[10px] text-teal-300 block font-mono">0% False Negatives</span>
+<p class="text-[10px] text-slate-400 leading-tight pt-1">
+              Probabilistic filter eliminates duplicate optical re-reads.
+            </p>
+</div>
+<!-- Stage 5: Bronze/Silver Parquet -->
+<div class="p-2.5 rounded bg-[#0c1524] border border-white/10 space-y-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-cyan-400">
+<span class="font-bold">STAGE 05</span>
+<span class="material-symbols-outlined text-xs">inventory_2</span>
+</div>
+<span class="font-bold text-white block text-[11px]">Apache Parquet Lake</span>
+<span class="text-[10px] text-slate-300 block font-mono">Bronze &gt; Silver</span>
+<p class="text-[10px] text-slate-400 leading-tight pt-1">
+              Snappy-compressed columnar format storing trip durations.
+            </p>
+</div>
+<!-- Stage 6: Random Forest Regressor -->
+<div class="p-2.5 rounded bg-[#0c1524] border border-white/10 space-y-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-emerald-400">
+<span class="font-bold">STAGE 06</span>
+<span class="material-symbols-outlined text-xs">psychology</span>
+</div>
+<span class="font-bold text-white block text-[11px]">scikit-learn Random Forest</span>
+<span class="text-[10px] text-emerald-300 block font-mono">30-Min Horizon</span>
+<p class="text-[10px] text-slate-400 leading-tight pt-1">
+              Saved production model using time, weather, capacity, occupancy, and dwell features.
+            </p>
+</div>
+<!-- Stage 7: Command Center Dispatch -->
+<div class="p-2.5 rounded bg-[#0c1524] border border-cyan-500/30 space-y-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-cyan-300">
+<span class="font-bold">STAGE 07</span>
+<span class="material-symbols-outlined text-xs">desktop_windows</span>
+</div>
+<span class="font-bold text-white block text-[11px]">Command Op-Center</span>
+<span class="text-[10px] text-cyan-300 block font-mono">HTTP action API</span>
+<p class="text-[10px] text-slate-400 leading-tight pt-1">
+              Validated operator reroute actions and VMS guidance records.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Live subtle operational clock increment
+    (function() {
+      const timeEl = document.querySelector('header .font-mono:last-of-type span:last-child');
+      if (timeEl) {
+        setInterval(() => {
+          const d = new Date();
+          timeEl.textContent = d.toTimeString().split(' ')[0] + ' IST';
+        }, 1000);
+      }
+    })();
+  </script>
+</body></html>

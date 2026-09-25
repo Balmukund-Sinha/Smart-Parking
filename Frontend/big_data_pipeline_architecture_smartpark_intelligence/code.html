@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface-variant": "#bcc9cd",
+          "inverse-primary": "#00687a",
+          "secondary-fixed-dim": "#4fdbc8",
+          "surface-container-highest": "#2d3448",
+          "surface": "#0b1325",
+          "surface-variant": "#2d3448",
+          "primary": "#4cd7f6",
+          "on-tertiary-fixed": "#002113",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-container-lowest": "#060e1f",
+          "error": "#ffb4ab",
+          "on-secondary-fixed": "#00201c",
+          "on-secondary-container": "#003f38",
+          "inverse-on-surface": "#283043",
+          "error-container": "#93000a",
+          "primary-fixed-dim": "#4cd7f6",
+          "on-primary-container": "#00424f",
+          "primary-container": "#06b6d4",
+          "on-surface": "#dbe2fb",
+          "on-secondary-fixed-variant": "#005048",
+          "on-tertiary": "#003824",
+          "inverse-surface": "#dbe2fb",
+          "surface-bright": "#31394d",
+          "primary-fixed": "#acedff",
+          "surface-container-high": "#222a3d",
+          "on-primary-fixed": "#001f26",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#04b4a2",
+          "surface-dim": "#0b1325",
+          "outline-variant": "#3d494c",
+          "on-tertiary-container": "#00452e",
+          "background": "#0b1325",
+          "on-secondary": "#003731",
+          "on-error": "#690005",
+          "outline": "#869397",
+          "on-background": "#dbe2fb",
+          "tertiary-fixed-dim": "#4edea3",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-tint": "#4cd7f6",
+          "surface-container": "#171f32",
+          "surface-container-low": "#131b2d",
+          "tertiary": "#4edea3",
+          "on-primary-fixed-variant": "#004e5c",
+          "secondary-fixed": "#71f8e4",
+          "secondary": "#4fdbc8",
+          "tertiary-container": "#1bbd85",
+          "on-primary": "#003640"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.75rem",
+          "space-xs": "0.5rem",
+          "gutter-desktop": "1.5rem",
+          "space-md": "1rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-3xs": "0.125rem",
+          "space-xl": "2rem",
+          "space-2xs": "0.25rem",
+          "space-3xl": "4rem",
+          "margin-tablet": "1.5rem",
+          "margin-desktop": "2rem",
+          "space-2xl": "3rem"
+        },
+        "fontFamily": {
+          "display-lg": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "metric-xl": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ],
+          "headline-sm": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Inter"
+          ],
+          "metric-lg": [
+            "JetBrains Mono"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "display-lg": [
+            "3rem",
+            {
+              "lineHeight": "3.5rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "1.25rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-xl": [
+            "2.25rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.375rem",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.125rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "0.6875rem",
+            {
+              "lineHeight": "0.875rem",
+              "letterSpacing": "0.06em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.5rem",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/95 backdrop-blur-xl z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest/60"><div class="flex items-center gap-space-xs min-w-0"><img alt="SmartPark Intelligence Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYn3gRRWfeGs2tlUqsrZrOw145x2dtvj2KAOXcHbaGOx5tf0U1wbu6da9SufrUfGgoD_nc1qgKpTTIVmq7qWqeRNxwTjdwkEbJ8JWPcVhlbY6ta2eHelhTFEOopcT-fysllRfnMRyoO3RuI68yA2Q4RGG9E8Ob412oT7tpxBYpKrzHg12SDwK8jnnn4fEhd03BIBB5V2xTgZFZ-9EUrq9v6CZPEjG3DlVo5loloyJtPqGcKDAFTxV"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight truncate">SmartPark</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Intelligence</span></div></div><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-primary-fixed-dim font-medium tracking-wide border-0">v4.2-SPARK</span></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Mission Telemetry</span></div><nav class="flex-1 px-space-xs space-y-space-3xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]"><a aria-current="page" class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]" data-path="overview" href="#"><span class="material-symbols-outlined text-primary text-xl">dashboard</span><span class="font-body-md text-body-md tracking-tight flex-1">Overview</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="live-monitoring" href="#"><span class="material-symbols-outlined text-tertiary text-xl">sensors</span><span class="font-body-md text-body-md tracking-tight flex-1">Live Monitoring</span><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parking-map" href="#"><span class="material-symbols-outlined text-secondary text-xl">map</span><span class="font-body-md text-body-md tracking-tight flex-1">Parking Map</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="historical-analytics" href="#"><span class="material-symbols-outlined text-primary text-xl">monitoring</span><span class="font-body-md text-body-md tracking-tight flex-1">Historical Analytics</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="demand-prediction" href="#"><span class="material-symbols-outlined text-primary text-xl">neurology</span><span class="font-body-md text-body-md tracking-tight flex-1">Demand Prediction</span><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-tertiary font-semibold">AI</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="big-data-pipeline" href="#"><span class="material-symbols-outlined text-secondary text-xl">alt_route</span><span class="font-body-md text-body-md tracking-tight flex-1">Big Data Pipeline</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-explorer" href="#"><span class="material-symbols-outlined text-primary text-xl">database</span><span class="font-body-md text-body-md tracking-tight flex-1">Data Explorer</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-health" href="#"><span class="material-symbols-outlined text-tertiary text-xl">dns</span><span class="font-body-md text-body-md tracking-tight flex-1">System Health</span></a></nav></div><div class="p-space-xs bg-surface-container-lowest/80"><div class="p-space-xs rounded-lg bg-surface-container-high/60 flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Stream Engine</span><div class="flex items-center gap-space-2xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-tertiary font-medium">OK</span></div></div><div class="flex items-center gap-space-2xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">stream</span><span class="font-label-sm text-label-sm font-medium tracking-tight truncate">PySpark + Kafka • Active</span></div></div><div class="mt-space-xs flex items-center justify-between px-space-2xs py-space-3xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="font-label-sm text-label-sm">Collapse Dock</span><span class="material-symbols-outlined text-base">chevron_left</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Mumbai Metropolitan Region</span><span class="material-symbols-outlined text-outline text-base">chevron_right</span><span class="font-body-md text-body-md text-on-surface-variant font-medium">Executive Overview</span></div><div class="flex items-center gap-space-xs"><div class="relative hidden lg:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">location_city</span><span class="font-body-sm text-body-sm font-medium">All 20 Zones (Mumbai MMR)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="relative hidden xl:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">calendar_today</span><span class="font-body-sm text-body-sm font-medium">Live Window (Last 24 Hours)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm font-bold text-tertiary tracking-wide uppercase">LIVE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">403k ev/s</span></div><div class="hidden sm:flex items-center gap-space-2xs px-space-xs py-space-3xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-outline">sync</span><span class="font-label-sm text-label-sm font-mono">17:42:09 IST</span></div><button aria-label="Alerts" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBixsjrcwUYqit6t6xuYiw2Jz3-CdTUIRpwiggW1SGKjZnnu-z4T64dtvU2hbYdYUiW6rWBAiO7J5MpZkvyiIS5-4F204KwWDHkOWmxzmLfXg8IVOswBDWLiN3qd7W7cpV_0jPh-rHHvXtu9kMl_w2AJFN1KVHQ0ILLRikV2qYq58xB9MW5Zpf7sVtC4HK8qI5U21R-Q8stcDZyNs6PD55Aa0Hf46NgOU_eWCMq8sCbaZH_xFPIfhM"/><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Aanya Sharma</span><span class="font-label-sm text-label-sm text-outline font-medium">Lead Data Engineer</span></div><span class="material-symbols-outlined text-outline text-sm hidden md:block">expand_more</span></div></div></header><main class="w-full pt-16 px-space-lg pb-space-xl bg-background min-h-screen"><div class="flex flex-col w-full space-y-space-xl">
+<!-- Pipeline Header & Global Telemetry Strip -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-md">
+<div class="flex flex-col space-y-space-3xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold px-space-xs py-space-3xs bg-primary/10 rounded">Topology v4.2</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">spark://mmr-master-01:7077 • 12 Nodes Active</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Big Data Pipeline Architecture &amp; Execution Topology</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Deterministic low-latency streaming pipeline from edge sensor nodes in Mumbai MMR through distributed Kafka ingest, PySpark Structured Streaming, Bloom filter deduplication, and MLlib operational dispatch.
+        </p>
+</div>
+<!-- Live Pipeline Controls -->
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<button class="group flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-semibold shadow-md hover:bg-secondary transition-all active:scale-95" id="btn-pulse" type="button">
+<span class="material-symbols-outlined text-base group-hover:rotate-45 transition-transform">bolt</span>
+<span class="font-body-sm text-body-sm font-semibold">Simulate Event Pulse</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" id="btn-toggle-flow" type="button">
+<span class="material-symbols-outlined text-base text-primary" id="toggle-icon">pause</span>
+<span class="font-body-sm text-body-sm font-medium" id="toggle-text">Pause Engine</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" onclick="document.getElementById('spark-dag-modal').classList.toggle('hidden')" type="button">
+<span class="material-symbols-outlined text-base text-secondary">account_tree</span>
+<span class="font-body-sm text-body-sm font-medium">Spark DAG</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-highest transition-colors" onclick="alert('Architecture schematic &amp; academic proofs packaged in IEEE standard LaTeX format.')" type="button">
+<span class="material-symbols-outlined text-base text-outline">picture_as_pdf</span>
+<span class="font-body-sm text-body-sm font-medium">Export Defense PDF</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Key Metrics Bar -->
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-space-xs">
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">End-to-End Latency</span>
+<div class="flex items-baseline gap-space-3xs mt-space-2xs">
+<span class="font-metric-lg text-metric-lg text-tertiary font-bold font-mono">1.02</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">sec</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary mt-space-3xs flex items-center gap-space-3xs">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary"></span> SLA: &lt; 2.50s
+        </span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Throughput Rate</span>
+<div class="flex items-baseline gap-space-3xs mt-space-2xs">
+<span class="font-metric-lg text-metric-lg text-primary font-bold font-mono">348.4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ev/s</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-3xs">Peak: 520 ev/s (BKC peak)</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Kafka Brokers</span>
+<div class="flex items-baseline gap-space-3xs mt-space-2xs">
+<span class="font-metric-lg text-metric-lg text-secondary font-bold font-mono">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">parts</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-space-3xs font-mono">RF=3 • 0.78ms lag</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Bloom Filter Stat</span>
+<div class="flex items-baseline gap-space-3xs mt-space-2xs">
+<span class="font-metric-lg text-metric-lg text-tertiary font-bold font-mono">1,842</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">drops</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary mt-space-3xs font-mono">FPR: 0.00% • 128KB mem</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Micro-Batch Interval</span>
+<div class="flex items-baseline gap-space-3xs mt-space-2xs">
+<span class="font-metric-lg text-metric-lg text-on-surface font-bold font-mono">1,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ms</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-3xs font-mono">Batch #1,492 active</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">ML Inference Acc</span>
+<div class="flex items-baseline gap-space-3xs mt-space-2xs">
+<span class="font-metric-lg text-metric-lg text-primary font-bold font-mono">0.963</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">R²</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary mt-space-3xs">RandomForest 100 Trees</span>
+</div>
+</div>
+</section>
+<!-- Visual Pipeline Flow Diagram (Interactive Topology Grid) -->
+<section class="flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">hub</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Interactive Stream Processing Canvas</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center gap-space-2xs text-label-sm font-label-sm text-on-surface-variant font-mono">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span> Micro-batch Active
+        </span>
+<span class="flex items-center gap-space-2xs text-label-sm font-label-sm text-on-surface-variant font-mono">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Delta Lake Medallion
+        </span>
+</div>
+</div>
+<!-- 8 Stage Visual Pipeline Map -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Stage 01: Edge Sensors -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 01</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">sensors</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">IoT Ground Nodes</h3>
+<span class="font-label-sm text-label-sm text-outline font-mono">MQTT • Protobuf v3</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          Magnetometer &amp; optical detection nodes spanning 20 municipal MMR zones. Real-time slot actuation events.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Nodes Online</span><span class="text-tertiary font-bold">3,970 / 4,000</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Ingress Pulse</span><span class="text-primary">348 ev/s</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Protocol</span><span class="text-on-surface">QoS 1 Ack</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="flex items-center gap-space-3xs text-tertiary"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 99.8% Heartbeat</span>
+<span class="font-mono">t₀ = 0.00ms</span>
+</div>
+</div>
+<!-- Stage 02: Apache Kafka Broker -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 02</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">move_to_inbox</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Kafka Broker Cluster</h3>
+<span class="font-label-sm text-label-sm text-secondary font-mono">mumbai.telemetry.v4</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          Distributed durable log. Ingestion queue with automatic broker failover, partition keys hashed on `zone_id`.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Partitions</span><span class="text-on-surface">12 (P-00 - P-11)</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Replication Factor</span><span class="text-secondary font-bold">RF = 3</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Consumer Lag</span><span class="text-tertiary">0.78ms (22 pkts)</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-secondary font-mono">Segment: 100MB</span>
+<span class="font-mono">+26ms Ingestion</span>
+</div>
+</div>
+<!-- Stage 03: PySpark Streaming -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 03</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">cyclone</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">PySpark 4.2 Stream</h3>
+<span class="font-label-sm text-label-sm text-primary font-mono">Structured Streaming</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          1.0s trigger micro-batches, stateful sliding watermarking (10m late tolerance), HDFS checkpointing for exact-once.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Watermark Delay</span><span class="text-on-surface">600s sliding</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Worker Execs</span><span class="text-primary font-bold">8 cores / 32GB</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Shuffle Partitions</span><span class="text-on-surface">16 partitions</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-primary font-mono">Trigger: 1000ms</span>
+<span class="font-mono">+262ms Batch</span>
+</div>
+</div>
+<!-- Stage 04: Bloom Filter Dedup -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 04</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">filter_alt</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Bloom Deduplication</h3>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">In-Memory Bit Vector</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          k=7 Murmur3 hashes over 1,048,576 bits (128 KB). Zero false negatives, prevents redundant state churn.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Hash Functions</span><span class="text-on-surface font-bold">k = 7 Murmur3</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Bit Array Size</span><span class="text-tertiary">128 KB (O(1))</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Duplicates Dropped</span><span class="text-tertiary font-bold">1,842 pings</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-tertiary font-mono">False Neg: 0.0%</span>
+<span class="font-mono">+2ms Lookup</span>
+</div>
+</div>
+<!-- Stage 05: Delta Parquet Lakehouse -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 05</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">dataset</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Delta Lakehouse</h3>
+<span class="font-label-sm text-label-sm text-primary font-mono">Bronze ➔ Silver Snappy</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          Medallion architecture. Bronze captures raw immutable trace payloads; Silver generates 5-min compacted Parquet.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Format</span><span class="text-on-surface font-bold">Delta Parquet</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Compression</span><span class="text-primary font-mono">Snappy (4.8x)</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Partition Key</span><span class="text-on-surface">`date / zone_id`</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-primary font-mono">ACID Commits</span>
+<span class="font-mono">+210ms Lake</span>
+</div>
+</div>
+<!-- Stage 06: PostgreSQL & TimescaleDB -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 06</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">database</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">TimescaleDB Serving</h3>
+<span class="font-label-sm text-label-sm text-secondary font-mono">PostgreSQL 16 + PostGIS</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          Hot transactional serving layer storing live occupancy, reservation lock states, and PostGIS spatial bounding polygons.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Hypertables</span><span class="text-on-surface">occupancy_states</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Index Type</span><span class="text-secondary font-bold">GiST / R-Tree</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Read Latency</span><span class="text-tertiary">3.4ms p99</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-secondary font-mono">Conn Pool: 64</span>
+<span class="font-mono">+160ms Write</span>
+</div>
+</div>
+<!-- Stage 07: MLlib Random Forest Ingress -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 07</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">neurology</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">MLlib Model Ingress</h3>
+<span class="font-label-sm text-label-sm text-primary font-mono">RandomForestRegressor</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          Predicts 30-min horizon parking strain combining live influx, precipitation radar, and traffic congestion vector scores.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Ensemble</span><span class="text-on-surface font-bold">100 Trees (Depth 8)</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Variance Score</span><span class="text-primary font-mono">R² = 0.963</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Inference Time</span><span class="text-tertiary">26ms batch</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-primary font-mono">Features: 28</span>
+<span class="font-mono">+260ms Score</span>
+</div>
+</div>
+<!-- Stage 08: Operations Command Center & VMS -->
+<div class="p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-space-xs py-space-3xs rounded-bl bg-surface-container-highest font-label-sm text-label-sm font-mono text-outline">STAGE 08</div>
+<div class="flex items-center gap-space-xs mb-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">satellite_alt</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Command &amp; Road VMS</h3>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">WebSocket Telemetry</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          WebSocket push stream directly to civic operator displays, highway Variable Message Signs (VMS), and enforcement dispatch.
+        </p>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest space-y-space-3xs font-mono text-label-sm">
+<div class="flex justify-between text-on-surface-variant"><span>Client Push</span><span class="text-tertiary font-bold">2,140 sockets</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Sign Refresh</span><span class="text-on-surface font-mono">Real-time (0.15s)</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Dispatch Rule</span><span class="text-error font-bold">Auto &gt; 90%</span></div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-tertiary font-mono">Protobuf Wire</span>
+<span class="font-mono">+154ms Egress</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Real-World Execution: End-to-End Event Trace Walkthrough -->
+<section class="grid grid-cols-1 xl:grid-cols-3 gap-space-md">
+<!-- Timeline Stream Inspector (2 Cols) -->
+<div class="xl:col-span-2 p-space-lg rounded-xl bg-surface-container space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-xs border-b border-surface-container-highest">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Real-Time Packet Journey Inspector</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Trace UUID: ev_7f8a9140-bk39-2024</h3>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-space-3xs rounded bg-surface-container-highest text-tertiary font-mono font-bold">STATUS: COMMITTED</span>
+<span class="font-label-sm text-label-sm px-space-xs py-space-3xs rounded bg-primary/20 text-primary font-mono">MH-01-DE-4412</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Sub-second chronological breakdown of an actual ingress parking event triggered by sensor excitation at <strong>Lower Parel Tech Hub (Zone Z003)</strong>.
+      </p>
+<!-- Event Trace Sequential Pipeline Steps -->
+<div class="space-y-space-xs font-mono text-label-sm">
+<!-- Step 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shrink-0">1</span>
+<div>
+<span class="text-tertiary font-bold">17:42:09.184 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">Sensor Actuation</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">Ground Magnetometer Node #14 trips: Induction ΔB = +48.2 μT (Vehicle presence detected).</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-primary font-bold">+0 ms</span>
+<span class="block text-outline text-xs">t_init</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs shrink-0">2</span>
+<div>
+<span class="text-tertiary font-bold">17:42:09.210 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">MQTT Gateway &amp; Kafka Publishing</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">Packet serialized to Protobuf v3, routed to Kafka topic <code class="text-secondary">mumbai.telemetry.v4</code> (Partition 04).</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-secondary font-bold">+26 ms</span>
+<span class="block text-outline text-xs">RF=3 sync</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shrink-0">3</span>
+<div>
+<span class="text-tertiary font-bold">17:42:09.420 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">Spark Streaming Micro-Batch Ingest</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">PySpark worker daemon on node `spark-worker-03` polls Kafka buffer; includes packet in Batch #1492.</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-primary font-bold">+210 ms</span>
+<span class="block text-outline text-xs">batch assembly</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-xs shrink-0">4</span>
+<div>
+<span class="text-tertiary font-bold">17:42:09.422 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">Bloom Filter Deduplication Verification</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">k=7 Murmur3 hash check on event signature confirms novel entry. Zero database lock penalty incurred.</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-tertiary font-bold">+2 ms</span>
+<span class="block text-outline text-xs">O(1) memory probe</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shrink-0">5</span>
+<div>
+<span class="text-tertiary font-bold">17:42:09.680 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">Delta Lakehouse Append (Bronze)</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">Stream commit written to `s3://mumbai-smartpark/delta/bronze/events/date=2024-10-31/zone_id=Z003.parquet`.</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-primary font-bold">+258 ms</span>
+<span class="block text-outline text-xs">atomic parquet</span>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs shrink-0">6</span>
+<div>
+<span class="text-tertiary font-bold">17:42:09.790 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">PostgreSQL TimescaleDB Hot Write</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">Active zone occupancy counter incremented: <strong>223 / 250 spots (89.2% capacity)</strong>. Status flags updated.</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-secondary font-bold">+110 ms</span>
+<span class="block text-outline text-xs">spatial index</span>
+</div>
+</div>
+<!-- Step 7 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shrink-0">7</span>
+<div>
+<span class="text-tertiary font-bold">17:42:10.050 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">MLlib Random Forest Re-scoring</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">30-min projection exceeds saturation threshold (94.6%). Congestion warning triggered for Senapati Bapat Marg.</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-primary font-bold">+260 ms</span>
+<span class="block text-outline text-xs">100 trees depth-8</span>
+</div>
+</div>
+<!-- Step 8 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-xs shrink-0">8</span>
+<div>
+<span class="text-tertiary font-bold">17:42:10.204 IST</span>
+<span class="text-outline mx-space-2xs">•</span>
+<span class="text-on-surface font-semibold">WebSocket Dispatch &amp; Road VMS Advisory</span>
+<p class="text-on-surface-variant font-sans text-body-sm mt-0.5">Executive UI displays pulse. Roadside Variable Message Sign `VMS-LP-02` flashes "Parel Lot Nearly Full: 27 Left".</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-tertiary font-bold font-mono">+154 ms</span>
+<span class="block text-tertiary text-xs">WALL: 1.020s</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Wall-Clock Latency Breakdown & Live Buffer -->
+<div class="flex flex-col space-y-space-md">
+<!-- Latency Stack Breakdown Card -->
+<div class="p-space-lg rounded-xl bg-surface-container space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Latency Stack Breakdown</span>
+<span class="font-metric-lg text-metric-lg text-tertiary font-bold font-mono">1.02s</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Cumulative execution profile per stage. Measured over 10,000 continuous benchmark iterations.
+        </p>
+<!-- Segmented Bar Visualization -->
+<div class="w-full h-3 rounded-full bg-surface-container-lowest flex overflow-hidden">
+<div class="h-full bg-secondary" style="width: 2.5%;" title="Sensor to Kafka: 26ms (2.5%)"></div>
+<div class="h-full bg-secondary-fixed" style="width: 20.5%;" title="Kafka Buffer Lag: 210ms (20.5%)"></div>
+<div class="h-full bg-primary" style="width: 25.6%;" title="PySpark Batch: 262ms (25.6%)"></div>
+<div class="h-full bg-tertiary" style="width: 0.2%;" title="Bloom Filter: 2ms (0.2%)"></div>
+<div class="h-full bg-primary-container" style="width: 25.2%;" title="Lakehouse &amp; DB writes: 258ms (25.2%)"></div>
+<div class="h-full bg-surface-bright" style="width: 10.7%;" title="DB Indexing: 110ms (10.7%)"></div>
+<div class="h-full bg-tertiary-fixed-dim" style="width: 15.3%;" title="WebSocket &amp; VMS Broadcast: 154ms (15.3%)"></div>
+</div>
+<!-- Latency Line Item List -->
+<div class="space-y-space-2xs font-mono text-label-sm">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded bg-secondary"></span> Sensor Actuation -&gt; Kafka Publish</span>
+<span class="text-on-surface">26 ms (2.5%)</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded bg-secondary-fixed"></span> Kafka Broker Lag &amp; Micro-batch Poll</span>
+<span class="text-on-surface">210 ms (20.5%)</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded bg-primary"></span> PySpark Worker Partition Processing</span>
+<span class="text-on-surface">262 ms (25.6%)</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded bg-tertiary"></span> Bloom Filter Dedup Array (k=7)</span>
+<span class="text-tertiary font-bold">2 ms (0.2%)</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded bg-primary-container"></span> Delta Lake Parquet Bronze Commit</span>
+<span class="text-on-surface">258 ms (25.2%)</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded bg-surface-bright"></span> TimescaleDB Hot Occupancy Commit</span>
+<span class="text-on-surface">110 ms (10.7%)</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded bg-tertiary-fixed-dim"></span> WebSocket Dispatch &amp; Road Sign Egress</span>
+<span class="text-tertiary">154 ms (15.3%)</span>
+</div>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-outline uppercase font-mono">End-to-End Latency:</span>
+<span class="text-tertiary font-mono font-bold">1,022 ms (1.02s)</span>
+</div>
+</div>
+<!-- Live Packet Payload Snapshot -->
+<div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between flex-1">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Live Wire Payload</span>
+<span class="font-label-sm text-label-sm text-primary font-mono">Protobuf • 184 bytes</span>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-lowest font-mono text-xs text-on-surface-variant overflow-x-auto leading-relaxed">
+<span class="text-outline">{</span><br/>
+              <span class="text-primary">"uuid"</span>: <span class="text-tertiary">"ev_7f8a9140-bk39-2024"</span>,<br/>
+              <span class="text-primary">"zone_id"</span>: <span class="text-tertiary">"MMR_Z003_PAREL"</span>,<br/>
+              <span class="text-primary">"sensor_id"</span>: <span class="text-secondary">14092</span>,<br/>
+              <span class="text-primary">"vehicle_hash"</span>: <span class="text-tertiary">"sha256:MH01DE4412"</span>,<br/>
+              <span class="text-primary">"delta_mag_ut"</span>: <span class="text-on-surface">+48.20</span>,<br/>
+              <span class="text-primary">"status"</span>: <span class="text-error font-bold">"OCCUPIED"</span>,<br/>
+              <span class="text-primary">"ts_sensor"</span>: <span class="text-on-surface">1730377329184</span>,<br/>
+              <span class="text-primary">"kafka_partition"</span>: <span class="text-secondary">4</span>,<br/>
+              <span class="text-primary">"bloom_status"</span>: <span class="text-tertiary">"PASS_NOVEL"</span><br/>
+<span class="text-outline">}</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span>Checksum: 0x8FA42D1C</span>
+<span class="text-tertiary flex items-center gap-space-3xs">Verified <span class="material-symbols-outlined text-xs">check_circle</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Viva & Architecture Defense Card -->
+<section class="p-space-lg rounded-xl bg-surface-container space-y-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">school</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">College Project Viva &amp; Architecture Defense Specifications</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Defensible architectural decisions for external viva panels, academic review boards, and technical evaluators.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Defense 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col justify-between space-y-space-xs">
+<div>
+<div class="flex items-center justify-between mb-space-2xs">
+<span class="font-label-sm text-label-sm font-bold text-primary uppercase">Defense Topic 01</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">Stream Consistency</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-2xs">Why Kafka + PySpark Structured Streaming?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Provides end-to-end fault tolerance and exactly-once processing semantics through write-ahead logs and Delta checkpointing. Decouples variable IoT sensor burst rates (up to 520 ev/s during stadium events) from cluster compute without backpressure dropped frames.
+          </p>
+</div>
+<div class="p-space-2xs rounded bg-surface-container font-mono text-label-sm text-primary flex items-center justify-between">
+<span>Guaranteed Semantics</span>
+<span class="text-tertiary">Exactly-Once via Offsets</span>
+</div>
+</div>
+<!-- Defense 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col justify-between space-y-space-xs">
+<div>
+<div class="flex items-center justify-between mb-space-2xs">
+<span class="font-label-sm text-label-sm font-bold text-tertiary uppercase">Defense Topic 02</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">Data Structures</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-2xs">Why Bloom Filter in Driver Memory?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Space-efficient probabilistic structure that answers novelty queries in \(O(k)\) constant time with zero false negatives. Uses only 128 KB for 1 million keys. Drops 1,842 redundant vehicle vibration flutter pings before triggering expensive relational database locks.
+          </p>
+</div>
+<div class="p-space-2xs rounded bg-surface-container font-mono text-label-sm text-tertiary flex items-center justify-between">
+<span>Space Complexity</span>
+<span class="text-tertiary">128 KB (1,048,576 bits)</span>
+</div>
+</div>
+<!-- Defense 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col justify-between space-y-space-xs">
+<div>
+<div class="flex items-center justify-between mb-space-2xs">
+<span class="font-label-sm text-label-sm font-bold text-secondary uppercase">Defense Topic 03</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">Lakehouse Tiering</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-2xs">Medallion Delta Lake Justification</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Separates raw append-only Bronze telemetry from enriched Silver aggregates and Gold municipal KPI summaries. Snappy compression yields a 4.8x storage reduction, enabling high-performance historical OLAP partition queries over months of civic traffic data.
+          </p>
+</div>
+<div class="p-space-2xs rounded bg-surface-container font-mono text-label-sm text-secondary flex items-center justify-between">
+<span>Storage Efficiency</span>
+<span class="text-secondary">4.8x Compaction Ratio</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Spark DAG Modal (Default: Hidden, toggled by button) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-space-md bg-surface-container-lowest/80 backdrop-blur-md" id="spark-dag-modal">
+<div class="w-full max-w-3xl p-space-lg rounded-2xl bg-surface-container border border-outline/20 shadow-2xl space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-highest">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">account_tree</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Spark Execution DAG • Job #1492</h3>
+</div>
+<button class="p-space-3xs text-outline hover:text-on-surface transition-colors" onclick="document.getElementById('spark-dag-modal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- DAG Visual Steps -->
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-space-xs font-mono text-label-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest space-y-space-3xs">
+<span class="text-primary font-bold">Stage 0: Ingest</span>
+<p class="text-on-surface-variant text-xs">KafkaSourceProvider.createMicroBatchReader()</p>
+<span class="text-tertiary block text-xs">RDD [12 parts]</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest space-y-space-3xs">
+<span class="text-secondary font-bold">Stage 1: Map</span>
+<p class="text-on-surface-variant text-xs">deserializeProtobuf() &amp; bloomFilterCheck()</p>
+<span class="text-secondary block text-xs">Filter 100% Valid</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest space-y-space-3xs">
+<span class="text-primary font-bold">Stage 2: Shuffle</span>
+<p class="text-on-surface-variant text-xs">repartitionByRange('zone_id', 16)</p>
+<span class="text-on-surface block text-xs">Exchange 42KB</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest space-y-space-3xs">
+<span class="text-tertiary font-bold">Stage 3: Sink</span>
+<p class="text-on-surface-variant text-xs">DeltaSink.write() &amp; TimescaleSink()</p>
+<span class="text-tertiary block text-xs">Commit Success</span>
+</div>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-highest flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant font-mono">
+<span>Active Executors: 4 (16 vCPU)</span>
+<span>Peak Memory Spill: 0 KB</span>
+<span class="text-tertiary">Completed in 262ms</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic Pulse Simulation Logic
+  const btnPulse = document.getElementById('btn-pulse');
+  const btnToggle = document.getElementById('btn-toggle-flow');
+  const toggleIcon = document.getElementById('toggle-icon');
+  const toggleText = document.getElementById('toggle-text');
+  let isRunning = true;
+
+  btnPulse?.addEventListener('click', () => {
+    btnPulse.classList.add('ring-2', 'ring-primary');
+    const toast = document.createElement('div');
+    toast.className = 'fixed bottom-8 right-8 px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-mono text-label-sm font-bold shadow-xl z-50 flex items-center gap-space-2xs animate-bounce';
+    toast.innerHTML = '<span class="material-symbols-outlined text-sm">flash_on</span> Synthesized 500 MQTT Packets Dispatched into Kafka Broker';
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.remove();
+      btnPulse.classList.remove('ring-2', 'ring-primary');
+    }, 2400);
+  });
+
+  btnToggle?.addEventListener('click', () => {
+    isRunning = !isRunning;
+    if (isRunning) {
+      toggleIcon.textContent = 'pause';
+      toggleText.textContent = 'Pause Engine';
+      btnToggle.classList.remove('text-tertiary');
+    } else {
+      toggleIcon.textContent = 'play_arrow';
+      toggleText.textContent = 'Resume Engine';
+      btnToggle.classList.add('text-tertiary');
+    }
+  });
+</script></main></div></body></html>

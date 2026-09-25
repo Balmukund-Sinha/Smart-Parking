@@ -1,0 +1,12 @@
+# Install this file for the complete local Kafka + PySpark + PostgreSQL stack.
+-r requirements.txt
+
+pyspark>=3.5,<4
+kafka-python>=2.0,<3
+scikit-learn==1.6.1
+streamlit>=1.39,<2
+plotly>=5.24,<7
+sqlalchemy>=2,<3
+psycopg2-binary>=2.9,<3
+jupyter>=1,<2
+pytest>=8,<9

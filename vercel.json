@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["bom1"],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 30,
+      "includeFiles": "{Frontend/**,data/sample/**,data/raw/zones.csv,data/processed/*.csv,ml/feature_importance.csv,database/schema.sql}",
+      "excludeFiles": "{Frontend/**/screen.png,data/raw/parking_events.csv,data/processed/bronze_events/**,ml/model.pkl,notebooks/**,r-analytics/**,tests/**,.runtime/**,.venv/**}"
+    }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/index" }
+  ]
+}

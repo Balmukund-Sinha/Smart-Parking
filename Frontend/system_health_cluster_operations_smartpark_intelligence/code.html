@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface-variant": "#bcc9cd",
+          "inverse-primary": "#00687a",
+          "secondary-fixed-dim": "#4fdbc8",
+          "surface-container-highest": "#2d3448",
+          "surface": "#0b1325",
+          "surface-variant": "#2d3448",
+          "primary": "#4cd7f6",
+          "on-tertiary-fixed": "#002113",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-container-lowest": "#060e1f",
+          "error": "#ffb4ab",
+          "on-secondary-fixed": "#00201c",
+          "on-secondary-container": "#003f38",
+          "inverse-on-surface": "#283043",
+          "error-container": "#93000a",
+          "primary-fixed-dim": "#4cd7f6",
+          "on-primary-container": "#00424f",
+          "primary-container": "#06b6d4",
+          "on-surface": "#dbe2fb",
+          "on-secondary-fixed-variant": "#005048",
+          "on-tertiary": "#003824",
+          "inverse-surface": "#dbe2fb",
+          "surface-bright": "#31394d",
+          "primary-fixed": "#acedff",
+          "surface-container-high": "#222a3d",
+          "on-primary-fixed": "#001f26",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#04b4a2",
+          "surface-dim": "#0b1325",
+          "outline-variant": "#3d494c",
+          "on-tertiary-container": "#00452e",
+          "background": "#0b1325",
+          "on-secondary": "#003731",
+          "on-error": "#690005",
+          "outline": "#869397",
+          "on-background": "#dbe2fb",
+          "tertiary-fixed-dim": "#4edea3",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-tint": "#4cd7f6",
+          "surface-container": "#171f32",
+          "surface-container-low": "#131b2d",
+          "tertiary": "#4edea3",
+          "on-primary-fixed-variant": "#004e5c",
+          "secondary-fixed": "#71f8e4",
+          "secondary": "#4fdbc8",
+          "tertiary-container": "#1bbd85",
+          "on-primary": "#003640"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.75rem",
+          "space-xs": "0.5rem",
+          "gutter-desktop": "1.5rem",
+          "space-md": "1rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-3xs": "0.125rem",
+          "space-xl": "2rem",
+          "space-2xs": "0.25rem",
+          "space-3xl": "4rem",
+          "margin-tablet": "1.5rem",
+          "margin-desktop": "2rem",
+          "space-2xl": "3rem"
+        },
+        "fontFamily": {
+          "display-lg": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "metric-xl": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ],
+          "headline-sm": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Inter"
+          ],
+          "metric-lg": [
+            "JetBrains Mono"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "display-lg": [
+            "3rem",
+            {
+              "lineHeight": "3.5rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "1.25rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-xl": [
+            "2.25rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "2rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.375rem",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.125rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "0.6875rem",
+            {
+              "lineHeight": "0.875rem",
+              "letterSpacing": "0.06em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.5rem",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "metric-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.75rem",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/95 backdrop-blur-xl z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest/60"><div class="flex items-center gap-space-xs min-w-0"><img alt="SmartPark Intelligence Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYn3gRRWfeGs2tlUqsrZrOw145x2dtvj2KAOXcHbaGOx5tf0U1wbu6da9SufrUfGgoD_nc1qgKpTTIVmq7qWqeRNxwTjdwkEbJ8JWPcVhlbY6ta2eHelhTFEOopcT-fysllRfnMRyoO3RuI68yA2Q4RGG9E8Ob412oT7tpxBYpKrzHg12SDwK8jnnn4fEhd03BIBB5V2xTgZFZ-9EUrq9v6CZPEjG3DlVo5loloyJtPqGcKDAFTxV"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight truncate">SmartPark</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Intelligence</span></div></div><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-primary-fixed-dim font-medium tracking-wide border-0">v4.2-SPARK</span></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Mission Telemetry</span></div><nav class="flex-1 px-space-xs space-y-space-3xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]"><a aria-current="page" class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)]" data-path="overview" href="#"><span class="material-symbols-outlined text-primary text-xl">dashboard</span><span class="font-body-md text-body-md tracking-tight flex-1">Overview</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="live-monitoring" href="#"><span class="material-symbols-outlined text-tertiary text-xl">sensors</span><span class="font-body-md text-body-md tracking-tight flex-1">Live Monitoring</span><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parking-map" href="#"><span class="material-symbols-outlined text-secondary text-xl">map</span><span class="font-body-md text-body-md tracking-tight flex-1">Parking Map</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="historical-analytics" href="#"><span class="material-symbols-outlined text-primary text-xl">monitoring</span><span class="font-body-md text-body-md tracking-tight flex-1">Historical Analytics</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="demand-prediction" href="#"><span class="material-symbols-outlined text-primary text-xl">neurology</span><span class="font-body-md text-body-md tracking-tight flex-1">Demand Prediction</span><span class="font-label-sm text-label-sm px-space-2xs py-space-3xs rounded-full bg-surface-container-highest text-tertiary font-semibold">AI</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="big-data-pipeline" href="#"><span class="material-symbols-outlined text-secondary text-xl">alt_route</span><span class="font-body-md text-body-md tracking-tight flex-1">Big Data Pipeline</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-explorer" href="#"><span class="material-symbols-outlined text-primary text-xl">database</span><span class="font-body-md text-body-md tracking-tight flex-1">Data Explorer</span></a><a class="group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-health" href="#"><span class="material-symbols-outlined text-tertiary text-xl">dns</span><span class="font-body-md text-body-md tracking-tight flex-1">System Health</span></a></nav></div><div class="p-space-xs bg-surface-container-lowest/80"><div class="p-space-xs rounded-lg bg-surface-container-high/60 flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Stream Engine</span><div class="flex items-center gap-space-2xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-tertiary font-medium">OK</span></div></div><div class="flex items-center gap-space-2xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">stream</span><span class="font-label-sm text-label-sm font-medium tracking-tight truncate">PySpark + Kafka • Active</span></div></div><div class="mt-space-xs flex items-center justify-between px-space-2xs py-space-3xs text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="font-label-sm text-label-sm">Collapse Dock</span><span class="material-symbols-outlined text-base">chevron_left</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Mumbai Metropolitan Region</span><span class="material-symbols-outlined text-outline text-base">chevron_right</span><span class="font-body-md text-body-md text-on-surface-variant font-medium">Executive Overview</span></div><div class="flex items-center gap-space-xs"><div class="relative hidden lg:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">location_city</span><span class="font-body-sm text-body-sm font-medium">All 20 Zones (Mumbai MMR)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="relative hidden xl:flex items-center"><button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" type="button"><span class="material-symbols-outlined text-primary text-base">calendar_today</span><span class="font-body-sm text-body-sm font-medium">Live Window (Last 24 Hours)</span><span class="material-symbols-outlined text-outline text-sm">expand_more</span></button></div><div class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm font-bold text-tertiary tracking-wide uppercase">LIVE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">403k ev/s</span></div><div class="hidden sm:flex items-center gap-space-2xs px-space-xs py-space-3xs text-on-surface-variant"><span class="material-symbols-outlined text-sm text-outline">sync</span><span class="font-label-sm text-label-sm font-mono">17:42:09 IST</span></div><button aria-label="Alerts" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBixsjrcwUYqit6t6xuYiw2Jz3-CdTUIRpwiggW1SGKjZnnu-z4T64dtvU2hbYdYUiW6rWBAiO7J5MpZkvyiIS5-4F204KwWDHkOWmxzmLfXg8IVOswBDWLiN3qd7W7cpV_0jPh-rHHvXtu9kMl_w2AJFN1KVHQ0ILLRikV2qYq58xB9MW5Zpf7sVtC4HK8qI5U21R-Q8stcDZyNs6PD55Aa0Hf46NgOU_eWCMq8sCbaZH_xFPIfhM"/><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Aanya Sharma</span><span class="font-label-sm text-label-sm text-outline font-medium">Lead Data Engineer</span></div><span class="material-symbols-outlined text-outline text-sm hidden md:block">expand_more</span></div></div></header><main class="w-full pt-16 px-space-lg pb-space-xl bg-background min-h-screen"><div class="flex flex-col w-full space-y-space-xl">
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('aside nav a');
+      navLinks.forEach(link => {
+        const path = link.getAttribute('data-path');
+        if (path === 'system-health') {
+          link.className = 'group flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(6,182,212,0.25)] transition-colors';
+          const icon = link.querySelector('.material-symbols-outlined');
+          if (icon) icon.className = 'material-symbols-outlined text-on-primary-container text-xl';
+        } else {
+          link.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-[0_0_16px_rgba(6,182,212,0.25)]');
+        }
+      });
+    });
+  </script>
+<!-- TOP HEADER / ACTION CONTROLS -->
+<section class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div class="space-y-space-2xs max-w-4xl">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold px-space-2xs py-space-3xs rounded bg-surface-container-high">Ops Telemetry &amp; Control Plane</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-space-3xs font-mono">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+          Cluster Quorum: In-Sync (KRaft v3.5)
+        </span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">System Health &amp; Cluster Operations</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Real-time telemetry and infrastructure health across Mumbai municipal edge gateways, 12 Kafka broker partitions, distributed PySpark 4.2 workers, Delta Lake checkpoints, and TimescaleDB spatial instances.
+      </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="group flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-secondary text-lg group-hover:rotate-180 transition-transform duration-500">restart_alt</span>
+<span class="font-label-md text-label-md font-medium">Restart Degraded Nodes</span>
+</button>
+<button class="group flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-outline text-lg group-hover:text-primary transition-colors">cleaning_services</span>
+<span class="font-label-md text-label-md font-medium">Trigger Checkpoint GC</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container font-semibold hover:brightness-110 shadow-[0_0_20px_rgba(6,182,212,0.35)] transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-on-primary-container text-lg">download</span>
+<span class="font-label-md text-label-md">Diagnostic Bundle (.tar.gz)</span>
+</button>
+</div>
+</section>
+<!-- CLUSTER KPI STRIP (6 HIGH-DENSITY UNITS) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-space-sm">
+<!-- Metric 1 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Cluster SLA</span>
+<span class="flex items-center gap-space-3xs font-label-sm text-label-sm font-semibold text-tertiary bg-tertiary/10 px-space-2xs py-space-3xs rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          HEALTHY
+        </span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-xl text-metric-xl text-on-surface font-bold tracking-tight">99.98%</div>
+<div class="font-label-sm text-label-sm text-tertiary flex items-center gap-1 mt-0.5 font-mono">
+<span class="material-symbols-outlined text-xs">done_all</span> 14/14 Services Nominal
+        </div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Uptime</span>
+<span class="text-on-surface font-mono">48d 14h 22m</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Ingestion Ingress</span>
+<span class="material-symbols-outlined text-primary text-base">sensors</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-xl text-metric-xl text-primary font-bold tracking-tight">348.2 <span class="text-body-md font-body-md text-on-surface-variant font-normal">ev/s</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 mt-0.5 font-mono">
+<span>Peak 520 ev/s</span>
+<span class="text-outline">•</span>
+<span class="text-tertiary">0 Drops</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 67%;"></div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">PySpark Compute</span>
+<span class="material-symbols-outlined text-secondary text-base">memory</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-xl text-metric-xl text-on-surface font-bold tracking-tight">48 <span class="text-body-md font-body-md text-on-surface-variant font-normal">Cores</span></div>
+<div class="font-label-sm text-label-sm text-secondary flex items-center gap-1 mt-0.5 font-mono">
+<span>68% CPU</span>
+<span class="text-outline">•</span>
+<span>61.4/192 GB</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm font-mono">
+<span>G1GC Pause</span>
+<span class="text-tertiary">&lt;18ms avg</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Kafka Broker Lag</span>
+<span class="material-symbols-outlined text-primary text-base">speed</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-xl text-metric-xl text-tertiary font-bold tracking-tight">0.78 <span class="text-body-md font-body-md text-on-surface-variant font-normal">ms</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 mt-0.5 font-mono">
+<span>P99 Max 1.4ms (P-02)</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm font-mono">
+<span>Partitions</span>
+<span class="text-tertiary">12/12 ISR (RF=3)</span>
+</div>
+</div>
+<!-- Metric 5 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Delta Checkpoints</span>
+<span class="material-symbols-outlined text-tertiary text-base">verified_user</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-xl text-metric-xl text-on-surface font-bold tracking-tight">100%</div>
+<div class="font-label-sm text-label-sm text-tertiary flex items-center gap-1 mt-0.5 font-mono">
+<span>Monotonic WAL Active</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm font-mono">
+<span>Watermark Buffer</span>
+<span class="text-on-surface">10 min window</span>
+</div>
+</div>
+<!-- Metric 6 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">TimescaleDB Read/Write</span>
+<span class="material-symbols-outlined text-secondary text-base">database</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-xl text-metric-xl text-on-surface font-bold tracking-tight">3.4 <span class="text-body-md font-body-md text-on-surface-variant font-normal">ms</span></div>
+<div class="font-label-sm text-label-sm text-secondary flex items-center gap-1 mt-0.5 font-mono">
+<span>Hit Ratio 99.4%</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm font-mono">
+<span>Pool Conns</span>
+<span class="text-on-surface">64 / 120 (53%)</span>
+</div>
+</div>
+</section>
+<!-- CONTAINER STATUS MATRIX -->
+<section class="p-space-lg rounded-xl bg-surface-container shadow-lg space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-2xl">hub</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Container Orchestration Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-mono">Kubernetes Cluster • Namespace: smartpark-prod-mumbai-dc1</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline font-mono">8 of 8 Pods Running</span>
+<div class="flex items-center p-1 rounded-lg bg-surface-container-low">
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface font-medium" type="button">All Pods</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-outline hover:text-on-surface" type="button">Stream Only</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-outline hover:text-on-surface" type="button">Storage</button>
+</div>
+</div>
+</div>
+<!-- Microservices Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="text-outline font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-low/60">
+<th class="py-space-xs px-space-sm font-semibold">Microservice &amp; Container ID</th>
+<th class="py-space-xs px-space-sm font-semibold">Image Release</th>
+<th class="py-space-xs px-space-sm font-semibold">Pod State</th>
+<th class="py-space-xs px-space-sm font-semibold text-right">CPU / RAM Allocation</th>
+<th class="py-space-xs px-space-sm font-semibold text-right">Uptime</th>
+<th class="py-space-xs px-space-sm font-semibold text-center">Diagnostic Controls</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest/20 font-mono">
+<!-- Row 1: Kafka Broker -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<div>
+<span class="text-on-surface font-semibold">smartpark-kafka-broker-01..03</span>
+<div class="font-label-sm text-label-sm text-outline">StatefulSet (3 replicas) • Port 9092</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-label-sm text-label-sm">confluentinc/cp-kafka:7.5.0</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">Running (Quorum)</span>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface">
+<div>18% CPU <span class="text-outline">/</span> 4.2 GB</div>
+<div class="text-outline font-label-sm text-label-sm">Limit: 8.0 GB RAM</div>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant">48d 14h</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center justify-center gap-space-2xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-primary font-label-sm text-label-sm transition-colors" type="button">Logs</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-secondary font-label-sm text-label-sm transition-colors" type="button">CLI</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-tertiary font-label-sm text-label-sm transition-colors" type="button">Metrics</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: PySpark Master -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<div>
+<span class="text-on-surface font-semibold">smartpark-pyspark-master</span>
+<div class="font-label-sm text-label-sm text-outline">Standalone Master • Port 8080 (SparkUI)</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-label-sm text-label-sm">apache/spark:4.2.0-scala2.13</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">Running / Master</span>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface">
+<div>12 Cores <span class="text-outline">/</span> 32 GB</div>
+<div class="text-outline font-label-sm text-label-sm">SparkUI Active: :8080</div>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant">48d 14h</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center justify-center gap-space-2xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-primary font-label-sm text-label-sm transition-colors" type="button">UI</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-secondary font-label-sm text-label-sm transition-colors" type="button">CLI</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-tertiary font-label-sm text-label-sm transition-colors" type="button">Threads</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: PySpark Workers -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<div>
+<span class="text-on-surface font-semibold">smartpark-pyspark-workers (01..03)</span>
+<div class="font-label-sm text-label-sm text-outline">DaemonSet (3 nodes: 48 cores total)</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-label-sm text-label-sm">apache/spark:4.2.0-scala2.13</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">3/3 Healthy</span>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface">
+<div>36 Cores <span class="text-outline">/</span> 57.2 GB</div>
+<div class="text-tertiary font-label-sm text-label-sm">Shuffle spill: 0 MB</div>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant">48d 14h</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center justify-center gap-space-2xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-primary font-label-sm text-label-sm transition-colors" type="button">Logs</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-secondary font-label-sm text-label-sm transition-colors" type="button">Executors</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-tertiary font-label-sm text-label-sm transition-colors" type="button">GC Profile</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Bloom Filter Dedup Daemon -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<div>
+<span class="text-on-surface font-semibold">smartpark-bloom-dedup-daemon</span>
+<div class="font-label-sm text-label-sm text-outline">Custom C++/Cython In-Memory Bit-Vector</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-label-sm text-label-sm">smartpark/bloom-filter:v2.1</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">Optimal (FP: 0.08%)</span>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface">
+<div>&lt; 2% CPU <span class="text-outline">/</span> 128 KB</div>
+<div class="text-secondary font-label-sm text-label-sm">Bit Array: 1,000,000 bits</div>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant">48d 14h</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center justify-center gap-space-2xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-primary font-label-sm text-label-sm transition-colors" type="button">Stats</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-secondary font-label-sm text-label-sm transition-colors" type="button">Reset Bits</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: TimescaleDB GIS -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<div>
+<span class="text-on-surface font-semibold">smartpark-timescaledb-gis</span>
+<div class="font-label-sm text-label-sm text-outline">PostgreSQL 16 + PostGIS 3.4 + TimescaleHA</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-label-sm text-label-sm">timescale/timescaledb-ha:pg16</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">Primary / Ready</span>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface">
+<div>22% CPU <span class="text-outline">/</span> 18.2 GB</div>
+<div class="text-outline font-label-sm text-label-sm">Shared Buffers: 8 GB</div>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant">48d 14h</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center justify-center gap-space-2xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-primary font-label-sm text-label-sm transition-colors" type="button">SQL CLI</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-secondary font-label-sm text-label-sm transition-colors" type="button">WAL Log</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-tertiary font-label-sm text-label-sm transition-colors" type="button">Vac</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: MLflow Inference -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<div>
+<span class="text-on-surface font-semibold">smartpark-mlflow-inference-server</span>
+<div class="font-label-sm text-label-sm text-outline">RandomForestRegressor v3.2 • Port 5001</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-label-sm text-label-sm">smartpark/inference-runtime:v3</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">Active (26ms p95)</span>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface">
+<div>14% CPU <span class="text-outline">/</span> 3.1 GB</div>
+<div class="text-primary font-label-sm text-label-sm">Warm Model Cache: 100%</div>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant">32d 08h</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center justify-center gap-space-2xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-primary font-label-sm text-label-sm transition-colors" type="button">Model Spec</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-secondary font-label-sm text-label-sm transition-colors" type="button">Drift</button>
+</div>
+</td>
+</tr>
+<!-- Row 7: WebSocket Broadcast -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<div>
+<span class="text-on-surface font-semibold">smartpark-websocket-vms-dispatch</span>
+<div class="font-label-sm text-label-sm text-outline">FastAPI + Uvicorn Async Socket Hub</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-label-sm text-label-sm">python:3.11-slim</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-2xs py-space-3xs rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">2,140 Sockets Live</span>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface">
+<div>8% CPU <span class="text-outline">/</span> 840 MB</div>
+<div class="text-tertiary font-label-sm text-label-sm">Broadcast: 0.02s delay</div>
+</td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant">48d 14h</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center justify-center gap-space-2xs">
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-primary font-label-sm text-label-sm transition-colors" type="button">Clients</button>
+<button class="px-space-xs py-space-3xs rounded bg-surface-container-high text-on-surface hover:text-secondary font-label-sm text-label-sm transition-colors" type="button">Logs</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- TWO-COLUMN DETAILED INFRASTRUCTURE SECTION -->
+<section class="grid grid-cols-1 xl:grid-cols-2 gap-space-lg">
+<!-- LEFT COLUMN: Kafka Partitions & PySpark Execution -->
+<div class="space-y-space-lg flex flex-col">
+<!-- Panel A: Kafka Partition Telemetry -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">alt_route</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Kafka Partition Telemetry &amp; Consumer Lag</h3>
+<p class="font-body-sm text-body-sm text-outline font-mono">Topic: mumbai.telemetry.v4 • 12 Partitions (RF=3)</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-space-2xs py-space-3xs rounded font-mono">Synced ISR 12/12</span>
+</div>
+<!-- 12 Partitions Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-space-xs">
+<!-- P-00 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-00</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.6<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>31.4 ev/s</span>
+<span class="text-on-surface-variant">L:1</span>
+</div>
+</div>
+<!-- P-01 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.4<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>28.9 ev/s</span>
+<span class="text-on-surface-variant">L:2</span>
+</div>
+</div>
+<!-- P-02 (Highest) -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-secondary">P-02</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-secondary font-mono my-0.5">1.4<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>38.2 ev/s</span>
+<span class="text-on-surface-variant">L:3</span>
+</div>
+</div>
+<!-- P-03 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-03</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.7<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>27.1 ev/s</span>
+<span class="text-on-surface-variant">L:1</span>
+</div>
+</div>
+<!-- P-04 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-04</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.8<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>30.0 ev/s</span>
+<span class="text-on-surface-variant">L:2</span>
+</div>
+</div>
+<!-- P-05 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-05</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.5<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>29.5 ev/s</span>
+<span class="text-on-surface-variant">L:3</span>
+</div>
+</div>
+<!-- P-06 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-06</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.9<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>34.1 ev/s</span>
+<span class="text-on-surface-variant">L:1</span>
+</div>
+</div>
+<!-- P-07 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-07</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.6<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>26.4 ev/s</span>
+<span class="text-on-surface-variant">L:2</span>
+</div>
+</div>
+<!-- P-08 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-08</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.7<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>25.8 ev/s</span>
+<span class="text-on-surface-variant">L:3</span>
+</div>
+</div>
+<!-- P-09 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-09</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.6<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>29.1 ev/s</span>
+<span class="text-on-surface-variant">L:1</span>
+</div>
+</div>
+<!-- P-10 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-10</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.5<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>27.7 ev/s</span>
+<span class="text-on-surface-variant">L:2</span>
+</div>
+</div>
+<!-- P-11 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-bold text-primary">P-11</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="font-metric-lg text-metric-lg text-on-surface font-mono my-0.5">0.7<span class="text-label-sm font-label-sm text-outline">ms</span></div>
+<div class="text-outline font-label-sm text-label-sm flex justify-between font-mono">
+<span>30.0 ev/s</span>
+<span class="text-on-surface-variant">L:3</span>
+</div>
+</div>
+</div>
+<!-- Real-Time Lag Distribution Histogram SVG -->
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-space-2xs">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm font-mono">
+<span>Kafka Ingress / Consumer Distribution (Last 60s)</span>
+<span class="text-primary font-semibold">Sub-millisecond Latency</span>
+</div>
+<div class="h-16 w-full flex items-end gap-1 pt-2">
+<!-- Simulated micro-bars -->
+<div class="flex-1 bg-primary/40 rounded-t hover:bg-primary transition-all h-[45%]"></div>
+<div class="flex-1 bg-primary/50 rounded-t hover:bg-primary transition-all h-[52%]"></div>
+<div class="flex-1 bg-primary/60 rounded-t hover:bg-primary transition-all h-[48%]"></div>
+<div class="flex-1 bg-primary/50 rounded-t hover:bg-primary transition-all h-[60%]"></div>
+<div class="flex-1 bg-primary/70 rounded-t hover:bg-primary transition-all h-[75%]"></div>
+<div class="flex-1 bg-primary/80 rounded-t hover:bg-primary transition-all h-[68%]"></div>
+<div class="flex-1 bg-primary/60 rounded-t hover:bg-primary transition-all h-[55%]"></div>
+<div class="flex-1 bg-primary/70 rounded-t hover:bg-primary transition-all h-[82%]"></div>
+<div class="flex-1 bg-primary/90 rounded-t hover:bg-primary transition-all h-[90%]"></div>
+<div class="flex-1 bg-primary rounded-t hover:bg-primary transition-all h-[78%]"></div>
+<div class="flex-1 bg-primary/80 rounded-t hover:bg-primary transition-all h-[65%]"></div>
+<div class="flex-1 bg-tertiary rounded-t hover:bg-tertiary transition-all h-[72%]"></div>
+<div class="flex-1 bg-primary/90 rounded-t hover:bg-primary transition-all h-[84%]"></div>
+<div class="flex-1 bg-primary/70 rounded-t hover:bg-primary transition-all h-[62%]"></div>
+<div class="flex-1 bg-primary/60 rounded-t hover:bg-primary transition-all h-[58%]"></div>
+<div class="flex-1 bg-secondary rounded-t hover:bg-secondary transition-all h-[95%]"></div>
+<div class="flex-1 bg-primary/80 rounded-t hover:bg-primary transition-all h-[70%]"></div>
+<div class="flex-1 bg-primary/60 rounded-t hover:bg-primary transition-all h-[66%]"></div>
+</div>
+</div>
+</div>
+<!-- Panel B: PySpark Streaming Memory & Micro-Batch Execution Diagnostics -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-lg space-y-space-md flex-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-xl">reorder</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">PySpark Micro-Batch &amp; Heap Diagnostics</h3>
+<p class="font-body-sm text-body-sm text-outline font-mono">Trigger: 1000ms sliding window • Watermark: 10m</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-secondary bg-secondary/10 px-space-2xs py-space-3xs rounded">Batch #1492 Active</span>
+</div>
+<!-- Micro-Batch Cadence & Sparkline -->
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold font-mono">Micro-Batch Processing Duration vs Scheduling Delay</span>
+<span class="text-tertiary font-mono">Avg 1.02s batch / 0.02s delay</span>
+</div>
+<!-- Inline Sparkline Visual -->
+<svg class="w-full h-12 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 400 48">
+<path d="M0,32 Q25,28 50,30 T100,29 T150,31 T200,28 T250,30 T300,32 T350,29 T400,30" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path d="M0,45 L400,45" stroke="#3d494c" stroke-dasharray="4 4" stroke-width="1"></path>
+<circle cx="400" cy="30" fill="#4edea3" r="3"></circle>
+</svg>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline font-mono pt-1">
+<span>T-60s</span>
+<span>T-30s</span>
+<span>Current Commit (1.02s)</span>
+</div>
+</div>
+<!-- Memory Breakdown Stacked Bar -->
+<div class="space-y-space-2xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm font-mono">
+<span class="text-outline uppercase">Worker Memory Allocation</span>
+<span class="text-on-surface font-semibold">61.4 GB / 192.0 GB Total</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-highest overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 38%;" title="Storage Memory (Cached RDDs): 23.3 GB"></div>
+<div class="bg-secondary h-full" style="width: 25%;" title="Execution Memory (Shuffle/Sort): 15.4 GB"></div>
+<div class="bg-tertiary h-full" style="width: 18%;" title="Driver Heap &amp; User Space: 11.0 GB"></div>
+<div class="bg-outline-variant h-full" style="width: 19%;" title="Overhead / Off-Heap: 11.7 GB"></div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-2xs pt-space-2xs text-left font-label-sm text-label-sm font-mono">
+<div>
+<span class="inline-block w-2 h-2 rounded-full bg-primary mr-1"></span>
+<span class="text-outline">Storage:</span> <span class="text-on-surface">23.3 GB</span>
+</div>
+<div>
+<span class="inline-block w-2 h-2 rounded-full bg-secondary mr-1"></span>
+<span class="text-outline">Execution:</span> <span class="text-on-surface">15.4 GB</span>
+</div>
+<div>
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary mr-1"></span>
+<span class="text-outline">Driver Heap:</span> <span class="text-on-surface">11.0 GB</span>
+</div>
+<div>
+<span class="inline-block w-2 h-2 rounded-full bg-outline-variant mr-1"></span>
+<span class="text-outline">G1GC Pause:</span> <span class="text-tertiary">&lt;18ms</span>
+</div>
+</div>
+</div>
+<!-- Checkpoint Target Status -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-2xs font-mono font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-tertiary text-lg shrink-0">save</span>
+<div class="min-w-0 truncate">
+<span class="text-outline">WAL Path: </span>
+<span class="text-on-surface truncate">hdfs://smartpark/checkpoints/5min_rollups/offset_14920</span>
+</div>
+</div>
+<span class="text-tertiary shrink-0">Synced 1.02s ago</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: TimescaleDB Spatial GIS & Interactive Streaming Terminal -->
+<div class="space-y-space-lg flex flex-col">
+<!-- Panel C: PostgreSQL & TimescaleDB Query Health & Spatial Indexing -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-xl">travel_explore</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">TimescaleDB &amp; PostGIS Spatial Analytics</h3>
+<p class="font-body-sm text-body-sm text-outline font-mono">PostGIS 3.4 • GIST Indexing On Geometry Columns</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-tertiary bg-tertiary/10 px-space-2xs py-space-3xs rounded">P99 &lt; 15ms</span>
+</div>
+<!-- Metric Grid for DB -->
+<div class="grid grid-cols-3 gap-space-xs text-center font-mono">
+<div class="p-space-xs rounded-lg bg-surface-container-low">
+<div class="text-outline font-label-sm text-label-sm uppercase">Active Locks</div>
+<div class="font-metric-lg text-metric-lg text-tertiary font-bold">0 Table</div>
+<div class="font-label-sm text-label-sm text-outline">4 Row Advisory</div>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-low">
+<div class="text-outline font-label-sm text-label-sm uppercase">NVMe Read IOPS</div>
+<div class="font-metric-lg text-metric-lg text-primary font-bold">420</div>
+<div class="font-label-sm text-label-sm text-outline">PCIe Gen4 Array</div>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-low">
+<div class="text-outline font-label-sm text-label-sm uppercase">NVMe Write IOPS</div>
+<div class="font-metric-lg text-metric-lg text-secondary font-bold">890</div>
+<div class="font-label-sm text-label-sm text-outline">WAL Direct I/O</div>
+</div>
+</div>
+<!-- Top Spatial Query Benchmark -->
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-space-2xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm font-mono">
+<span class="text-outline font-semibold">Top Critical Spatial Query</span>
+<span class="text-tertiary font-bold">Execution: 4.2ms</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest font-mono text-primary font-label-sm text-label-sm overflow-x-auto">
+            SELECT * FROM get_hub_spatial_risk(zone_id, geom) WHERE ST_DWithin(geom, ST_MakePoint(72.8777, 19.0760), 2500);
+          </div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm font-mono">
+<span>Index: idx_mumbai_parking_geom_gist</span>
+<span class="text-on-surface-variant">Cost: 0.28..8.45 rows=14</span>
+</div>
+</div>
+</div>
+<!-- Panel D: Live System & Cluster Event Log (Streaming Terminal) -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-lg space-y-space-md flex-1 flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Live Cluster Telemetry Stream</h3>
+<p class="font-body-sm text-body-sm text-outline font-mono">Real-Time stdout/stderr daemon multiplexer</p>
+</div>
+</div>
+<!-- Terminal Controls & Filters -->
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center p-1 rounded-lg bg-surface-container-low">
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface font-mono" type="button">ALL</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-primary hover:text-on-surface font-mono" type="button">INFO</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-secondary hover:text-on-surface font-mono" type="button">WARN</button>
+<button class="px-space-xs py-space-3xs rounded font-label-sm text-label-sm text-error hover:text-on-surface font-mono" type="button">ERR</button>
+</div>
+<button aria-label="Pause Stream" class="p-space-2xs rounded bg-surface-container-low text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">pause</span>
+</button>
+</div>
+</div>
+<!-- Terminal Window Frame -->
+<div class="flex-1 min-h-[220px] rounded-lg bg-surface-container-lowest p-space-md font-mono text-body-sm space-y-space-2xs overflow-y-auto border-0 shadow-inner flex flex-col justify-between">
+<div class="space-y-1 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-start gap-space-xs">
+<span class="text-outline select-none shrink-0">[17:42:09.184]</span>
+<span class="text-primary font-bold shrink-0">[INFO]</span>
+<span class="text-secondary shrink-0">[pyspark.streaming]</span>
+<span class="text-on-surface">Micro-batch #1492 committed successfully (348 records processed in 1.02s).</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="text-outline select-none shrink-0">[17:42:08.520]</span>
+<span class="text-primary font-bold shrink-0">[INFO]</span>
+<span class="text-tertiary shrink-0">[kafka.broker.02]</span>
+<span>Partition mumbai.telemetry.v4-05 ISR check passed (Replication lag 0.6ms).</span>
+</div>
+<div class="flex items-start gap-space-xs bg-secondary/5 py-0.5 px-1 rounded">
+<span class="text-outline select-none shrink-0">[17:42:07.892]</span>
+<span class="text-secondary font-bold shrink-0">[WARN]</span>
+<span class="text-secondary shrink-0">[bloom.filter]</span>
+<span class="text-secondary-fixed">Duplicate event uuid:ev_7f8a9140 dropped (Node #14 re-transmission caught).</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="text-outline select-none shrink-0">[17:42:06.110]</span>
+<span class="text-primary font-bold shrink-0">[INFO]</span>
+<span class="text-outline shrink-0">[timescale.vacuum]</span>
+<span>Autovacuum on table telemetry_raw completed (0 dead tuples removed).</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="text-outline select-none shrink-0">[17:42:04.990]</span>
+<span class="text-primary font-bold shrink-0">[INFO]</span>
+<span class="text-primary shrink-0">[mlflow.worker]</span>
+<span>Model RF-v3.2 inference completed for 20 zones in 26.4ms.</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="text-outline select-none shrink-0">[17:42:03.210]</span>
+<span class="text-primary font-bold shrink-0">[INFO]</span>
+<span class="text-tertiary shrink-0">[ws.dispatch]</span>
+<span>Heartbeat sync sent to 2,140 Mumbai variable message sign (VMS) displays.</span>
+</div>
+</div>
+<!-- Bottom Prompt Line -->
+<div class="pt-space-xs flex items-center gap-space-2xs text-outline font-label-sm text-label-sm border-t border-surface-container-highest/30">
+<span class="text-tertiary">root@smartpark-k8s-master:~#</span>
+<input class="bg-transparent border-0 outline-none flex-1 text-on-surface font-mono placeholder:text-outline/60 text-label-sm" placeholder="Type diagnostic command (e.g. spark-submit --status, kafka-consumer-groups)..." type="text"/>
+<span class="text-primary animate-pulse">▋</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACADEMIC VIVA DEFENSE BOX -->
+<section class="p-space-lg rounded-xl bg-surface-container-high/80 shadow-xl space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-2xl">school</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Academic Viva Defense &amp; Big Data Architectural Rigor</h2>
+<p class="font-body-sm text-body-sm text-outline font-mono">DevOps, Distributed Fault Tolerance, &amp; Engineering Design Tradeoffs</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-space-sm py-space-3xs rounded-full bg-primary/10 text-primary font-semibold font-mono uppercase tracking-wider">Viva Reference Panel</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Card 1 -->
+<div class="p-space-md rounded-lg bg-surface-container space-y-space-2xs">
+<div class="flex items-center gap-space-2xs text-primary font-semibold font-mono font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-base">chevron_forward</span>
+<h3>Why Exactly-Once Processing?</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          At-least-once streaming creates false parking surges and duplicate occupancy billing. SmartPark pairs Kafka offset committing with Delta Lake idempotent write commits and unique event UUIDs, ensuring zero double-counted arrivals even during sudden worker crashes.
+        </p>
+<div class="pt-space-2xs text-outline font-label-sm text-label-sm font-mono">
+          Guarantee: Delta ACID WAL + Kafka Offset Sync
+        </div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-md rounded-lg bg-surface-container space-y-space-2xs">
+<div class="flex items-center gap-space-2xs text-secondary font-semibold font-mono font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-base">alt_route</span>
+<h3>Disaster Recovery &amp; Rebalancing</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Kafka Kraft metadata quorum eliminates external Zookeeper bottlenecks. PySpark relies on resilient DAG lineage graphs: if Worker-02 halts, executors recompute only the lost micro-batch slice directly from preserved in-sync partition replicas in under 420ms.
+        </p>
+<div class="pt-space-2xs text-outline font-label-sm text-label-sm font-mono">
+          Convergence: KRaft Quorum + RDD DAG Lineage
+        </div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-md rounded-lg bg-surface-container space-y-space-2xs">
+<div class="flex items-center gap-space-2xs text-tertiary font-semibold font-mono font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-base">memory</span>
+<h3>Storage Tiering vs Memory Footprint</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Querying PostgreSQL or Redis for every sensor event to verify duplicates strains I/O bandwidth. A compact 128KB in-memory Bloom Filter (1M bits, 7 hash passes) eliminates ~1,800 DB queries/minute with a negligible false positive rate of 0.08%.
+        </p>
+<div class="pt-space-2xs text-outline font-label-sm text-label-sm font-mono">
+          Savings: ~1,800 DB ops/min saved • 128KB RAM
+        </div>
+</div>
+</div>
+</section>
+</div></main></div></body></html>
