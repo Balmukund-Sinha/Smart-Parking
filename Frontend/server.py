@@ -1378,7 +1378,9 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_bytes(html.encode(), "text/html; charset=utf-8")
             self.send_error(HTTPStatus.NOT_FOUND)
         except Exception as exc:
-            self.send_json({"error": str(exc), "type": type(exc).__name__}, 500)
+            import traceback
+            traceback.print_exc()
+            self.send_json({"error": str(exc), "type": type(exc).__name__, "traceback": traceback.format_exc()}, 500)
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path.rstrip("/")
@@ -1418,6 +1420,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(result, 200 if result["ok"] else 503)
             self.send_error(HTTPStatus.NOT_FOUND)
         except Exception as exc:
+            import traceback
+            traceback.print_exc()
             self.send_json({"error": str(exc), "type": type(exc).__name__}, 500)
 
     def send_file(self, path: Path, content_type: str) -> None:
