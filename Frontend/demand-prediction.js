@@ -7,7 +7,12 @@
     "big-data-pipeline": "/big-data-pipeline", "data-explorer": "/data-explorer", "system-health": "/system-health",
   };
   const COLORS = { cyan: "#38bdf8", teal: "#2dd4bf", green: "#34d399", red: "#f87171", amber: "#fbbf24", purple: "#a78bfa" };
-  const state = { overview: null, health: null, predictions: null, model: null, benchmark: null, selectedZone: "", selectedDay: new Date().getDay() === 0 ? 6 : new Date().getDay() - 1, result: null };
+  const MODEL_UI = {
+    random_forest: { tab: "RF v3.2", title: "Random Forest Demand Prediction Studio", forecast: "RF prediction", importance: "Tree-Split Feature Importance", explanation: "Random Forest regression aggregates independently trained decision trees to reduce variance." },
+    xgboost: { tab: "XGBoost v1.8", title: "XGBoost Demand Prediction Studio", forecast: "XGBoost prediction", importance: "Gradient-Boosted Feature Importance", explanation: "XGBoost builds sequential boosted trees that correct earlier residual errors." },
+    linear: { tab: "Linear baseline", title: "Linear Demand Baseline Studio", forecast: "Linear prediction", importance: "Coefficient-Based Feature Importance", explanation: "Linear regression provides a transparent, explainable reference model for demand forecasting." },
+  };
+  const state = { overview: null, health: null, predictions: null, model: null, benchmark: null, activeModel: "random_forest", selectedZone: "", selectedDay: new Date().getDay() === 0 ? 6 : new Date().getDay() - 1, result: null };
   const clean = (value) => String(value ?? "").replace(/\s+/g, " ").trim();
   const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
   const fmt = (value, digits = 0) => Number(value || 0).toLocaleString("en-IN", { maximumFractionDigits: digits });
@@ -106,9 +111,9 @@
     ];
     document.querySelector("main > div").innerHTML = `
       <div class="sp-page">
-        <section class="sp-hero"><div><div class="sp-eyebrow"><span>${esc(state.model.inference_engine)}</span><span>MODEL-${esc(state.model.version)}</span><span class="sp-live-pill">${esc(state.model.status.replaceAll("_", " "))}</span></div><h1>Random Forest Demand Prediction Studio</h1><p>Forecast parking occupancy 30 minutes ahead, test operational scenarios, and inspect model evidence across Mumbai's monitored parking zones.</p></div><div class="sp-actions"><div class="sp-model-tabs" aria-label="Model catalogue"><button class="active" data-model="Random Forest v3.2">RF v3.2</button><button data-model="XGBoost v1.8">XGBoost v1.8</button><button data-model="Linear Baseline">Linear baseline</button></div><button class="sp-btn" id="sp-export-model">Export model</button><button class="sp-btn primary" id="sp-benchmark">Run benchmark</button></div></section>
+        <section class="sp-hero"><div><div class="sp-eyebrow"><span id="sp-model-engine">${esc(state.model.inference_engine)}</span><span id="sp-model-version">MODEL-${esc(state.model.version)}</span><span class="sp-live-pill" id="sp-model-status">${esc(state.model.status.replaceAll("_", " "))}</span></div><h1 id="sp-model-title">${esc(MODEL_UI[state.activeModel].title)}</h1><p>Forecast parking occupancy 30 minutes ahead, test operational scenarios, and inspect model evidence across Mumbai's monitored parking zones.</p></div><div class="sp-actions"><div class="sp-model-tabs" aria-label="Model catalogue">${Object.entries(MODEL_UI).map(([key, item]) => `<button class="${key === state.activeModel ? "active" : ""}" data-model="${key}">${esc(item.tab)}</button>`).join("")}</div><button class="sp-btn" id="sp-export-model">Export model</button><button class="sp-btn primary" id="sp-benchmark">Run benchmark</button></div></section>
         <section class="sp-training-strip"><span><strong>${state.model.artifact_available ? "Production artifact" : "Hybrid deployment"}:</strong> ${state.model.artifact_available ? "trained model loaded" : "portable inference active; saved Random Forest validation retained"} for ${fmt(state.model.training_rows)} analytical rows from ${esc(String(state.model.training_start || "").slice(0, 10))} to ${esc(String(state.model.training_end || "").slice(0, 10))}.</span><div class="sp-training-meta"><span>Features: <b>${fmt(state.model.features.length)}</b></span><span>Validation: <b>${fmt(state.benchmark.samples)} rows</b></span><span>Target: <b>t + 30m</b></span></div></section>
-        <section class="sp-kpis">${cards.map(([icon, label, value, note, tone]) => `<article class="sp-kpi"><div class="sp-kpi-head"><span>${esc(label)}</span><span class="material-symbols-outlined" style="color:var(--sp-${tone || "muted"})">${icon}</span></div><div class="sp-kpi-value ${tone}">${esc(value)}</div><div class="sp-kpi-note">${esc(note)}</div></article>`).join("")}</section>
+        <section class="sp-kpis">${cards.map(([icon, label, value, note, tone], index) => `<article class="sp-kpi"><div class="sp-kpi-head"><span>${esc(label)}</span><span class="material-symbols-outlined" style="color:var(--sp-${tone || "muted"})">${icon}</span></div><div class="sp-kpi-value ${tone}" ${index < 3 ? `data-model-metric="${["r2", "mae", "rmse"][index]}"` : ""}>${esc(value)}</div><div class="sp-kpi-note">${esc(note)}</div></article>`).join("")}</section>
         <section class="sp-workspace">
           <div class="sp-left">
             <article class="sp-card"><div class="sp-card-head"><div><h2>Interactive Demand Simulator</h2><p>Adjust operational inputs and run the trained model.</p></div><span class="sp-badge green">Typed feature contract</span></div>
@@ -123,10 +128,10 @@
             <article class="sp-card" id="sp-outcome"><div class="sp-card-head"><div><h2>Projected Saturation Outcome</h2><p>Thirty-minute capacity projection.</p></div><span class="sp-badge" id="sp-risk-badge">Awaiting inference</span></div><div id="sp-result"><div style="color:var(--sp-muted);padding:18px 0">Preparing the first live scenario…</div></div></article>
           </div>
           <div class="sp-right">
-            <article class="sp-card"><div class="sp-card-head"><div><h2>24-Hour Occupancy: Actual vs Forecast</h2><p>Recent observed targets and Random Forest estimates; metrics use the held-out validation subset.</p></div><span class="sp-badge" id="sp-chart-zone"></span></div><div class="sp-chart" id="sp-forecast-chart"></div><div class="sp-chart-legend"><span><i style="background:${COLORS.cyan}"></i>Actual occupancy</span><span><i style="background:${COLORS.green}"></i>RF prediction</span><span><i style="background:rgba(167,139,250,.55);height:9px"></i>95% confidence band</span></div><div class="sp-residual" id="sp-residual"></div></article>
-            <article class="sp-card"><div class="sp-card-head"><div><h2>Tree-Split Feature Importance</h2><p>Normalized contribution of every production feature.</p></div><span class="sp-badge">Σ = 100%</span></div><div class="sp-importance" id="sp-importance"></div></article>
+            <article class="sp-card"><div class="sp-card-head"><div><h2>24-Hour Occupancy: Actual vs Forecast</h2><p id="sp-forecast-subtitle">Recent observed targets and ${esc(MODEL_UI[state.activeModel].forecast)} estimates; metrics use the held-out validation subset.</p></div><span class="sp-badge" id="sp-chart-zone"></span></div><div class="sp-chart" id="sp-forecast-chart"></div><div class="sp-chart-legend"><span><i style="background:${COLORS.cyan}"></i>Actual occupancy</span><span><i style="background:${COLORS.green}"></i><b id="sp-forecast-label">${esc(MODEL_UI[state.activeModel].forecast)}</b></span><span><i style="background:rgba(167,139,250,.55);height:9px"></i>95% confidence band</span></div><div class="sp-residual" id="sp-residual"></div></article>
+            <article class="sp-card"><div class="sp-card-head"><div><h2 id="sp-importance-title">${esc(MODEL_UI[state.activeModel].importance)}</h2><p>Normalized contribution of every production feature.</p></div><span class="sp-badge">Σ = 100%</span></div><div class="sp-importance" id="sp-importance"></div></article>
             <article class="sp-card"><div class="sp-card-head"><div><h2>Cross-Metropolitan Saturation Risk</h2><p>Latest thirty-minute projection across all monitored zones.</p></div><span class="sp-badge" id="sp-risk-count"></span></div><div class="sp-risk-grid" id="sp-risk-grid"></div></article>
-            <article class="sp-card sp-academic"><div class="sp-card-head"><div><h2>Academic Viva & ML Architecture Reference</h2><p>Evidence backed by the deployed artifact and current validation sample.</p></div><button class="sp-btn" id="sp-model-card">Open model card</button></div><p><strong>Random Forest regression</strong> aggregates independently trained decision trees to reduce variance. The production feature contract combines time, weather, live occupancy, capacity, and dwell signals; the dashboard reports held-out MAE, RMSE, R², feature importance, and bounded 30-minute predictions.</p></article>
+            <article class="sp-card sp-academic"><div class="sp-card-head"><div><h2>Academic Viva & ML Architecture Reference</h2><p>Evidence backed by the deployed artifact and current validation sample.</p></div><button class="sp-btn" id="sp-model-card">Open model card</button></div><p><strong id="sp-model-explanation">${esc(MODEL_UI[state.activeModel].explanation)}</strong> The production feature contract combines time, weather, live occupancy, capacity, and dwell signals; the dashboard reports held-out MAE, RMSE, R², feature importance, and bounded 30-minute predictions.</p></article>
           </div>
         </section>
       </div>`;
@@ -175,7 +180,7 @@
 
   async function runInference() {
     const button = document.querySelector("#sp-infer"); const current = zone();
-    const payload = { zone: state.selectedZone, capacity: current.capacity, hour: Number(document.querySelector("#sp-hour").value), day_of_week: state.selectedDay, temperature: Number(document.querySelector("#sp-temperature").value), rainfall: Number(document.querySelector("#sp-rainfall").value), current_occupancy: Number(document.querySelector("#sp-occupancy").value), average_duration: Number(document.querySelector("#sp-dwell").value), is_holiday: document.querySelector("#sp-event").checked };
+    const payload = { model: state.activeModel, zone: state.selectedZone, capacity: current.capacity, hour: Number(document.querySelector("#sp-hour").value), day_of_week: state.selectedDay, temperature: Number(document.querySelector("#sp-temperature").value), rainfall: Number(document.querySelector("#sp-rainfall").value), current_occupancy: Number(document.querySelector("#sp-occupancy").value), average_duration: Number(document.querySelector("#sp-dwell").value), is_holiday: document.querySelector("#sp-event").checked };
     try { button.disabled = true; button.textContent = "Running inference…"; state.result = await api("/api/predict", { method: "POST", body: JSON.stringify(payload) }); renderOutcome(); toast(`Thirty-minute forecast completed · ${state.result.model_engine}`); }
     catch (error) { toast(error.message, true); }
     finally { button.disabled = false; button.textContent = "Run ML inference"; }
@@ -189,7 +194,7 @@
   }
 
   async function loadZoneSeries() {
-    try { state.predictions = await api(`/api/predictions?zone=${encodeURIComponent(state.selectedZone)}`); renderForecast(); }
+    try { state.predictions = await api(`/api/predictions?zone=${encodeURIComponent(state.selectedZone)}&model=${encodeURIComponent(state.activeModel)}`); renderModelContext(); renderForecast(); renderImportance(); renderRiskMatrix(); }
     catch (error) { toast(`Forecast series unavailable: ${error.message}`, true); }
   }
 
@@ -214,20 +219,48 @@
   }
 
   function renderRiskMatrix() {
+    const selectedForecasts = new Map((state.predictions?.zone_forecasts || []).map((item) => [item.zone_id, item]));
     const rows = state.overview.zones.map((item) => {
-      const predicted = Number(item.forecast_occupancy_30m ?? item.occupancy);
-      const utilization = Number(item.forecast_utilization_30m ?? (item.capacity ? predicted / item.capacity * 100 : 0));
+      const selected = selectedForecasts.get(item.zone_id);
+      const predicted = Number(selected?.predicted_occupancy ?? item.forecast_occupancy_30m ?? item.occupancy);
+      const utilization = Number(selected?.forecast_utilization ?? item.forecast_utilization_30m ?? (item.capacity ? predicted / item.capacity * 100 : 0));
       return { ...item, predicted, projectedUtilization: utilization };
     }).sort((a, b) => b.projectedUtilization - a.projectedUtilization).slice(0, 10);
     const critical = rows.filter((row) => row.projectedUtilization >= 85).length; document.querySelector("#sp-risk-count").textContent = `${critical} critical / ${rows.length} shown`;
     document.querySelector("#sp-risk-grid").innerHTML = rows.map((row) => { const risk = row.projectedUtilization >= 85 ? "CRITICAL" : row.projectedUtilization >= 60 ? "MODERATE" : "NORMAL"; const color = risk === "CRITICAL" ? COLORS.red : risk === "MODERATE" ? COLORS.amber : COLORS.green; return `<div class="sp-risk-item"><div class="sp-risk-top"><b><span style="color:${COLORS.cyan};font-family:'JetBrains Mono',monospace">${esc(row.zone_id)}</span> ${esc(row.zone_name)}</b><span style="color:${color}">${fmt(row.projectedUtilization, 1)}%</span></div><div class="sp-risk-bottom"><span>${fmt(row.predicted, 0)} / ${fmt(row.capacity)} projected</span><span style="color:${color}">${risk}</span></div></div>`; }).join("");
   }
 
+  function renderModelContext() {
+    const ui = MODEL_UI[state.activeModel];
+    document.querySelectorAll("[data-model]").forEach((button) => button.classList.toggle("active", button.dataset.model === state.activeModel));
+    const set = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = value; };
+    set("#sp-model-title", ui.title); set("#sp-model-engine", state.model.inference_engine);
+    set("#sp-model-version", `MODEL-${state.model.version}`); set("#sp-model-status", state.model.status.replaceAll("_", " "));
+    set("#sp-forecast-subtitle", `Recent observed targets and ${ui.forecast} estimates; metrics use the held-out validation subset.`);
+    set("#sp-forecast-label", ui.forecast); set("#sp-importance-title", ui.importance); set("#sp-model-explanation", ui.explanation);
+    const metrics = state.predictions.metrics;
+    set('[data-model-metric="r2"]', fmt(metrics.r2, 3));
+    set('[data-model-metric="mae"]', `${fmt(metrics.mae, 2)} bays`);
+    set('[data-model-metric="rmse"]', `${fmt(metrics.rmse, 2)} bays`);
+  }
+
   function wireActions() {
-    document.querySelectorAll("[data-model]").forEach((button) => button.onclick = () => {
-      if (button.dataset.model === "Random Forest v3.2") return toast(state.model.artifact_available ? "Random Forest v3.2 is the active production model" : "Random Forest validation evidence is active; interactive scenarios use the portable fallback");
-      const candidate = state.model.candidates.find((item) => item.name === button.dataset.model);
-      modal(candidate.name, `<p>Status: <strong>${esc(candidate.status.toUpperCase())}</strong></p><p>${esc(candidate.purpose)}. This candidate remains isolated from production inference; use the benchmark to compare the deployed model against its explainable baseline.</p>`);
+    document.querySelectorAll("[data-model]").forEach((button) => button.onclick = async () => {
+      if (button.dataset.model === state.activeModel) return toast(`${MODEL_UI[state.activeModel].tab} is already active`);
+      const buttons = [...document.querySelectorAll("[data-model]")];
+      const previousModel = state.activeModel;
+      try {
+        buttons.forEach((item) => { item.disabled = true; });
+        state.activeModel = button.dataset.model; state.result = null;
+        const [predictions, model] = await Promise.all([
+          api(`/api/predictions?zone=${encodeURIComponent(state.selectedZone)}&model=${encodeURIComponent(state.activeModel)}`),
+          api(`/api/model-card?model=${encodeURIComponent(state.activeModel)}`),
+        ]);
+        state.predictions = predictions; state.model = model;
+        renderModelContext(); renderForecast(); renderImportance(); renderRiskMatrix(); await runInference();
+        toast(`${MODEL_UI[state.activeModel].tab} is now active`);
+      } catch (error) { state.activeModel = previousModel; renderModelContext(); toast(`Model switch failed: ${error.message}`, true); }
+      finally { buttons.forEach((item) => { item.disabled = false; }); }
     });
     document.querySelector("#sp-benchmark").onclick = runBenchmark;
     document.querySelector("#sp-model-card").onclick = showModelCard;
@@ -254,9 +287,9 @@
   }
 
   function showExport() {
-    const dialog = modal("Export Production Model Metadata", `<p>Download a machine-readable model card or a PMML interoperability manifest for the deployed Random Forest artifact.</p><div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:14px"><button class="sp-btn primary" id="sp-json-export">Model card JSON</button><button class="sp-btn" id="sp-pmml-export">PMML manifest</button></div>`);
-    dialog.querySelector("#sp-json-export").onclick = () => { download("/api/model/export?format=json"); toast("Model card JSON prepared"); };
-    dialog.querySelector("#sp-pmml-export").onclick = () => { download("/api/model/export?format=pmml"); toast("PMML manifest prepared"); };
+    const dialog = modal(`Export ${MODEL_UI[state.activeModel].tab}`, `<p>Download a machine-readable model card or a PMML interoperability manifest for the active model.</p><div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:14px"><button class="sp-btn primary" id="sp-json-export">Model card JSON</button><button class="sp-btn" id="sp-pmml-export">PMML manifest</button></div>`);
+    dialog.querySelector("#sp-json-export").onclick = () => { download(`/api/model/export?format=json&model=${encodeURIComponent(state.activeModel)}`); toast("Model card JSON prepared"); };
+    dialog.querySelector("#sp-pmml-export").onclick = () => { download(`/api/model/export?format=pmml&model=${encodeURIComponent(state.activeModel)}`); toast("PMML manifest prepared"); };
   }
 
   async function boot() {

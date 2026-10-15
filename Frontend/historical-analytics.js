@@ -8,7 +8,7 @@
   };
   const COLORS = ["#38bdf8", "#34d399", "#2dd4bf", "#a78bfa", "#fbbf24"];
   const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  const state = { overview: null, health: null, history: null, days: 30, zones: [], resolution: "hourly", metric: "occupancy", loading: false };
+  const state = { overview: null, health: null, history: null, days: 30, zones: [], resolution: "hourly", metric: "occupancy", loading: false, historyRequest: 0 };
   const clean = (value) => String(value ?? "").replace(/\s+/g, " ").trim();
   const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
   const fmt = (value, digits = 0) => Number(value || 0).toLocaleString("en-IN", { maximumFractionDigits: digits });
@@ -45,8 +45,21 @@
   }
 
   function toast(message, error = false) {
-    const item = document.createElement("div"); item.className = `sp-toast${error ? " error" : ""}`; item.textContent = message;
-    document.querySelector("#sp-history-toasts").appendChild(item); setTimeout(() => item.remove(), 4000);
+    const stack = document.querySelector("#sp-history-toasts");
+    const existing = [...stack.children].find((item) => item.dataset.message === message);
+    if (existing) {
+      clearTimeout(existing.dismissTimer);
+      existing.className = `sp-toast${error ? " error" : ""}`;
+      existing.dismissTimer = setTimeout(() => existing.remove(), 4000);
+      return;
+    }
+    while (stack.childElementCount >= 3) stack.firstElementChild.remove();
+    const item = document.createElement("div");
+    item.className = `sp-toast${error ? " error" : ""}`;
+    item.textContent = message;
+    item.dataset.message = message;
+    stack.appendChild(item);
+    item.dismissTimer = setTimeout(() => item.remove(), 4000);
   }
 
   function modal(title, body, actions = []) {
@@ -142,11 +155,21 @@
 
   function renderComparators() {
     const label = byText("#sp-history-controls span", "Active Comp Clust:");
-    const row = label?.parentElement;
+    const row = document.querySelector("#sp-history-comparator") || label?.parentElement;
     if (!row) return;
+    row.id = "sp-history-comparator";
     row.className = "sp-comparator";
     row.innerHTML = `<span style="color:var(--sp-muted);font:700 12px 'JetBrains Mono',monospace;text-transform:uppercase">Compared zones</span>${state.zones.map((id) => { const zone = state.overview.zones.find((item) => item.zone_id === id); return `<span class="sp-zone-chip"><b>${esc(id)}</b><span>${esc(zone?.zone_name || id)}</span><button type="button" aria-label="Remove ${esc(id)}" data-remove-zone="${esc(id)}">×</button></span>`; }).join("")}<button type="button" class="sp-btn" id="sp-add-zone">+ Compare zone</button>`;
-    row.querySelectorAll("[data-remove-zone]").forEach((button) => button.onclick = () => { if (state.zones.length <= 1) return toast("Keep at least one comparison zone", true); state.zones = state.zones.filter((id) => id !== button.dataset.removeZone); renderComparators(); loadHistory(); });
+    row.querySelectorAll("[data-remove-zone]").forEach((button) => button.onclick = async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const zoneId = button.dataset.removeZone;
+      if (!state.zones.includes(zoneId)) return;
+      if (state.zones.length <= 1) return toast("Keep at least one comparison zone", true);
+      state.zones = state.zones.filter((id) => id !== zoneId);
+      renderComparators();
+      await loadHistory();
+    });
     row.querySelector("#sp-add-zone").onclick = showZonePicker;
   }
 
@@ -291,10 +314,19 @@
   function renderAll() { renderSummary(); renderTimeline(); renderHeatmap(); renderDwell(); renderWeather(); renderCapacity(); renderViva(); updateRangeLabel(); }
 
   async function loadHistory() {
-    if (state.loading) return; state.loading = true;
-    try { state.history = await api(`/api/history?days=${state.days}&zones=${encodeURIComponent(state.zones.join(",") || "ALL")}`); renderAll(); document.body.dataset.smartparkHistory = "ready"; }
+    const request = ++state.historyRequest;
+    const days = state.days;
+    const zones = state.zones.join(",") || "ALL";
+    state.loading = true;
+    try {
+      const history = await api(`/api/history?days=${days}&zones=${encodeURIComponent(zones)}`);
+      if (request !== state.historyRequest) return;
+      state.history = history;
+      renderAll();
+      document.body.dataset.smartparkHistory = "ready";
+    }
     catch (error) { toast(`Historical analytics unavailable: ${error.message}`, true); console.error(error); }
-    finally { state.loading = false; }
+    finally { if (request === state.historyRequest) state.loading = false; }
   }
 
   async function boot() {

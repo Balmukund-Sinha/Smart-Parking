@@ -1,6 +1,6 @@
 # SmartPark Intelligence
 
-SmartPark is an end-to-end smart-parking analytics project for the Mumbai Metropolitan Region. It combines synthetic IoT telemetry, Kafka ingestion, PySpark Structured Streaming, Parquet storage, PostgreSQL serving tables, a Random Forest demand model, free live-data adapters, and an integrated eight-page web interface.
+SmartPark is an end-to-end smart-parking analytics project for the Mumbai Metropolitan Region. It combines synthetic IoT telemetry, Kafka ingestion, PySpark Structured Streaming, Parquet storage, PostgreSQL serving tables, three selectable demand models (Random Forest, XGBoost, and Linear Regression), free live-data adapters, and an integrated eight-page web interface.
 
 The recommended Windows architecture keeps Spark and Hadoop inside Linux Docker containers. This avoids the `winutils.exe`, native Hadoop DLL, Microsoft Store Python alias, and temporary JAR-locking problems that commonly affect native Windows Spark installations.
 
@@ -16,7 +16,7 @@ For serverless hosting, follow [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md).
 - PySpark validation, deduplication, window aggregation, and Parquet output.
 - Bloom-filter telemetry for duplicate event detection.
 - Historical occupancy, dwell-time, congestion, weather, and capacity analytics.
-- A trained Random Forest model for 30-minute occupancy prediction.
+- Three trained, selectable models for 30-minute occupancy prediction: Random Forest, XGBoost, and an explainable Linear Regression baseline.
 - Real Mumbai parking-zone coordinates displayed on an OpenStreetMap/Leaflet map.
 - Docker, Kafka, Spark, PostgreSQL, and lakehouse health diagnostics.
 - CSV, JSON, GeoJSON, model, schema, diagnostic, and report exports.
@@ -43,7 +43,7 @@ Bronze/Silver Parquet   PostgreSQL summaries
         +----------+---------+
                    |
                    v
-     Analytics + Random Forest model
+     Analytics + selectable ML models
                    |
                    v
        Frontend integration API/UI
@@ -57,7 +57,7 @@ Bronze/Silver Parquet   PostgreSQL summaries
 | Live Monitoring | `/live-monitoring` | Kafka events, stream controls, filtering, paging, and deduplication telemetry |
 | Parking Map | `/parking-map` | Real map, Mumbai zone positions, slot status, and routing actions |
 | Historical Analytics | `/historical-analytics` | Multi-zone trends, congestion heatmap, dwell distribution, and weather correlation |
-| Demand Prediction | `/demand-prediction` | Interactive 30-minute Random Forest inference and model evidence |
+| Demand Prediction | `/demand-prediction` | Interactive 30-minute inference, model switching, held-out comparison, and model evidence |
 | Big Data Pipeline | `/big-data-pipeline` | Execution topology, stage status, latency, packet journey, and payload inspection |
 | Data Explorer | `/data-explorer` | Lakehouse catalog, schemas, governed queries, records, partitions, and quality checks |
 | System Health | `/system-health` | Container readiness, Kafka offsets, Spark cadence, diagnostics, and recovery controls |
@@ -92,9 +92,9 @@ $env:PARKING_PYTHON = (Resolve-Path .\.venv\Scripts\python.exe).Path
 
 `PARKING_PYTHON` makes the launchers use the virtual environment directly and prevents Windows App Execution Aliases from redirecting `python` to the Microsoft Store.
 
-### 2. Generate local data and train the model
+### 2. Generate local data and train the models
 
-Generated CSV files and the model are intentionally excluded from Git, so a clean clone normally needs this step:
+The repository includes compact demo evidence, but a full local setup should regenerate the data and train all three models:
 
 ```powershell
 python scripts\generate_dataset.py
@@ -159,7 +159,7 @@ powershell -ExecutionPolicy Bypass -File scripts\run_frontend.ps1
 
 Open <http://127.0.0.1:8502/overview>.
 
-This lightweight mode uses the checked-in sample and analytical snapshots. To regenerate all data and use the serialized Random Forest locally, install `requirements-pipeline.txt`, then run the generator and trainer from the full quick-start section.
+This lightweight mode uses the checked-in sample and compact model artifacts. To regenerate all data and train Random Forest, XGBoost, and Linear Regression locally, install `requirements-pipeline.txt`, then run the generator and trainer from the full quick-start section.
 
 ## Hybrid live-data mode
 
@@ -235,11 +235,11 @@ docker compose --profile pipeline down
 python -m pytest -q
 ```
 
-## Dataset and model
+## Dataset and models
 
 The default generator creates 20 Mumbai zones, 6,000 vehicles, and 21 days of ENTRY/EXIT activity. It derives zone demand from capacity, dwell time, time of day, day of week, weather, and holiday/event effects.
 
-The Random Forest predicts occupancy 30 minutes ahead from:
+All three models predict occupancy 30 minutes ahead from the same feature contract:
 
 - hour and day-of-week features;
 - weekend and holiday flags;
@@ -249,13 +249,13 @@ The Random Forest predicts occupancy 30 minutes ahead from:
 
 The default seeded dataset currently produces approximately:
 
-| Metric | Result |
-|---|---:|
-| MAE | 3.100 vehicles |
-| RMSE | 4.388 vehicles |
-| R2 | 0.9630 |
+| Model | MAE | RMSE | R2 |
+|---|---:|---:|---:|
+| Random Forest v3.2 | 3.100 | 4.388 | 0.9630 |
+| XGBoost v1.8 | 2.998 | 4.273 | 0.9650 |
+| Linear Baseline | 6.071 | 8.678 | 0.8555 |
 
-Regenerating the data with different arguments can change these metrics. The training script always prints the actual result and rewrites `ml/model.pkl`, `ml/feature_importance.csv`, and `data/processed/predictions.csv`.
+Regenerating the data with different arguments can change these metrics. The training script prints held-out metrics for every model and rewrites `ml/model.pkl`, `ml/xgboost_model.json`, `ml/linear_model.json`, `ml/model_feature_importance.csv`, `ml/feature_importance.csv`, and `data/processed/predictions.csv`.
 
 Example larger dataset:
 
@@ -306,7 +306,7 @@ data/processed/           ML tables and Bronze/Silver Parquet outputs
 data/sample/              Small GitHub-safe example dataset
 database/                 PostgreSQL schema and CSV loader
 kafka/                    Event producer and topic helper
-ml/                       Random Forest training, inference, and artifacts
+ml/                       Random Forest, XGBoost, and Linear model training, inference, and artifacts
 r-analytics/              Parallel R analytics implementation
 scripts/                  Windows launchers and dataset generator
 streaming/                PySpark stream, schema, and Bloom filter
@@ -315,11 +315,12 @@ docker-compose.yml        Kafka, PostgreSQL, and containerized Spark
 requirements.txt          Python dependencies
 ```
 
-Generated data, trained models, Spark checkpoints, logs, caches, and browser-test profiles are intentionally excluded from Git. A clean clone recreates them with `python scripts/generate_dataset.py` and `python ml/train_model.py`. The retained `Frontend/**/screen.png` files are intentional visual-design references, not runtime screenshots.
+Large generated data, the 124 MB Random Forest Joblib file, Spark checkpoints, logs, caches, and browser-test profiles are intentionally excluded from Git. Compact model metadata and demo evidence remain versionable. A clean clone can recreate every artifact with `python scripts/generate_dataset.py` and `python ml/train_model.py`. The retained `Frontend/**/screen.png` files are intentional visual-design references, not runtime screenshots.
 
 ## Additional documentation
 
 - [Complete installation and transfer guide](SETUP_ON_ANOTHER_PC.md)
+- [Simple page-by-page website guide](WEBSITE_PAGE_GUIDE.md)
 - [Integrated frontend notes](Frontend/README.md)
 - [R analytics track](r-analytics/README.md)
 

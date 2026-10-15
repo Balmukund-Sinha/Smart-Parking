@@ -57,18 +57,87 @@ RAW = ROOT / "data" / "raw"
 PROCESSED = ROOT / "data" / "processed"
 MODEL_SKLEARN_VERSION = "1.6.1"
 
+MODEL_FEATURES = [
+    "hour", "day_of_week", "is_weekend", "is_holiday", "temperature",
+    "rainfall", "current_occupancy", "capacity", "average_duration",
+]
+MODEL_REGISTRY = {
+    "random_forest": {
+        "name": "Random Forest v3.2", "version": "RF-30M-v3.2",
+        "engine": "scikit-learn RandomForestRegressor",
+        "artifact": "model.pkl", "prediction_column": "random_forest_prediction",
+    },
+    "xgboost": {
+        "name": "XGBoost v1.8", "version": "XGB-30M-v1.8",
+        "engine": "XGBoost XGBRegressor",
+        "artifact": "xgboost_model.json", "prediction_column": "xgboost_prediction",
+    },
+    "linear": {
+        "name": "Linear Baseline", "version": "LINEAR-30M-v1.0",
+        "engine": "scikit-learn LinearRegression (portable coefficients)",
+        "artifact": "linear_model.json", "prediction_column": "linear_prediction",
+    },
+}
+MODEL_ALIASES = {
+    "rf": "random_forest", "randomforest": "random_forest",
+    "random forest": "random_forest", "random forest v3.2": "random_forest",
+    "xgb": "xgboost", "xgboost v1.8": "xgboost",
+    "linear baseline": "linear", "linear_regression": "linear",
+}
+_MODEL_CACHE: dict[str, object] = {}
 
-def load_prediction_model():
-    """Load the model only with its serialization-compatible sklearn version."""
-    try:
-        import sklearn
-    except ImportError as exc:
-        raise RuntimeError("scikit-learn is not installed in this runtime") from exc
-    if sklearn.__version__ != MODEL_SKLEARN_VERSION:
-        raise RuntimeError(
-            f"model.pkl requires scikit-learn {MODEL_SKLEARN_VERSION}; current runtime has {sklearn.__version__}"
-        )
-    return joblib.load(ROOT / "ml" / "model.pkl")
+
+def normalize_model_key(value: object = None) -> str:
+    key = str(value or "random_forest").strip().lower().replace("-", "_")
+    key = MODEL_ALIASES.get(key, key)
+    if key not in MODEL_REGISTRY:
+        raise ValueError(f"Unknown prediction model: {value}")
+    return key
+
+
+class PortableLinearModel:
+    """Tiny inference-only loader for the exported LinearRegression coefficients."""
+
+    def __init__(self, payload: dict):
+        self.intercept = float(payload["intercept"])
+        self.coefficients = payload["coefficients"]
+
+    def predict(self, frame: pd.DataFrame):
+        prediction = pd.Series(self.intercept, index=frame.index, dtype=float)
+        for feature in MODEL_FEATURES:
+            prediction += pd.to_numeric(frame[feature], errors="coerce").fillna(0) * float(self.coefficients[feature])
+        return prediction.to_numpy()
+
+
+def load_prediction_model(model_key: str = "random_forest"):
+    """Load one of the three production-capable demand models."""
+    model_key = normalize_model_key(model_key)
+    if model_key in _MODEL_CACHE:
+        return _MODEL_CACHE[model_key]
+    model_path = ROOT / "ml" / MODEL_REGISTRY[model_key]["artifact"]
+    if not model_path.exists():
+        raise RuntimeError(f"{model_path.name} is missing; run ml/train_model.py")
+    if model_key == "random_forest":
+        try:
+            import sklearn
+        except ImportError as exc:
+            raise RuntimeError("scikit-learn is not installed in this runtime") from exc
+        if sklearn.__version__ != MODEL_SKLEARN_VERSION:
+            raise RuntimeError(
+                f"model.pkl requires scikit-learn {MODEL_SKLEARN_VERSION}; current runtime has {sklearn.__version__}"
+            )
+        model = joblib.load(model_path)
+    elif model_key == "xgboost":
+        try:
+            from xgboost import XGBRegressor
+        except ImportError as exc:
+            raise RuntimeError("xgboost is not installed in this runtime") from exc
+        model = XGBRegressor()
+        model.load_model(model_path)
+    else:
+        model = PortableLinearModel(json.loads(model_path.read_text(encoding="utf-8")))
+    _MODEL_CACHE[model_key] = model
+    return model
 
 
 def _basic_pdf_bytes(title: str, lines: list[str]) -> bytes:
@@ -244,7 +313,11 @@ def recent_events(limit: int = 2000) -> pd.DataFrame:
         if "event_id" in frame:
             frame = frame.drop_duplicates("event_id", keep="first")
     if "timestamp" in frame:
-        frame["timestamp"] = pd.to_datetime(frame["timestamp"], errors="coerce")
+        # Hybrid telemetry combines stored rows (often timezone-naive) with
+        # live/operator observations (ISO timestamps carrying a UTC offset).
+        # Normalizing every value to UTC prevents Pandas from comparing a
+        # tz-naive timestamp with a tz-aware timestamp while sorting/filtering.
+        frame["timestamp"] = pd.to_datetime(frame["timestamp"], errors="coerce", utc=True)
         frame = frame.sort_values("timestamp", ascending=False)
     return frame.head(limit)
 
@@ -583,12 +656,31 @@ def pipeline_export_bytes(fmt: str = "pdf") -> tuple[bytes, str, str]:
     return buffer.getvalue(), "application/pdf", "smartpark-pipeline-defense.pdf"
 
 
-def prediction_payload(zone: str = "ALL") -> dict:
+def prediction_payload(zone: str = "ALL", model_key: str = "random_forest") -> dict:
+    model_key = normalize_model_key(model_key)
+    metadata = MODEL_REGISTRY[model_key]
     predictions = read_csv(PROCESSED / "predictions.csv", ["timestamp"])
-    importance = read_csv(ROOT / "ml" / "feature_importance.csv")
+    importance = read_csv(ROOT / "ml" / "model_feature_importance.csv")
+    if not importance.empty and "model" in importance:
+        importance = importance[importance["model"].astype(str) == model_key]
+    if importance.empty and model_key == "random_forest":
+        importance = read_csv(ROOT / "ml" / "feature_importance.csv")
+    if not importance.empty and "importance" in importance:
+        importance = importance.sort_values("importance", ascending=False)
+    prediction_column = metadata["prediction_column"]
+    if prediction_column not in predictions and model_key == "random_forest" and "predicted_occupancy" in predictions:
+        prediction_column = "predicted_occupancy"
+    if prediction_column not in predictions:
+        raise RuntimeError(f"Saved {metadata['name']} predictions are missing; run ml/train_model.py")
+    predictions = predictions.copy()
+    predictions["predicted_occupancy"] = pd.to_numeric(predictions[prediction_column], errors="coerce")
+    predictions = predictions.sort_values("timestamp")
+    latest_by_zone = predictions.dropna(subset=["predicted_occupancy"]).groupby("zone_id", as_index=False).tail(1).copy()
+    latest_by_zone["forecast_utilization"] = (
+        latest_by_zone["predicted_occupancy"] / pd.to_numeric(latest_by_zone["capacity"], errors="coerce").replace(0, pd.NA) * 100
+    ).fillna(0).round(1)
     if zone != "ALL" and not predictions.empty:
         predictions = predictions[predictions["zone_id"] == zone]
-    predictions = predictions.sort_values("timestamp")
     metrics = {"mae": 0, "rmse": 0, "r2": 0}
     evaluation = predictions
     if "is_validation" in evaluation and bool(pd.to_numeric(evaluation["is_validation"], errors="coerce").fillna(0).astype(bool).any()):
@@ -602,39 +694,49 @@ def prediction_payload(zone: str = "ALL") -> dict:
         metrics["rmse"] = round(float((residual.pow(2).mean()) ** 0.5), 3)
         denom = float(((actual - actual.mean()) ** 2).sum())
         metrics["r2"] = round(1 - float((residual ** 2).sum()) / denom, 3) if denom else 1
-    return {"series": records(predictions.tail(960)), "importance": records(importance), "metrics": metrics}
+    return {
+        "model": model_key, "model_name": metadata["name"], "model_engine": metadata["engine"],
+        "series": records(predictions.tail(960)), "importance": records(importance), "metrics": metrics,
+        "zone_forecasts": records(latest_by_zone[["zone_id", "predicted_occupancy", "capacity", "forecast_utilization"]]),
+    }
 
 
-def model_card_payload() -> dict:
+def model_card_payload(model_key: str = "random_forest") -> dict:
+    model_key = normalize_model_key(model_key)
+    selected = MODEL_REGISTRY[model_key]
     dataset = read_csv(PROCESSED / "ml_dataset.csv", ["timestamp"])
-    model_path = ROOT / "ml" / "model.pkl"
-    importance = read_csv(ROOT / "ml" / "feature_importance.csv")
+    model_path = ROOT / "ml" / selected["artifact"]
+    importance = read_csv(ROOT / "ml" / "model_feature_importance.csv")
+    if not importance.empty and "model" in importance:
+        importance = importance[importance["model"].astype(str) == model_key]
+    if importance.empty and model_key == "random_forest":
+        importance = read_csv(ROOT / "ml" / "feature_importance.csv")
+    if not importance.empty and "importance" in importance:
+        importance = importance.sort_values("importance", ascending=False)
     artifact_present = model_path.exists()
     if not artifact_present:
         artifact_available = False
         compatibility_detail = "model.pkl is not bundled in this deployment"
     else:
         try:
-            import sklearn
-            artifact_available = sklearn.__version__ == MODEL_SKLEARN_VERSION
-            compatibility_detail = (
-                f"scikit-learn {sklearn.__version__}"
-                if artifact_available
-                else f"model requires scikit-learn {MODEL_SKLEARN_VERSION}; runtime has {sklearn.__version__}"
-            )
+            load_prediction_model(model_key)
+            artifact_available = True
+            compatibility_detail = f"{selected['engine']} ready"
         except Exception as exc:
             artifact_available = False
             compatibility_detail = str(exc)
     trained_at = datetime.fromtimestamp(model_path.stat().st_mtime, timezone.utc).isoformat() if model_path.exists() else None
     return {
-        "name": "SmartPark Random Forest Demand Forecaster",
-        "version": "RF-30M-v3.2",
+        "model": model_key,
+        "name": f"SmartPark {selected['name']} Demand Forecaster",
+        "display_name": selected["name"],
+        "version": selected["version"],
         "status": "PRODUCTION" if artifact_available else "HYBRID_FALLBACK",
         "artifact_available": artifact_available,
         "artifact_present": artifact_present,
         "compatibility_detail": compatibility_detail,
-        "inference_engine": "scikit-learn RandomForestRegressor" if artifact_available else "portable analytical fallback",
-        "framework": "scikit-learn RandomForestRegressor / PySpark-compatible feature contract" if artifact_available else "Deployment-safe analytical estimator using the same bounded feature contract",
+        "inference_engine": selected["engine"] if artifact_available else "artifact unavailable",
+        "framework": f"{selected['engine']} / PySpark-compatible feature contract",
         "target": "future_occupancy",
         "horizon_minutes": 30,
         "training_rows": int(len(dataset)),
@@ -644,9 +746,13 @@ def model_card_payload() -> dict:
         "features": importance["feature"].astype(str).tolist() if not importance.empty else [],
         "risk_thresholds": {"low": "<60%", "medium": "60-84.9%", "high": ">=85%"},
         "candidates": [
-            {"name": "Random Forest v3.2", "status": "deployed" if artifact_available else "validation evidence", "purpose": "Live 30-minute occupancy inference" if artifact_available else "Saved held-out forecast evidence"},
-            {"name": "XGBoost v1.8", "status": "evaluation", "purpose": "Offline challenger benchmark"},
-            {"name": "Linear Baseline", "status": "benchmark", "purpose": "Explainable comparison baseline"},
+            {
+                "key": key, "name": item["name"], "version": item["version"],
+                "status": "ready" if (ROOT / "ml" / item["artifact"]).exists() else "missing",
+                "purpose": "Live selectable 30-minute occupancy inference",
+                "engine": item["engine"],
+            }
+            for key, item in MODEL_REGISTRY.items()
         ],
     }
 
@@ -661,8 +767,6 @@ def model_benchmark_payload(zone: str = "ALL") -> dict:
         return {"zone": zone, "samples": 0, "models": []}
     actual_column = "actual_occupancy" if "actual_occupancy" in frame else "current_occupancy"
     actual = pd.to_numeric(frame[actual_column], errors="coerce").fillna(0)
-    rf = pd.to_numeric(frame["predicted_occupancy"], errors="coerce").fillna(0)
-    baseline = frame.groupby("zone_id")[actual_column].transform("mean").astype(float)
 
     def metric(name: str, predicted: pd.Series, status: str) -> dict:
         residual = actual - predicted
@@ -676,29 +780,36 @@ def model_benchmark_payload(zone: str = "ALL") -> dict:
         "zone": zone,
         "samples": int(len(frame)),
         "models": [
-            metric("Random Forest v3.2", rf, "production"),
-            metric("Zone Mean Baseline", baseline, "benchmark"),
+            metric(item["name"], pd.to_numeric(frame[column], errors="coerce").fillna(0), "selectable")
+            for item, column in [
+                (MODEL_REGISTRY["random_forest"], "random_forest_prediction" if "random_forest_prediction" in frame else "predicted_occupancy"),
+                (MODEL_REGISTRY["xgboost"], "xgboost_prediction"),
+                (MODEL_REGISTRY["linear"], "linear_prediction"),
+            ]
+            if column in frame
         ],
     }
 
 
-def model_export_bytes(fmt: str = "json") -> tuple[bytes, str, str]:
-    card = model_card_payload()
+def model_export_bytes(fmt: str = "json", model_key: str = "random_forest") -> tuple[bytes, str, str]:
+    model_key = normalize_model_key(model_key)
+    selected = MODEL_REGISTRY[model_key]
+    card = model_card_payload(model_key)
     if fmt == "pmml":
         feature_fields = "".join(f'<DataField name="{name}" optype="continuous" dataType="double"/>' for name in card["features"])
         body = (
             '<?xml version="1.0" encoding="UTF-8"?>\n'
             '<PMML xmlns="http://www.dmg.org/PMML-4_4" version="4.4">'
-            '<Header><Application name="SmartPark" version="RF-30M-v3.2"/>'
-            '<Annotation>Portable model manifest; production inference uses the versioned Joblib artifact.</Annotation></Header>'
+            f'<Header><Application name="SmartPark" version="{selected["version"]}"/>'
+            '<Annotation>Portable manifest for the selected SmartPark demand model.</Annotation></Header>'
             f'<DataDictionary numberOfFields="{len(card["features"]) + 1}">{feature_fields}'
             '<DataField name="future_occupancy" optype="continuous" dataType="double"/></DataDictionary>'
-            '<MiningModel modelName="SmartPark Random Forest Demand Forecaster" functionName="regression" algorithmName="randomForest">'
+            f'<MiningModel modelName="SmartPark {selected["name"]} Demand Forecaster" functionName="regression" algorithmName="regression">'
             '<MiningSchema><MiningField name="future_occupancy" usageType="target"/></MiningSchema>'
-            '<Extension name="artifact" value="ml/model.pkl"/></MiningModel></PMML>\n'
+            f'<Extension name="artifact" value="ml/{selected["artifact"]}"/></MiningModel></PMML>\n'
         ).encode()
-        return body, "application/xml; charset=utf-8", "smartpark-rf-30m-v3.2.pmml"
-    return json.dumps(card, indent=2).encode(), "application/json; charset=utf-8", "smartpark-rf-30m-v3.2-model-card.json"
+        return body, "application/xml; charset=utf-8", f"smartpark-{model_key}-model.pmml"
+    return json.dumps(card, indent=2).encode(), "application/json; charset=utf-8", f"smartpark-{model_key}-model-card.json"
 
 
 def history_payload(days: int, selected: str) -> dict:
@@ -1095,6 +1206,8 @@ def recover_degraded_services() -> dict:
 
 
 def predict_one(payload: dict) -> dict:
+    model_key = normalize_model_key(payload.get("model"))
+    metadata = MODEL_REGISTRY[model_key]
     zone = str(payload.get("zone", "Z001"))
     zones = zones_frame()
     zone_row = zones[zones["zone_id"] == zone]
@@ -1111,12 +1224,14 @@ def predict_one(payload: dict) -> dict:
         "capacity": capacity,
         "average_duration": float(payload.get("average_duration", 75)),
     }
-    columns = ["hour", "day_of_week", "is_weekend", "is_holiday", "temperature", "rainfall", "current_occupancy", "capacity", "average_duration"]
-    model_engine = "RandomForestRegressor"
+    columns = MODEL_FEATURES
+    model_engine = metadata["engine"]
     try:
-        model = load_prediction_model()
+        model = load_prediction_model(model_key)
         predicted = float(model.predict(pd.DataFrame([[values[c] for c in columns]], columns=columns))[0])
     except Exception:
+        if model_key != "random_forest":
+            raise
         # Deployment-safe analytical fallback. Local/full-stack mode continues
         # to use the serialized Random Forest whenever it is present.
         hour = values["hour"]
@@ -1128,7 +1243,7 @@ def predict_one(payload: dict) -> dict:
         model_engine = "Portable analytical fallback"
     predicted = round(min(capacity, max(0, predicted)), 1)
     utilization = round(predicted / capacity * 100, 1) if capacity else 0
-    metrics = prediction_payload(zone)["metrics"]
+    metrics = prediction_payload(zone, model_key)["metrics"]
     interval = max(1.0, float(metrics.get("rmse", 0)) * 1.96)
     confidence_low = round(max(0, predicted - interval), 1)
     confidence_high = round(min(capacity, predicted + interval), 1)
@@ -1140,7 +1255,8 @@ def predict_one(payload: dict) -> dict:
         "risk": "HIGH" if utilization >= 85 else "MEDIUM" if utilization >= 60 else "LOW",
         "confidence_low": confidence_low, "confidence_high": confidence_high,
         "net_change": round(predicted - values["current_occupancy"], 1),
-        "recommended_zone": recommended, "inputs": values, "model_engine": model_engine,
+        "recommended_zone": recommended, "inputs": values, "model": model_key,
+        "model_name": metadata["name"], "model_engine": model_engine,
     }
 
 
@@ -1283,13 +1399,13 @@ class Handler(BaseHTTPRequestHandler):
                 self.wfile.write(body)
                 return
             if path == "/api/predictions":
-                return self.send_json(prediction_payload(query.get("zone", ["ALL"])[0]))
+                return self.send_json(prediction_payload(query.get("zone", ["ALL"])[0], query.get("model", ["random_forest"])[0]))
             if path == "/api/model-card":
-                return self.send_json(model_card_payload())
+                return self.send_json(model_card_payload(query.get("model", ["random_forest"])[0]))
             if path == "/api/model/benchmark":
                 return self.send_json(model_benchmark_payload(query.get("zone", ["ALL"])[0]))
             if path == "/api/model/export":
-                body, content_type, filename = model_export_bytes(query.get("format", ["json"])[0])
+                body, content_type, filename = model_export_bytes(query.get("format", ["json"])[0], query.get("model", ["random_forest"])[0])
                 self.send_response(200)
                 self.send_header("Content-Type", content_type)
                 self.send_header("Content-Disposition", f'attachment; filename="{filename}"')

@@ -15,6 +15,33 @@ import hybrid_data  # noqa: E402
 
 
 class FrontendIntegrationTests(unittest.TestCase):
+    def test_recent_events_normalizes_mixed_timestamps_to_utc(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_root = Path(temp_dir)
+            (data_root / "parking_events.csv").write_text(
+                "event_id,timestamp,vehicle_id,zone_id,event_type,occupancy,capacity\n"
+                "stored-1,2026-01-01 10:00:00,V001,Z001,ENTRY,1,40\n",
+                encoding="utf-8",
+            )
+            live_rows = [{
+                "event_id": "live-1",
+                "timestamp": "2026-01-01T10:01:00+00:00",
+                "vehicle_id": "V002",
+                "zone_id": "Z001",
+                "event_type": "ENTRY",
+                "occupancy": 2,
+                "capacity": 40,
+            }]
+            with (
+                patch.object(server, "RAW", data_root),
+                patch.object(server, "PROCESSED", data_root),
+                patch.object(server, "manual_events", return_value=live_rows),
+            ):
+                frame = server.recent_events(10)
+
+        self.assertEqual(str(frame["timestamp"].dt.tz), "UTC")
+        self.assertEqual(frame.iloc[0]["event_id"], "live-1")
+
     def test_hybrid_operator_occupancy_is_persisted_and_bounded(self):
         original_path = hybrid_data.STATE_PATH
         original_memory = hybrid_data._memory_state
@@ -59,6 +86,23 @@ class FrontendIntegrationTests(unittest.TestCase):
         self.assertLessEqual(result["confidence_low"], result["predicted_occupancy"])
         self.assertGreaterEqual(result["confidence_high"], result["predicted_occupancy"])
 
+    def test_all_demand_models_support_live_inference(self):
+        for model_key in ("random_forest", "xgboost", "linear"):
+            with self.subTest(model=model_key):
+                payload = server.prediction_payload("Z001", model_key)
+                result = server.predict_one({
+                    "model": model_key, "zone": "Z001", "current_occupancy": 20,
+                    "hour": 18, "day_of_week": 4, "temperature": 29,
+                    "rainfall": 5, "average_duration": 80,
+                })
+                self.assertEqual(payload["model"], model_key)
+                self.assertEqual(result["model"], model_key)
+                self.assertGreater(len(payload["series"]), 0)
+                self.assertEqual(len(payload["zone_forecasts"]), 20)
+                self.assertGreater(len(payload["importance"]), 0)
+                self.assertGreaterEqual(result["predicted_occupancy"], 0)
+                self.assertLessEqual(result["predicted_occupancy"], result["capacity"])
+
     def test_demand_prediction_model_endpoints_and_controller(self):
         card = server.model_card_payload()
         benchmark = server.model_benchmark_payload("Z001")
@@ -68,6 +112,10 @@ class FrontendIntegrationTests(unittest.TestCase):
         self.assertGreater(len(card["features"]), 0)
         self.assertGreater(benchmark["samples"], 0)
         self.assertEqual(benchmark["models"][0]["name"], "Random Forest v3.2")
+        self.assertEqual(
+            [item["name"] for item in benchmark["models"]],
+            ["Random Forest v3.2", "XGBoost v1.8", "Linear Baseline"],
+        )
         self.assertGreater(aggregate_prediction["metrics"]["r2"], 0.9)
         for format_name, content_type in (("json", "application/json"), ("pmml", "application/xml")):
             body, returned_type, filename = server.model_export_bytes(format_name)
@@ -84,6 +132,8 @@ class FrontendIntegrationTests(unittest.TestCase):
         self.assertIn("series.slice(-48)", source)
         self.assertIn("forecast_occupancy_30m", source)
         self.assertIn("async function runBenchmark()", source)
+        self.assertIn('activeModel: "random_forest"', source)
+        self.assertIn("model: state.activeModel", source)
         self.assertIn("function wireGlobalControls()", source)
 
     def test_big_data_pipeline_topology_and_controller(self):
@@ -230,6 +280,8 @@ class FrontendIntegrationTests(unittest.TestCase):
         controller = server.FRONTEND / "historical-analytics.js"
         source = controller.read_text(encoding="utf-8")
         self.assertIn("font-size:19px", source)
+        self.assertIn('row.id = "sp-history-comparator"', source)
+        self.assertIn("item.dataset.message === message", source)
         self.assertIn("sp-heatmap", source)
         self.assertIn("/api/history/export", source)
         self.assertIn("#sp-history-summary{display:block", source)

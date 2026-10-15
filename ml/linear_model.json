@@ -1,0 +1,27 @@
+{
+  "model": "LinearRegression",
+  "version": "LINEAR-30M-v1.0",
+  "features": [
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "is_holiday",
+    "temperature",
+    "rainfall",
+    "current_occupancy",
+    "capacity",
+    "average_duration"
+  ],
+  "intercept": -0.17439350066308634,
+  "coefficients": {
+    "hour": 0.04460364854107772,
+    "day_of_week": -0.04790000512139525,
+    "is_weekend": 0.24025251427531252,
+    "is_holiday": 0.5214346752849233,
+    "temperature": -0.007583898896045734,
+    "rainfall": 0.03789520921855526,
+    "current_occupancy": 0.8995140338914603,
+    "capacity": 0.02931654235965693,
+    "average_duration": -0.002831618017382227
+  }
+}
